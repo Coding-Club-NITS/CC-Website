@@ -1,7 +1,6 @@
 import { HeroParallax } from './components/ui/hero-parallax'
 import ScrollCards from './components/scrollcards'
-
-
+import Footer from './components/footercomp'
 import { InfiniteMovingCards } from "./components/ui/comments";
 import { FlipWordsDemo } from './components/flipword';
 const testimonials = [
@@ -58,22 +57,41 @@ export default function Home() {
       link: "https://res.cloudinary.com/dtpmqu6lw/image/upload/fl_preserve_transparency/v1718524986/txgmdrlbtvdpmvq7cfng.jpg?_s=public-apps",
       thumbnail: "https://res.cloudinary.com/dtpmqu6lw/image/upload/fl_preserve_transparency/v1718524986/txgmdrlbtvdpmvq7cfng.jpg?_s=public-apps"
     },
+    {
+      title: "Sessions",
+      link:  "https://res.cloudinary.com/dtpmqu6lw/image/upload/fl_preserve_transparency/v1718524959/mo5fk0clewmk3wwtfree.jpg?_s=public-apps",
+      thumbnail: "https://res.cloudinary.com/dtpmqu6lw/image/upload/fl_preserve_transparency/v1718524959/mo5fk0clewmk3wwtfree.jpg?_s=public-apps"
+    },
+    {
+      title: "Code-Intium",
+      link: "https://res.cloudinary.com/dtpmqu6lw/image/upload/fl_preserve_transparency/v1718526037/IMG20231104200715_ydkaee.jpg?_s=public-apps",
+      thumbnail: "https://res.cloudinary.com/dtpmqu6lw/image/upload/fl_preserve_transparency/v1718526037/IMG20231104200715_ydkaee.jpg?_s=public-apps"
+    },
+    {
+      title: "The Family",
+      link: "https://res.cloudinary.com/dtpmqu6lw/image/upload/fl_preserve_transparency/v1718524961/b8ydp5nvc0kryeyl9n8w.jpg?_s=public-apps",
+      thumbnail: "https://res.cloudinary.com/dtpmqu6lw/image/upload/fl_preserve_transparency/v1718524961/b8ydp5nvc0kryeyl9n8w.jpg?_s=public-apps"
+    },
+    {
+      title: "Contests",
+      link: "https://res.cloudinary.com/dtpmqu6lw/image/upload/fl_preserve_transparency/v1718524986/txgmdrlbtvdpmvq7cfng.jpg?_s=public-apps",
+      thumbnail: "https://res.cloudinary.com/dtpmqu6lw/image/upload/fl_preserve_transparency/v1718524986/txgmdrlbtvdpmvq7cfng.jpg?_s=public-apps"
+    },
   ];
-  
 
-  
   return (
-    <>
+    <div className='bg-black-900'>
       <HeroParallax products={products}/>
       <ScrollCards/>
-      <div className="h-[40rem] rounded-md flex flex-col antialiased bg-black dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
+      <div className="h-[40rem] rounded-md flex flex-col antialiased items-center justify-center relative overflow-hidden">
+      <FlipWordsDemo/>
       <InfiniteMovingCards
         items={testimonials}
         direction="right"
         speed="slow"
       />
+      <Footer/>
     </div>
-      <FlipWordsDemo/>
-    </> 
+    </div> 
   );
 }

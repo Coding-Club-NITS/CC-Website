@@ -9,6 +9,7 @@ import {
 } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { WavyBackground } from "../ui/wave";
 
 export const HeroParallax = ({
   products,
@@ -56,53 +57,54 @@ export const HeroParallax = ({
   );
   return (
     <>
-    <nav>
-  <div class="flex items-center justify-between">
+     {/* Navbar begins here */}
+    <nav className="absolute w-full z-10 pt-5 pr-5">
+  <div className="flex items-center justify-between">
     <a href="#"
-      class="mr-4 block cursor-pointer py-1.5 font-sans text-base font-semibold leading-relaxed tracking-normal text-inherit antialiased">
+      className="mr-4 block cursor-pointer py-1.5 font-sans text-base font-semibold leading-relaxed tracking-normal text-inherit antialiased">
       
     </a>
-    <div class="hidden lg:block">
-      <ul class="flex flex-col gap-2 my-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
-        <li class="block p-1 font-sans text-sm antialiased font-medium leading-normal text-gray-500">
-          <a href="#" class="flex items-center transition-colors hover:text-red-500">
+    <div className="hidden lg:block">
+      <ul className="flex flex-col gap-2 my-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
+        <li className="block p-1 font-sans text-sm antialiased font-medium leading-normal text-gray-500">
+          <a href="#" className="flex items-center transition-colors hover:text-red-500">
             Pages
           </a>
         </li>
-        <li class="block p-1 font-sans text-sm antialiased font-medium leading-normal text-gray-500">
-          <a href="#" class="flex items-center transition-colors hover:text-red-500">
+        <li className="block p-1 font-sans text-sm antialiased font-medium leading-normal text-gray-500">
+          <a href="#" className="flex items-center transition-colors hover:text-red-500">
             Account
           </a>
         </li>
-        <li class="block p-1 font-sans text-sm antialiased font-medium leading-normal text-gray-500">
-          <a href="#" class="flex items-center transition-colors hover:text-red-500">
+        <li className="block p-1 font-sans text-sm antialiased font-medium leading-normal text-gray-500">
+          <a href="#" className="flex items-center transition-colors hover:text-red-500">
             Blocks
           </a>
         </li>
-        <li class="block p-1 font-sans text-sm antialiased font-medium leading-normal text-gray-500">
-          <a href="#" class="flex items-center transition-colors hover:text-red-500">
+        <li className="block p-1 font-sans text-sm antialiased font-medium leading-normal text-gray-500">
+          <a href="#" className="flex items-center transition-colors hover:text-red-500">
             Docs
           </a>
         </li>
       </ul>
     </div>
-    <button
-      class="relative ml-auto h-6 max-h-[40px] w-6 max-w-[40px] select-none rounded-lg text-center align-middle font-sans text-xs font-medium uppercase text-inherit transition-all hover:bg-transparent focus:bg-transparent active:bg-transparent disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:hidden"
-      type="button">
-      <span class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-          aria-hidden="true" class="w-6 h-6">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
-        </svg>
-      </span>
-    </button>
   </div>
 </nav>
+<WavyBackground className="max-w-4xl mx-auto pb-40 mt-5">
+      <p className="text-2xl md:text-4xl lg:text-7xl text-white font-bold inter-var text-center">
+        Welcome
+      </p>
+      <p className="text-base md:text-lg mt-4 text-white font-normal inter-var text-center">
+        to the official website of Coding Club NIT Silchar
+      </p>
+    </WavyBackground>
+{/* navbar ends here */}
     <div
       ref={ref}
-      className="h-[300vh] py-40 overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      className="h-[300vh] py-10 overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
       >
       <Header />
+    
       <motion.div
         style={{
           rotateX,
@@ -112,6 +114,8 @@ export const HeroParallax = ({
         }}
         className=""
         >
+    
+
         <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-10">
           {firstRow.map((product) => (
             <ProductCard

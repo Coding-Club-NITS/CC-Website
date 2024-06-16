@@ -34,7 +34,13 @@ const scrollContent = [
         "Join our coding classes to improve your programming skills. Whether you're a beginner or an advanced coder, our classes are designed to cater to all levels. Learn from experienced instructors and become proficient in various programming languages.",
       content: (
         <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white">
-          Coding Classes
+            <Image
+            src="https://picsum.photos/200/300"
+            width={300}
+            height={300}
+            className="h-full w-full object-cover"
+            alt="Workshop demo"
+          />
         </div>
       ),
     },
