@@ -41,7 +41,13 @@ export default function Parallax() {
       "title": "Contests",
       "link": "https://res.cloudinary.com/dtpmqu6lw/image/upload/fl_preserve_transparency/v1718524986/txgmdrlbtvdpmvq7cfng.jpg?_s=public-apps",
       "thumbnail": "https://res.cloudinary.com/dtpmqu6lw/image/upload/fl_preserve_transparency/v1718524986/txgmdrlbtvdpmvq7cfng.jpg?_s=public-apps"
-    }
+    },
+    {
+      "title": "Sessions",
+      "link": "https://res.cloudinary.com/dtpmqu6lw/image/upload/fl_preserve_transparency/v1718524959/mo5fk0clewmk3wwtfree.jpg?_s=public-apps",
+      "thumbnail": "https://res.cloudinary.com/dtpmqu6lw/image/upload/fl_preserve_transparency/v1718524959/mo5fk0clewmk3wwtfree.jpg?_s=public-apps"
+    },
+    
   ]
   
   return (

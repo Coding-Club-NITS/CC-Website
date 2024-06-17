@@ -125,7 +125,7 @@ export const Header = () => {
         <div className="text-red-800">Coding Club</div><div className="text-yellow-500">NIT Silchar</div>
       </h1>
       <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200">
-      Welcome to the Coding Club of NITS! Join us to explore, learn, and innovate with like-minded enthusiasts. Dive into coding challenges, projects, and events that fuel your passion for technology and development
+      The Coding Club at NIT Silchar fosters a vibrant community for programming enthusiasts. It offers workshops and coding contests, encouraging students to enhance their coding skills, collaboratation, teamwork, and stay updated with the latest technology trends.
       </p>
     </div>
   );
