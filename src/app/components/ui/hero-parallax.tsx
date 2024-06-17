@@ -125,7 +125,7 @@ export const Header = () => {
       <h1 className="text-2xl md:text-7xl font-bold dark:text-white">
         <div className="text-red-800">Coding Club</div><div className="text-yellow-500">NIT Silchar</div>
       </h1>
-      <div className="absolute top-200 left-100 flex pt-10 mt-10">
+      <div className="absolute top-200 left-100 flex flex-col pt-10 mt-10 sm:flex-row">
         <AnimatedPin/>
       </div>
       <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200">
