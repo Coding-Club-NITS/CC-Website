@@ -30,7 +30,7 @@ export default function Navbar() {
                   href={item.href}
                   className="flex items-center transition-colors hover:text-red-500"
                 >
-                  {item.name}
+                    {item.name}
                 </a>
               </li>
             ))}

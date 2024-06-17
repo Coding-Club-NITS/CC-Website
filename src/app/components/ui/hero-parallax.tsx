@@ -11,6 +11,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { WavyBackground } from "../ui/wave";
 import Navbar from "../navbar";
+import AnimatedPin from "../sample3d";
 export const HeroParallax = ({
   products,
 }: {
@@ -120,10 +121,13 @@ export const HeroParallax = ({
 
 export const Header = () => {
   return (
-    <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0">
+    <div className="max-w-7xl relative mx-auto py-10 md:py-40 px-4 w-full  left-0 top-0">
       <h1 className="text-2xl md:text-7xl font-bold dark:text-white">
         <div className="text-red-800">Coding Club</div><div className="text-yellow-500">NIT Silchar</div>
       </h1>
+      <div className="absolute top-200 left-100 flex pt-10 mt-10">
+        <AnimatedPin/>
+      </div>
       <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200">
       The Coding Club at NIT Silchar fosters a vibrant community for programming enthusiasts. It offers workshops and coding contests, encouraging students to enhance their coding skills, collaboratation, teamwork, and stay updated with the latest technology trends.
       </p>
