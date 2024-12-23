@@ -2,7 +2,7 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import { cn } from "@/lib/utils";
-
+import Icon from "./cficon";
 export const Card = React.memo(
   ({
     card,
@@ -35,9 +35,16 @@ export const Card = React.memo(
           hovered === index ? "opacity-100" : "opacity-0"
         )}
       >
-        <div className="text-xl md:text-2xl font-medium bg-clip-text text-white bg-gradient-to-b from-neutral-50 to-neutral-200">
-          {card.title}
+        <div className="flex-col">
+          <div className="text-xl md:text-2xl font-medium bg-clip-text text-white bg-gradient-to-b from-neutral-50 to-neutral-200">
+            {card.title}
+          </div>
+          <div className="text-xl md:text-0.2xl font-thin bg-clip-text text-white bg-gradient-to-b from-neutral-50 to-neutral-200">
+            {"Description"}
+          </div>
         </div>
+        <Icon />
+        {/*  */}
       </div>
     </div>
   )
