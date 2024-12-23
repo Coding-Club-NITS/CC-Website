@@ -4,10 +4,9 @@ import FocusCardsDemo from "../../components/focuscard";
 import { LampDemo } from "../../components/lampdemo";
 function fame() {
   return (
-    <>
+    <div>
       <LampDemo />
-
-      <div>
+      <div className="-translate-y-[2rem]">
         <h1 className="border-y-2 border-orange-300 text-red-500 align-middle text-center text-2xl font-small tracking-tight  md:text-4xl m-5 p-1">
           Final Years
         </h1>
@@ -27,7 +26,7 @@ function fame() {
         </h1>
         <FocusCardsDemo />
       </div>
-    </>
+    </div>
   );
 }
 

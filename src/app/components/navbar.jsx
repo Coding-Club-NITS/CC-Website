@@ -2,9 +2,10 @@ import React from 'react';
 
 export default function Navbar() {
   const navItems = [
+    { name: 'Home', href: '/' },
     { name: 'Contests', href: '#' },
     { name: 'Hall of Fame', href: '#' },
-    { name: 'Events', href: '#' },
+    { name: 'Team', href: 'members' },
     { name: 'PCD', href: '#' },
     { name: 'Alumni', href: '#' },
     { name: 'Interview Experience', href: '#' },
