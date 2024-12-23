@@ -3,13 +3,13 @@ import React from 'react';
 export default function Navbar() {
   const navItems = [
     { name: 'Home', href: '/' },
-    { name: 'Contests', href: '#' },
-    { name: 'Hall of Fame', href: '#' },
+    { name: 'Contests', href: 'contests' },
+    { name: 'Hall of Fame', href: 'fame' },
     { name: 'Team', href: 'members' },
-    { name: 'PCD', href: '#' },
+    { name: 'PCD', href: 'pcd' },
     { name: 'Alumni', href: 'alumini' },
-    { name: 'Interview Experience', href: '#' },
-    { name: 'Contact US', href: '#' },
+    { name: 'Interview Experience', href: 'interview' },
+    { name: 'Contact US', href: 'about' },
   ];
 
   return (

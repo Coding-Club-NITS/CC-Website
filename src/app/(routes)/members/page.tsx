@@ -6,21 +6,17 @@ function fame() {
   return (
     <div>
       <LampDemo />
-      <div className="-translate-y-[2rem]">
+      <div className="-translate-y-[12rem]">
         <h1 className="border-y-2 border-orange-300 text-red-500 align-middle text-center text-2xl font-sans tracking-tight  md:text-4xl m-5 p-1">
           Final Years
         </h1>
         <FocusCardsDemo />
-      </div>
 
-      <div>
         <h1 className="border-y-2 border-orange-300 text-red-500 align-middle text-center text-2xl font-sans tracking-tight  md:text-4xl m-5 p-1">
           Pre-Final Years
         </h1>
         <FocusCardsDemo />
-      </div>
 
-      <div>
         <h1 className="border-y-2 border-orange-300 text-red-500 align-middle text-center text-2xl font-sans tracking-tight  md:text-4xl m-5 p-1">
           Our Junior Members
         </h1>
