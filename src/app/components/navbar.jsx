@@ -7,7 +7,7 @@ export default function Navbar() {
     { name: 'Hall of Fame', href: '#' },
     { name: 'Team', href: 'members' },
     { name: 'PCD', href: '#' },
-    { name: 'Alumni', href: '#' },
+    { name: 'Alumni', href: 'alumini' },
     { name: 'Interview Experience', href: '#' },
     { name: 'Contact US', href: '#' },
   ];

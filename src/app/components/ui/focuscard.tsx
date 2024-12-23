@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import React, { useState } from "react";
 import { cn } from "@/lib/utils";
 import Icon from "./cficon";
@@ -40,10 +41,17 @@ export const Card = React.memo(
             {card.title}
           </div>
           <div className="text-xl md:text-0.2xl font-thin bg-clip-text text-white bg-gradient-to-b from-neutral-50 to-neutral-200">
-            {"Description"}
+            {card.description}
           </div>
         </div>
-        <Icon />
+        <Link
+          href={card.profile}
+          passHref
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Icon />
+        </Link>
         {/*  */}
       </div>
     </div>

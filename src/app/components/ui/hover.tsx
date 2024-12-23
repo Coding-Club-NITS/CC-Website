@@ -1,5 +1,6 @@
 "use client";
-import { cn } from "@/lib/utils";
+import { cn } from "../../components/utils/cn";
+import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
@@ -11,6 +12,7 @@ export const HoverEffect = ({
   items: {
     title: string;
     description: string;
+    image: string;
     link: string;
   }[];
   className?: string;
@@ -20,7 +22,7 @@ export const HoverEffect = ({
   return (
     <div
       className={cn(
-        "grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3  py-10",
+        "grid grid-cols-1 md:grid-cols-3  lg:grid-cols-4  py-10",
         className
       )}
     >
@@ -33,23 +35,26 @@ export const HoverEffect = ({
           onMouseLeave={() => setHoveredIndex(null)}
         >
           <AnimatePresence>
-            {hoveredIndex === idx && (
+            {hoveredIndex == idx && (
               <motion.span
-                className="absolute inset-0 h-full w-full bg-neutral-200 dark:bg-slate-800/[0.8] block  rounded-3xl"
-                layoutId="hoverBackground"
-                initial={{ opacity: 0 }}
-                animate={{
-                  opacity: 1,
-                  transition: { duration: 0.15 },
-                }}
-                exit={{
-                  opacity: 0,
-                  transition: { duration: 0.15, delay: 0.2 },
-                }}
+                className="absolute inset-0 h-full w-full bg-blue-gray-900 block rounded-3xl z-10"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.3 }}
               />
             )}
           </AnimatePresence>
-          <Card>
+
+          <Card className="flex flex-col items-center justify-center">
+            <Image
+              src={item.image}
+              alt="Card Image"
+              className="object-cover"
+              width={300}
+              height={100}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" // Responsive sizing
+            />
             <CardTitle>{item.title}</CardTitle>
             <CardDescription>{item.description}</CardDescription>
           </Card>
@@ -69,11 +74,11 @@ export const Card = ({
   return (
     <div
       className={cn(
-        "rounded-2xl h-full w-full p-4 overflow-hidden bg-black border border-transparent dark:border-white/[0.2] group-hover:border-slate-700 relative z-20",
+        "rounded-2xl h-full w-full p-4 overflow-hidden dark:border-white/[0.2] group-hover:border-slate-700 relative z-10",
         className
       )}
     >
-      <div className="relative z-50">
+      <div className="relative z-15">
         <div className="p-4">{children}</div>
       </div>
     </div>
