@@ -11,6 +11,7 @@ const nextConfig = {
       "pathrise-website-guide-wp.s3.us-west-1.amazonaws.com",
       "images.unsplash.com",
       "assets.aceternity.com",
+      "drive.google.com",
     ],
   },
 };
