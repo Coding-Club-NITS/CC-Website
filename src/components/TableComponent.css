@@ -1,0 +1,112 @@
+/* Base container styles */
+.blurred-table-container {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 0.5rem;
+  backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  overflow: hidden;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .blurred-table-container {
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+  }
+
+  .nextui-table {
+    font-size: 0.75rem;
+  }
+
+  .nextui-table th,
+  .nextui-table td {
+    padding: 0.375rem 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .blurred-table-container {
+    padding: 0.125rem;
+  }
+
+  .nextui-table {
+    font-size: 0.625rem;
+  }
+
+  .nextui-table th,
+  .nextui-table td {
+    padding: 0.25rem 0.375rem;
+  }
+
+  /* Further column reduction for very small screens */
+  .nextui-table th:nth-child(2),
+  .nextui-table td:nth-child(2) {
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+/* Scrollbar styling */
+.blurred-table-container::-webkit-scrollbar {
+  height: 0.375rem;
+  width: 0.375rem;
+}
+
+.blurred-table-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.blurred-table-container::-webkit-scrollbar-thumb {
+  background-color: rgba(156, 163, 175, 0.5);
+  border-radius: 9999px;
+}
+
+/* Table styles */
+.nextui-table {
+  width: 100%;
+  table-layout: auto;
+}
+
+.nextui-table th,
+.nextui-table td {
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+}
+
+.nextui-table th {
+  font-weight: 500;
+  color: var(--nextui-colors-default-500);
+  border-bottom: 1px solid rgba(var(--nextui-colors-divider), 0.4);
+}
+
+.nextui-table tr {
+  transition: background-color 0.2s ease;
+}
+
+.nextui-table tr:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.nextui-table a {
+  color: #3b82f6;
+  text-decoration: none;
+  transition: text-decoration 0.2s ease;
+}
+
+.nextui-table a:hover {
+  text-decoration: underline;
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .blurred-table-container {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  .nextui-table tr:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+  }
+}

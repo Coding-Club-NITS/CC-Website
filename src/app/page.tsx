@@ -1,22 +1,30 @@
-'use client'
-// import { HeroParallax } from './components/ui/hero-parallax'
-import ScrollCards from './components/scrollcards'
-import Footer from './components/footercomp'
-import Testimonials from './components/testimonials'
-import { FlipWordsDemo } from './components/flipword';
-import Parallax from './components/parallax';
+"use client";
 
-export default function page(){
+import React from "react";
+import ParticlesComponent from "../components/particles";
+import CodeForces from "../components/Codeforces";
+import Leetcode from "../components/Leetcode";
+import Codechef from "../components/Codechef";
+import FloatingDock from "../components/Navbar";
+
+const Home = () => {
   return (
-    <div className='dark:bg-black-900 bg-white-800'>
-      <Parallax/>
-      <ScrollCards/>
-      <div className="h-[40rem] rounded-md flex flex-col antialiased items-center justify-center relative overflow-hidden">
-      <FlipWordsDemo/>
-      <Testimonials/>
-      <Footer/>
+    <div className="App">
+      <div className="content">
+        <section id="codeforces">
+          <CodeForces />
+        </section>
+        <section id="leetcode">
+          <Leetcode />
+        </section>
+        <section id="codechef">
+          <Codechef />
+        </section>
+      </div>
+      <ParticlesComponent id="particles" />
+      <FloatingDock />
     </div>
-    </div> 
   );
-}
+};
 
+export default Home;

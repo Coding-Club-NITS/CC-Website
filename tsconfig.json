@@ -21,6 +21,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/components/navbar.jsx", "src/app/components/ui/scroll.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/components/navbar.jsx", "src/app/components/ui/scroll.tsx", "src/components/ui/hover-border-gradient.tsx"],
   "exclude": ["node_modules",".next"]
 }
