@@ -56,7 +56,7 @@ const Leetcode: React.FC = () => {
       }}
     >
       <HoverBorderGradient
-        as="h2"
+        // as="h2"
         duration={1.5}
         clockwise={true}
         containerClassName="text-center"

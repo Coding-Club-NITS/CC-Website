@@ -23,7 +23,7 @@ interface HoverBorderGradientProps {
   children: React.ReactNode;
   containerClassName?: string;
   className?: string;
-  // as?: keyof TSX.IntrinsicElements;
+  as?: string;
   duration?: number;
   clockwise?: boolean;
   style?: React.CSSProperties; // Add this line to support style prop
