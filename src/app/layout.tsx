@@ -1,20 +1,19 @@
-import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Footer from "./components/footercomp";
 import Navbar from "./components/navbar";
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: "Coding Club NIT Silchar",
-  description: "Official website of Coding Club NIT Silchar",
+export const metadata = {
+  title: "Coding Club NITS",
+  description: "The official website of Coding Club NIT Silchar",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
+interface RootLayoutProps {
   children: React.ReactNode;
-}>) {
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body className={inter.className}>
