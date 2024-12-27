@@ -46,7 +46,7 @@ export default function Contest() {
   ];
 
   return (
-    <div className="App">
+    <div className="flex flex-col items-center justify-center">
       <div className="h-[20rem] md:h-[40rem] [perspective:1000px] relative b flex flex-col max-w-4xl mx-auto w-full  items-start justify-start my-20">
         <Tabs tabs={tabs} />
       </div>
