@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import ParticlesComponent from "../../components/particles";
+// import ParticlesComponent from "../../components/particles";
 import CodeForces from "../../components/Codeforces";
 import Leetcode from "../../components/Leetcode";
 import Codechef from "../../components/Codechef";
@@ -21,7 +21,7 @@ const Home = () => {
           <Codechef />
         </section>
       </div>
-      <ParticlesComponent id="particles" />
+      {/* <ParticlesComponent id="particles" /> */}
       <FloatingDock />
     </div>
   );
