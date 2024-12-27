@@ -12,6 +12,7 @@ const nextConfig = {
       "images.unsplash.com",
       "assets.aceternity.com",
       "drive.google.com",
+      "encrypted-tbn0.gstatic.com",
     ],
   },
 };

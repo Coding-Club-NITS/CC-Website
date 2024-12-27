@@ -51,7 +51,7 @@ const Leetcode: React.FC = () => {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        minHeight: "100vh",
+        minHeight: "60vh",
         background: "transparent",
       }}
     >
@@ -86,7 +86,7 @@ const Leetcode: React.FC = () => {
             wrapperClass=""
           />
         ) : (
-          <TableComponent contests={contests} /> // Show contest table when data is loaded
+          <TableComponent contests={contests} />
         )}
       </div>
     </section>

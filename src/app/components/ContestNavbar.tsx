@@ -1,5 +1,3 @@
-"use client";
-
 import { cn } from "./utils/cn";
 import { IconLayoutNavbarCollapse } from "@tabler/icons-react";
 import {
@@ -12,6 +10,7 @@ import {
 } from "framer-motion";
 import { useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const items = [
   {
@@ -25,7 +24,21 @@ const items = [
         className="w-full h-full object-contain"
       />
     ),
-    href: "#codeforces",
+    href: "https://codeforces.com/contests",
+  },
+
+  {
+    title: "CodeChef",
+    icon: (
+      <Image
+        src="/codechef.png"
+        alt="CodeChef"
+        width={24}
+        height={24}
+        className="w-full h-full object-contain"
+      />
+    ),
+    href: "https://www.codechef.com/contests",
   },
   {
     title: "Leetcode",
@@ -38,20 +51,7 @@ const items = [
         className="w-full h-full object-contain"
       />
     ),
-    href: "#leetcode",
-  },
-  {
-    title: "CodeChef",
-    icon: (
-      <Image
-        src="/codechef.png"
-        alt="CodeChef"
-        width={24}
-        height={24}
-        className="w-full h-full object-contain"
-      />
-    ),
-    href: "#codechef",
+    href: "https://www.leetcode.com/contest",
   },
 ];
 
@@ -60,9 +60,9 @@ const FloatingDock = () => {
     <>
       <FloatingDockDesktop
         items={items}
-        className="fixed bottom-8 left-1/2 -translate-x-1/2"
+        className="fixed bottom-9 -right-0 -translate-x-1/2"
       />
-      <FloatingDockMobile items={items} className="fixed bottom-8 right-8" />
+      <FloatingDockMobile items={items} className="fixed bottom-9 right-8" />
     </>
   );
 };
@@ -95,12 +95,14 @@ const FloatingDockMobile = ({
                 }}
                 transition={{ delay: (items.length - 1 - idx) * 0.05 }}
               >
-                <a
+                <Link
                   href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="h-12 w-12 rounded-full bg-neutral-800/90 backdrop-blur-sm border border-neutral-700 flex items-center justify-center hover:bg-neutral-700 transition-colors"
                 >
                   <div className="h-6 w-6">{item.icon}</div>
-                </a>
+                </Link>
               </motion.div>
             ))}
           </motion.div>
@@ -196,7 +198,7 @@ function IconContainer({
   const [hovered, setHovered] = useState(false);
 
   return (
-    <a href={href}>
+    <Link href={href} target="_blank" rel="noopener noreferrer">
       <motion.div
         ref={ref}
         style={{ width, height }}
@@ -223,7 +225,7 @@ function IconContainer({
           {icon}
         </motion.div>
       </motion.div>
-    </a>
+    </Link>
   );
 }
 

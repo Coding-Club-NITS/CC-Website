@@ -70,7 +70,7 @@ const Codechef: React.FC = () => {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        minHeight: "100vh",
+        minHeight: "60vh",
         background: "transparent",
       }}
     >
