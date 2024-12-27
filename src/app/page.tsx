@@ -2,7 +2,7 @@
 // import { HeroParallax } from './components/ui/hero-parallax'
 import ScrollCards from "./components/scrollcards";
 import Testimonials from "./components/testimonials";
-import { FlipWordsDemo } from "./components/flipword";
+import { FlipWordsDemo } from "./components/flipwords";
 import Parallax from "./components/parallax";
 
 export default function page() {

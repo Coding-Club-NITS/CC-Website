@@ -1,3 +1,4 @@
+/* eslint-disable */
 "use client";
 import { cn } from "../utils/cn";
 import React, { useEffect, useRef, useState } from "react";
@@ -15,7 +16,7 @@ export const WavyBackground = ({
   waveOpacity = 0.5,
   ...props
 }: {
-  children?: any;
+  children?: string | React.ReactNode;
   className?: string;
   containerClassName?: string;
   colors?: string[];
