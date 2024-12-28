@@ -4,6 +4,7 @@ import axios from "axios";
 import TableComponent from "./TableComponent";
 import { Watch } from "react-loader-spinner";
 import { HoverBorderGradient } from "./ui/hover-border-gradient";
+
 interface Contest {
   id: string; // Changed to string to match TableComponent
   event: string;
@@ -14,8 +15,10 @@ interface Contest {
 }
 
 const Leetcode: React.FC = () => {
-  const [contests, setContests] = useState<Contest[]>([]);
-  const [loading, setLoading] = useState<boolean>(true); // State to manage loading indicator
+  const [contests, setContests] = useState<Contest[]>(
+    () => JSON.parse(localStorage.getItem("leetcodeContests") || "[]") // Retrieve from localStorage
+  );
+  const [loading, setLoading] = useState<boolean>(contests.length === 0); // Load only if contests are not available
 
   useEffect(() => {
     const fetchContests = async () => {
@@ -24,8 +27,7 @@ const Leetcode: React.FC = () => {
           "https://clist.by:443/api/v4/contest/",
           {
             headers: {
-              Authorization:
-                "ApiKey Atreya45:32e91b8791ab25ad7d26d6645bc08f8bba5309f7",
+              Authorization: `ApiKey Atreya45:${process.env.NEXT_PUBLIC_API_KEY}`,
             },
             params: {
               upcoming: true,
@@ -34,15 +36,23 @@ const Leetcode: React.FC = () => {
             },
           }
         );
-        setContests(response.data.objects);
-        setLoading(false); // Set loading to false after data is fetched
+        const fetchedContests = response.data.objects;
+        setContests(fetchedContests);
+        localStorage.setItem(
+          "leetcodeContests",
+          JSON.stringify(fetchedContests)
+        ); // Store in localStorage
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching contests:", error);
-        setLoading(false); // Set loading to false on error
+        setLoading(false);
       }
     };
-    fetchContests();
-  }, []);
+
+    if (contests.length === 0) {
+      fetchContests(); // Fetch only if data is not in localStorage
+    }
+  }, [contests]);
 
   return (
     <section
@@ -56,7 +66,6 @@ const Leetcode: React.FC = () => {
       }}
     >
       <HoverBorderGradient
-        // as="h2"
         duration={1.5}
         clockwise={true}
         containerClassName="text-center"

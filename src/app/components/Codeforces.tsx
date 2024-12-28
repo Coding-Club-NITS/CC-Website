@@ -15,8 +15,10 @@ interface Contest {
 }
 
 const CodeForces: React.FC = () => {
-  const [contests, setContests] = useState<Contest[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [contests, setContests] = useState<Contest[]>(
+    () => JSON.parse(localStorage.getItem("codeforcesContests") || "[]") // Retrieve from localStorage
+  );
+  const [loading, setLoading] = useState<boolean>(contests.length === 0); // Set loading only if contests are not in localStorage
 
   useEffect(() => {
     const fetchContests = async () => {
@@ -25,8 +27,7 @@ const CodeForces: React.FC = () => {
           "https://clist.by:443/api/v4/contest/",
           {
             headers: {
-              Authorization:
-                "ApiKey Atreya45:32e91b8791ab25ad7d26d6645bc08f8bba5309f7",
+              Authorization: `ApiKey Atreya45:${process.env.NEXT_PUBLIC_API_KEY}`, // Use environment variable
             },
             params: {
               upcoming: true,
@@ -49,14 +50,21 @@ const CodeForces: React.FC = () => {
         );
 
         setContests(transformedContests);
+        localStorage.setItem(
+          "codeforcesContests",
+          JSON.stringify(transformedContests) // Store in localStorage
+        );
         setLoading(false);
       } catch (error) {
         console.error("Error fetching contests:", error);
         setLoading(false);
       }
     };
-    fetchContests();
-  }, []);
+
+    if (contests.length === 0) {
+      fetchContests(); // Fetch only if data is not in localStorage
+    }
+  }, [contests]);
 
   return (
     <section
@@ -70,7 +78,6 @@ const CodeForces: React.FC = () => {
       }}
     >
       <HoverBorderGradient
-        // as="h2"
         duration={1.5}
         clockwise={true}
         containerClassName="text-center"
