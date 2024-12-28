@@ -17,19 +17,28 @@ interface Contest {
 }
 
 const Codechef: React.FC = () => {
-  const [contests, setContests] = useState<Contest[]>(
-    () => JSON.parse(localStorage.getItem("codechefContests") || "[]") // Retrieve from localStorage
-  );
-  const [loading, setLoading] = useState<boolean>(contests.length === 0); // Set loading only if contests are not in localStorage
+  const [contests, setContests] = useState<Contest[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
+    const loadContestsFromLocalStorage = () => {
+      if (typeof window !== "undefined") {
+        const storedContests = localStorage.getItem("codechefContests");
+        if (storedContests) {
+          setContests(JSON.parse(storedContests));
+          setLoading(false);
+        }
+      }
+    };
+
     const fetchContests = async () => {
       try {
+        setLoading(true);
         const response = await axios.get(
           "https://clist.by:443/api/v4/contest/",
           {
             headers: {
-              Authorization: `ApiKey Atreya45:${process.env.NEXT_PUBLIC_API_KEY}`, // Use environment variable
+              Authorization: `ApiKey Atreya45:${process.env.NEXT_PUBLIC_API_KEY}`,
             },
             params: {
               upcoming: true,
@@ -41,23 +50,25 @@ const Codechef: React.FC = () => {
 
         // Transform the API response to match the Contest interface
         const transformedContests: Contest[] = response.data.objects.map(
-          (contest: Contest) => ({
-            id: contest.id,
-            name: contest.name,
-            url: contest.url,
+          (contest: any) => ({
+            id: contest.id.toString(),
+            name: contest.event || "",
+            url: contest.url || "",
             start: contest.start,
             end: contest.end,
             duration: contest.duration,
-            event: contest.event || "", // Provide default values for required fields
-            href: contest.href || contest.url || "", // Provide default values for required fields
+            event: contest.event || "",
+            href: contest.href || contest.url || "",
           })
         );
 
         setContests(transformedContests);
-        localStorage.setItem(
-          "codechefContests",
-          JSON.stringify(transformedContests) // Store in localStorage
-        );
+        if (typeof window !== "undefined") {
+          localStorage.setItem(
+            "codechefContests",
+            JSON.stringify(transformedContests)
+          );
+        }
         setLoading(false);
       } catch (error) {
         console.error("Error fetching contests:", error);
@@ -65,10 +76,13 @@ const Codechef: React.FC = () => {
       }
     };
 
-    if (contests.length === 0) {
-      fetchContests(); // Fetch only if data is not in localStorage
-    }
-  }, [contests]);
+    loadContestsFromLocalStorage();
+
+    const intervalId = setInterval(fetchContests, 2 * 60 * 1000); // Fetch every 2 minutes
+    fetchContests(); // Fetch initially
+
+    return () => clearInterval(intervalId); // Cleanup interval on unmount
+  }, []);
 
   return (
     <section

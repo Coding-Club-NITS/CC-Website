@@ -6,7 +6,7 @@ import { Watch } from "react-loader-spinner";
 import { HoverBorderGradient } from "./ui/hover-border-gradient";
 
 interface Contest {
-  id: string; // Changed to string to match TableComponent
+  id: string;
   event: string;
   href: string;
   start: string;
@@ -15,19 +15,28 @@ interface Contest {
 }
 
 const CodeForces: React.FC = () => {
-  const [contests, setContests] = useState<Contest[]>(
-    () => JSON.parse(localStorage.getItem("codeforcesContests") || "[]") // Retrieve from localStorage
-  );
-  const [loading, setLoading] = useState<boolean>(contests.length === 0); // Set loading only if contests are not in localStorage
+  const [contests, setContests] = useState<Contest[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
+    const loadContestsFromLocalStorage = () => {
+      if (typeof window !== "undefined") {
+        const storedContests = localStorage.getItem("codeforcesContests");
+        if (storedContests) {
+          setContests(JSON.parse(storedContests));
+          setLoading(false);
+        }
+      }
+    };
+
     const fetchContests = async () => {
       try {
+        setLoading(true);
         const response = await axios.get(
           "https://clist.by:443/api/v4/contest/",
           {
             headers: {
-              Authorization: `ApiKey Atreya45:${process.env.NEXT_PUBLIC_API_KEY}`, // Use environment variable
+              Authorization: `ApiKey Atreya45:${process.env.NEXT_PUBLIC_API_KEY}`,
             },
             params: {
               upcoming: true,
@@ -37,10 +46,9 @@ const CodeForces: React.FC = () => {
           }
         );
 
-        // Transform the API response
         const transformedContests = response.data.objects.map(
           (contest: Contest) => ({
-            id: contest.id.toString(), // Convert ID to string
+            id: contest.id.toString(),
             event: contest.event,
             href: contest.href,
             start: contest.start,
@@ -50,10 +58,12 @@ const CodeForces: React.FC = () => {
         );
 
         setContests(transformedContests);
-        localStorage.setItem(
-          "codeforcesContests",
-          JSON.stringify(transformedContests) // Store in localStorage
-        );
+        if (typeof window !== "undefined") {
+          localStorage.setItem(
+            "codeforcesContests",
+            JSON.stringify(transformedContests)
+          );
+        }
         setLoading(false);
       } catch (error) {
         console.error("Error fetching contests:", error);
@@ -61,10 +71,13 @@ const CodeForces: React.FC = () => {
       }
     };
 
-    if (contests.length === 0) {
-      fetchContests(); // Fetch only if data is not in localStorage
-    }
-  }, [contests]);
+    loadContestsFromLocalStorage();
+
+    const intervalId = setInterval(fetchContests, 2 * 60 * 1000); // Fetch every 2 minutes
+    fetchContests();
+
+    return () => clearInterval(intervalId);
+  }, []);
 
   return (
     <section

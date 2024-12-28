@@ -6,7 +6,7 @@ import { Watch } from "react-loader-spinner";
 import { HoverBorderGradient } from "./ui/hover-border-gradient";
 
 interface Contest {
-  id: string; // Changed to string to match TableComponent
+  id: string;
   event: string;
   href: string;
   start: string;
@@ -15,14 +15,23 @@ interface Contest {
 }
 
 const Leetcode: React.FC = () => {
-  const [contests, setContests] = useState<Contest[]>(
-    () => JSON.parse(localStorage.getItem("leetcodeContests") || "[]") // Retrieve from localStorage
-  );
-  const [loading, setLoading] = useState<boolean>(contests.length === 0); // Load only if contests are not available
+  const [contests, setContests] = useState<Contest[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
+    const loadContestsFromLocalStorage = () => {
+      if (typeof window !== "undefined") {
+        const storedContests = localStorage.getItem("leetcodeContests");
+        if (storedContests) {
+          setContests(JSON.parse(storedContests));
+          setLoading(false);
+        }
+      }
+    };
+
     const fetchContests = async () => {
       try {
+        setLoading(true);
         const response = await axios.get(
           "https://clist.by:443/api/v4/contest/",
           {
@@ -36,12 +45,26 @@ const Leetcode: React.FC = () => {
             },
           }
         );
-        const fetchedContests = response.data.objects;
-        setContests(fetchedContests);
-        localStorage.setItem(
-          "leetcodeContests",
-          JSON.stringify(fetchedContests)
-        ); // Store in localStorage
+
+        // Transform the API response to match the Contest interface
+        const transformedContests: Contest[] = response.data.objects.map(
+          (contest: any) => ({
+            id: contest.id.toString(),
+            event: contest.event || "",
+            href: contest.href || contest.url || "",
+            start: contest.start,
+            end: contest.end,
+            duration: contest.duration,
+          })
+        );
+
+        setContests(transformedContests);
+        if (typeof window !== "undefined") {
+          localStorage.setItem(
+            "leetcodeContests",
+            JSON.stringify(transformedContests)
+          );
+        }
         setLoading(false);
       } catch (error) {
         console.error("Error fetching contests:", error);
@@ -49,10 +72,13 @@ const Leetcode: React.FC = () => {
       }
     };
 
-    if (contests.length === 0) {
-      fetchContests(); // Fetch only if data is not in localStorage
-    }
-  }, [contests]);
+    loadContestsFromLocalStorage();
+
+    const intervalId = setInterval(fetchContests, 2 * 60 * 1000); // Fetch every 2 minutes
+    fetchContests(); // Fetch initially
+
+    return () => clearInterval(intervalId); // Cleanup interval on unmount
+  }, []);
 
   return (
     <section
