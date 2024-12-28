@@ -10,14 +10,14 @@ import {
   useTransform,
 } from "framer-motion";
 import { useRef, useState } from "react";
-import Image from "next/image";
+// import Image from "next/image";
 import Link from "next/link";
 
 const items = [
   {
     title: "Codeforces",
     icon: (
-      <Image
+      <img
         src="/codeforces.png"
         alt="Codeforces"
         width={24}
@@ -31,7 +31,7 @@ const items = [
   {
     title: "CodeChef",
     icon: (
-      <Image
+      <img
         src="/codechef.png"
         alt="CodeChef"
         width={24}
@@ -44,7 +44,7 @@ const items = [
   {
     title: "Leetcode",
     icon: (
-      <Image
+      <img
         src="/leetcode.png"
         alt="Leetcode"
         width={24}
