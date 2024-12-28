@@ -6,7 +6,7 @@ import { Watch } from "react-loader-spinner";
 import { HoverBorderGradient } from "./ui/hover-border-gradient";
 
 interface Contest {
-  id: string; // Changed to string to match TableComponent
+  id: string;
   event: string;
   href: string;
   start: string;
@@ -19,14 +19,24 @@ const CodeForces: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
+    const loadContestsFromLocalStorage = () => {
+      if (typeof window !== "undefined") {
+        const storedContests = localStorage.getItem("codeforcesContests");
+        if (storedContests) {
+          setContests(JSON.parse(storedContests));
+          setLoading(false);
+        }
+      }
+    };
+
     const fetchContests = async () => {
       try {
+        setLoading(true);
         const response = await axios.get(
           "https://clist.by:443/api/v4/contest/",
           {
             headers: {
-              Authorization:
-                "ApiKey Atreya45:32e91b8791ab25ad7d26d6645bc08f8bba5309f7",
+              Authorization: `ApiKey Atreya45:${process.env.NEXT_PUBLIC_API_KEY}`,
             },
             params: {
               upcoming: true,
@@ -36,10 +46,9 @@ const CodeForces: React.FC = () => {
           }
         );
 
-        // Transform the API response
         const transformedContests = response.data.objects.map(
           (contest: Contest) => ({
-            id: contest.id.toString(), // Convert ID to string
+            id: contest.id.toString(),
             event: contest.event,
             href: contest.href,
             start: contest.start,
@@ -49,13 +58,25 @@ const CodeForces: React.FC = () => {
         );
 
         setContests(transformedContests);
+        if (typeof window !== "undefined") {
+          localStorage.setItem(
+            "codeforcesContests",
+            JSON.stringify(transformedContests)
+          );
+        }
         setLoading(false);
       } catch (error) {
         console.error("Error fetching contests:", error);
         setLoading(false);
       }
     };
+
+    loadContestsFromLocalStorage();
+
+    const intervalId = setInterval(fetchContests, 2 * 60 * 1000); // Fetch every 2 minutes
     fetchContests();
+
+    return () => clearInterval(intervalId);
   }, []);
 
   return (
@@ -70,7 +91,6 @@ const CodeForces: React.FC = () => {
       }}
     >
       <HoverBorderGradient
-        // as="h2"
         duration={1.5}
         clockwise={true}
         containerClassName="text-center"

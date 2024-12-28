@@ -4,8 +4,9 @@ import axios from "axios";
 import TableComponent from "./TableComponent";
 import { Watch } from "react-loader-spinner";
 import { HoverBorderGradient } from "./ui/hover-border-gradient";
+
 interface Contest {
-  id: string; // Changed to string to match TableComponent
+  id: string;
   event: string;
   href: string;
   start: string;
@@ -15,17 +16,27 @@ interface Contest {
 
 const Leetcode: React.FC = () => {
   const [contests, setContests] = useState<Contest[]>([]);
-  const [loading, setLoading] = useState<boolean>(true); // State to manage loading indicator
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
+    const loadContestsFromLocalStorage = () => {
+      if (typeof window !== "undefined") {
+        const storedContests = localStorage.getItem("leetcodeContests");
+        if (storedContests) {
+          setContests(JSON.parse(storedContests));
+          setLoading(false);
+        }
+      }
+    };
+
     const fetchContests = async () => {
       try {
+        setLoading(true);
         const response = await axios.get(
           "https://clist.by:443/api/v4/contest/",
           {
             headers: {
-              Authorization:
-                "ApiKey Atreya45:32e91b8791ab25ad7d26d6645bc08f8bba5309f7",
+              Authorization: `ApiKey Atreya45:${process.env.NEXT_PUBLIC_API_KEY}`,
             },
             params: {
               upcoming: true,
@@ -34,14 +45,39 @@ const Leetcode: React.FC = () => {
             },
           }
         );
-        setContests(response.data.objects);
-        setLoading(false); // Set loading to false after data is fetched
+
+        // Transform the API response to match the Contest interface
+        const transformedContests: Contest[] = response.data.objects.map(
+          (contest: any) => ({
+            id: contest.id.toString(),
+            event: contest.event || "",
+            href: contest.href || contest.url || "",
+            start: contest.start,
+            end: contest.end,
+            duration: contest.duration,
+          })
+        );
+
+        setContests(transformedContests);
+        if (typeof window !== "undefined") {
+          localStorage.setItem(
+            "leetcodeContests",
+            JSON.stringify(transformedContests)
+          );
+        }
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching contests:", error);
-        setLoading(false); // Set loading to false on error
+        setLoading(false);
       }
     };
-    fetchContests();
+
+    loadContestsFromLocalStorage();
+
+    const intervalId = setInterval(fetchContests, 2 * 60 * 1000); // Fetch every 2 minutes
+    fetchContests(); // Fetch initially
+
+    return () => clearInterval(intervalId); // Cleanup interval on unmount
   }, []);
 
   return (
@@ -56,7 +92,6 @@ const Leetcode: React.FC = () => {
       }}
     >
       <HoverBorderGradient
-        // as="h2"
         duration={1.5}
         clockwise={true}
         containerClassName="text-center"

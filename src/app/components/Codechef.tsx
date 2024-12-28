@@ -21,14 +21,24 @@ const Codechef: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
+    const loadContestsFromLocalStorage = () => {
+      if (typeof window !== "undefined") {
+        const storedContests = localStorage.getItem("codechefContests");
+        if (storedContests) {
+          setContests(JSON.parse(storedContests));
+          setLoading(false);
+        }
+      }
+    };
+
     const fetchContests = async () => {
       try {
+        setLoading(true);
         const response = await axios.get(
           "https://clist.by:443/api/v4/contest/",
           {
             headers: {
-              Authorization:
-                "ApiKey Atreya45:32e91b8791ab25ad7d26d6645bc08f8bba5309f7",
+              Authorization: `ApiKey Atreya45:${process.env.NEXT_PUBLIC_API_KEY}`,
             },
             params: {
               upcoming: true,
@@ -40,26 +50,38 @@ const Codechef: React.FC = () => {
 
         // Transform the API response to match the Contest interface
         const transformedContests: Contest[] = response.data.objects.map(
-          (contest: Contest) => ({
-            id: contest.id,
-            name: contest.name,
-            url: contest.url,
+          (contest: any) => ({
+            id: contest.id.toString(),
+            name: contest.event || "",
+            url: contest.url || "",
             start: contest.start,
             end: contest.end,
             duration: contest.duration,
-            event: contest.event || "", // Provide default values for required fields
-            href: contest.href || contest.url || "", // Provide default values for required fields
+            event: contest.event || "",
+            href: contest.href || contest.url || "",
           })
         );
 
         setContests(transformedContests);
+        if (typeof window !== "undefined") {
+          localStorage.setItem(
+            "codechefContests",
+            JSON.stringify(transformedContests)
+          );
+        }
         setLoading(false);
       } catch (error) {
         console.error("Error fetching contests:", error);
         setLoading(false);
       }
     };
-    fetchContests();
+
+    loadContestsFromLocalStorage();
+
+    const intervalId = setInterval(fetchContests, 2 * 60 * 1000); // Fetch every 2 minutes
+    fetchContests(); // Fetch initially
+
+    return () => clearInterval(intervalId); // Cleanup interval on unmount
   }, []);
 
   return (
@@ -75,7 +97,6 @@ const Codechef: React.FC = () => {
       }}
     >
       <HoverBorderGradient
-        // as="h2"
         duration={1.5}
         clockwise={true}
         containerClassName="text-center"
