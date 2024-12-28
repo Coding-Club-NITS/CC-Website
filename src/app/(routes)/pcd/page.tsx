@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { CardBody, CardContainer, CardItem } from "../../components/ui/ytcard"; // Import the card component
 import { TextHoverEffect } from "../../components/ui/pcd"; // Import the card component
+import Link from "next/link";
 type Video = {
   title: string;
   videoUrl: string;
@@ -65,7 +66,7 @@ const YouTubePlaylistSorter: React.FC = () => {
           }
         }
 
-        setVideos({ leetcode, codeforces, codechef });
+        setVideos({ codeforces, codechef, leetcode });
       } catch (error) {
         console.error("Error fetching playlist videos:", error);
       }
@@ -77,7 +78,18 @@ const YouTubePlaylistSorter: React.FC = () => {
   const renderVideos = (section: keyof VideosState) => {
     return videos[section].map((video, index) => (
       <CardContainer key={index} className="inter-var">
-        <CardBody className="relative group/card hover:shadow-2xl  hover:shadow-emerald-500/[0.1]  bg-gray-900 border-white/[0.1] w-auto sm:w-[20rem] h-auto rounded-xl pt-5 pb-5 pl-3 pr-3 m-2 border">
+        <CardBody className="relative group/card hover:shadow-2xl  hover:shadow-yellow-500/[0.1]  bg-gray-900 border-white/[0.1] w-auto sm:w-[20rem] rounded-xl p-5 m-1 border h-80 ">
+          <CardItem translateZ="100" className="w-full">
+            <Link href={video.videoUrl} passHref target="_blank">
+              <Image
+                src={video.thumbnail}
+                height="1000"
+                width="1000"
+                className="h-30 w-full object-cover rounded-xl group-hover/card:shadow-xl"
+                alt={video.title}
+              />
+            </Link>
+          </CardItem>
           <CardItem translateZ="50" className="text-xl font-bold text-white">
             {video.title}
           </CardItem>
@@ -86,28 +98,8 @@ const YouTubePlaylistSorter: React.FC = () => {
             translateZ="60"
             className="text-sm max-w-sm mt-2 text-neutral-300"
           >
-            Hover over this card to unleash the power of CSS perspective
+            Views: {video.views} | Likes : {video.likes}
           </CardItem>
-          <CardItem translateZ="100" className="w-full mt-4">
-            <Image
-              src={video.thumbnail}
-              height="1000"
-              width="1000"
-              className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
-              alt={video.title}
-            />
-          </CardItem>
-          <div className="flex justify-center mt-20">
-            <CardItem
-              translateZ={20}
-              as="a"
-              href={video.videoUrl}
-              target="_blank"
-              className="px-4 py-2 rounded-xl bg-yellow-800 text-red-900 hover:bg-red-600 hover:text-yellow-500 text-xs font-bold"
-            >
-              Watch Now
-            </CardItem>
-          </div>
         </CardBody>
       </CardContainer>
     ));
@@ -120,19 +112,20 @@ const YouTubePlaylistSorter: React.FC = () => {
         <h1 className="text-4xl font-bold text-center mb-10">
           POST CONTEST DISCUSSION
         </h1>
-        <section className="flex flex-col items-center">
-          <h2 className="">LeetCode</h2>
-          <div className="flex flex-wrap">{renderVideos("leetcode")}</div>
-        </section>
 
-        <section>
+        <section className="flex flex-col items-center">
           <h2>Codeforces</h2>
           <div className="flex flex-wrap">{renderVideos("codeforces")}</div>
         </section>
 
-        <section>
+        <section className="flex flex-col items-center">
           <h2>CodeChef</h2>
           <div className="flex flex-wrap">{renderVideos("codechef")}</div>
+        </section>
+
+        <section className="flex flex-col items-center">
+          <h2 className="">LeetCode</h2>
+          <div className="flex flex-wrap">{renderVideos("leetcode")}</div>
         </section>
       </div>
     </div>
