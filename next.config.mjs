@@ -13,6 +13,7 @@ const nextConfig = {
       "assets.aceternity.com",
       "drive.google.com",
       "encrypted-tbn0.gstatic.com",
+      "i.ytimg.com",
     ],
   },
 };
