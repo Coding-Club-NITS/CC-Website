@@ -9,7 +9,7 @@ import {
 } from "framer-motion";
 import Link from "next/link";
 import { WavyBackground } from "../ui/wave";
-import Navbar from "../navbar";
+// import Navbar from "../navbar";
 import AnimatedPin from "../sample3d";
 export const HeroParallax = ({
   products,
@@ -58,7 +58,7 @@ export const HeroParallax = ({
   return (
     <>
       {/* Navbar begins here */}
-      <Navbar />
+      {/* <Navbar /> */}
       <WavyBackground className="max-w-4xl mx-auto pb-40 mt-5">
         <p className="text-2xl md:text-4xl lg:text-7xl text-white font-bold inter-var text-center">
           Welcome
