@@ -9,7 +9,6 @@ import {
 } from "framer-motion";
 import Link from "next/link";
 import { WavyBackground } from "../ui/wave";
-// import Navbar from "../navbar";
 import AnimatedPin from "../sample3d";
 export const HeroParallax = ({
   products,
@@ -55,10 +54,9 @@ export const HeroParallax = ({
     useTransform(scrollYProgress, [0, 0.2], [-700, 500]),
     springConfig
   );
+
   return (
     <>
-      {/* Navbar begins here */}
-      {/* <Navbar /> */}
       <WavyBackground className="max-w-4xl mx-auto pb-40 mt-5">
         <p className="text-2xl md:text-4xl lg:text-7xl text-white font-bold inter-var text-center">
           Welcome
@@ -67,7 +65,7 @@ export const HeroParallax = ({
           to the official website of Coding Club NIT Silchar
         </p>
       </WavyBackground>
-      {/* navbar ends here */}
+
       <div
         ref={ref}
         className="h-[300vh] py-10 overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
@@ -92,6 +90,45 @@ export const HeroParallax = ({
               />
             ))}
           </motion.div>
+          <div className="absolute left-0 z-40 flex space-x-4">
+            <button
+              onClick={() => {
+                if (translateX.get() < 1500) {
+                  translateX.set(translateX.get() + 500);
+                } else {
+                  translateX.set(0);
+                }
+                if (translateXReverse.get() > -1500) {
+                  translateXReverse.set(translateXReverse.get() - 500);
+                } else {
+                  translateXReverse.set(0);
+                }
+              }}
+              className="p-4 bg-red-500 bg-opacity-70 text-white rounded-full hover:bg-red-600 transition"
+            >
+              ⬅
+            </button>
+          </div>
+          <div className="absolute right-0 z-40 flex space-x-4">
+            <button
+              onClick={() => {
+                if (translateX.get() > -1000) {
+                  translateX.set(translateX.get() - 500);
+                } else {
+                  translateX.set(0);
+                }
+                if (translateXReverse.get() < 1000) {
+                  translateXReverse.set(translateXReverse.get() + 500);
+                } else {
+                  translateXReverse.set(0);
+                }
+              }}
+              className="p-4 bg-red-500 bg-opacity-70 text-white rounded-full hover:bg-red-600 transition"
+            >
+              ➡
+            </button>
+          </div>
+
           <motion.div className="flex flex-row  mb-10 space-x-20 ">
             {secondRow.map((product) => (
               <ProductCard

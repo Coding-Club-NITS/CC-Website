@@ -7,17 +7,17 @@ export default function AnimatedPin() {
   const Platforms = [
     {
       name: "Codeforces",
-      link: "/codeforces.png",
+      link: "https://cdn.iconscout.com/icon/free/png-256/free-code-forces-logo-icon-download-in-svg-png-gif-file-formats--technology-social-media-vol-2-pack-logos-icons-3029920.png?f=webp&w=256",
       url: "https://codeforces.com/",
     },
     {
       name: "Codechef",
-      link: "/codechef.png",
+      link: "https://user-images.githubusercontent.com/63710339/185728318-0b976716-4f78-4a0a-a377-1643cc18a57e.png",
       url: "https://www.codechef.com/",
     },
     {
       name: "Leetcode",
-      link: "/leetcode.png",
+      link: "https://shopallpremium.com/wp-content/uploads/2022/02/LeetCode_logo_rvs-1.png",
       url: "https://leetcode.com/",
     },
   ];
