@@ -8,10 +8,9 @@ export default function Parallax() {
   return (
     <div>
       {event.visible && (
-        <button className="absolute z-50 m-5">
+        <button className="absolute z-40 right-10 m-10">
           <Link href="/register">
-            <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded" />
-            <div className="px-8 py-5 rounded-md relative group transition duration-200 text-white hover:bg-red-500">
+            <div className="px-8 py-5  hover:bg-red-500  bg-gradient-to-r from-indigo-500 to-purple-500 rounded relative transition duration-2000 text-white  animate-bounce">
               {event.title}
             </div>
           </Link>

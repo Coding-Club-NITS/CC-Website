@@ -6,7 +6,7 @@ function fame() {
   return (
     <div>
       <LampDemo />
-      <div className="-translate-y-[12rem]">
+      <div className="-translate-y-[14rem]">
         <FocusCardsDemo />
       </div>
     </div>

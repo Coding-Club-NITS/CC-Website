@@ -7,14 +7,14 @@ export function LampDemo() {
   return (
     <LampContainer>
       <motion.h1
-        initial={{ opacity: 0.5, y: 100 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 100, scale: 0.5, color: "red" }}
+        whileInView={{ opacity: 1, y: 0, scale: 1, color: "white" }}
         transition={{
           delay: 0.3,
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="mt-8 bg-gradient-to-br from-red-300 to-red-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight  md:text-7xl"
+        className="bg-gradient-to-br from-red-300 to-red-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight  md:text-7xl"
       >
         Team <br /> Members
       </motion.h1>

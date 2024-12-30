@@ -1,7 +1,7 @@
 import React from "react";
 import details from "../../../data/newEvent.json";
 
-const CodeRunner: React.FC = () => {
+const EventNew: React.FC = () => {
   return (
     <div className="w-screen h-screen flex flex-col items-center justify-center">
       {details.visible ? (
@@ -25,4 +25,4 @@ const CodeRunner: React.FC = () => {
   );
 };
 
-export default CodeRunner;
+export default EventNew;
