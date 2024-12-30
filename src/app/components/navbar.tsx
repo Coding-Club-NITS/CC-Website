@@ -11,7 +11,7 @@ import {
   IconBriefcase,
   IconMail,
 } from "@tabler/icons-react";
-import Link from "next/link";
+// import Link from "next/link";
 
 const navItems = [
   { label: "Home", href: "/", icon: <IconHome size={20} /> },
@@ -31,10 +31,7 @@ const navItems = [
 export default function Navbar() {
   return (
     <nav className="absolute w-full z-50 p-5">
-      {/* <div className="block md:hidden">
-        <SidebarNavigation />
-      </div> */}
-
+      {/* <SidebarNavigation /> */}
       <div className="flex items-center justify-end">
         <div className="hidden lg:block">
           <ul className="flex flex-col gap-2 my-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
@@ -59,40 +56,40 @@ export default function Navbar() {
   );
 }
 
-export function SidebarNavigation() {
-  const handleMouseEnter = () => {
-    document.body.classList.add("overflow-hidden");
-  };
+// export function SidebarNavigation() {
+//   const handleMouseEnter = () => {
+//     document.body.classList.add("overflow-hidden");
+//   };
 
-  const handleMouseLeave = () => {
-    document.body.classList.remove("overflow-hidden");
-  };
+//   const handleMouseLeave = () => {
+//     document.body.classList.remove("overflow-hidden");
+//   };
 
-  useEffect(() => {
-    return () => document.body.classList.remove("overflow-hidden");
-  }, []);
+//   useEffect(() => {
+//     return () => document.body.classList.remove("overflow-hidden");
+//   }, []);
 
-  return (
-    <div
-      className="absolute top-0 z-50 hover:bg-white/10 hover:backdrop-blur-md h-full p-2"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
-      <Sidebar>
-        <SidebarBody>
-          {navItems.map((item) => (
-            <Link href={item.href} passHref>
-              <SidebarLink
-                link={{
-                  label: item.label,
-                  href: item.href,
-                  icon: item.icon,
-                }}
-              />
-            </Link>
-          ))}
-        </SidebarBody>
-      </Sidebar>
-    </div>
-  );
-}
+//   return (
+//     <div
+//       className="absolute top-0 z-50 hover:bg-white/10 hover:backdrop-blur-md h-full p-2 md:hidden"
+//       onMouseEnter={handleMouseEnter}
+//       onMouseLeave={handleMouseLeave}
+//     >
+//       <Sidebar>
+//         <SidebarBody>
+//           {navItems.map((item) => (
+//             <Link href={item.href} passHref>
+//               <SidebarLink
+//                 link={{
+//                   label: item.label,
+//                   href: item.href,
+//                   icon: item.icon,
+//                 }}
+//               />
+//             </Link>
+//           ))}
+//         </SidebarBody>
+//       </Sidebar>
+//     </div>
+//   );
+// }
