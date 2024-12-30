@@ -28,7 +28,7 @@ const ParticlesComponent: React.FC<ParticlesComponentProps> = ({ id }) => {
 
   const options = useMemo(
     () => ({
-      fpsLimit: 120,
+      fpsLimit: 240,
       interactivity: {
         events: {
           onClick: {
@@ -59,7 +59,7 @@ const ParticlesComponent: React.FC<ParticlesComponentProps> = ({ id }) => {
           distance: 150,
           enable: true,
           opacity: 0.3,
-          width: 1,
+          width: 0.5,
         },
         move: {
           direction: "none" as const,
@@ -75,10 +75,10 @@ const ParticlesComponent: React.FC<ParticlesComponentProps> = ({ id }) => {
           density: {
             enable: true,
           },
-          value: 150,
+          value: 500,
         },
         opacity: {
-          value: 1.0,
+          value: 0.5,
         },
         shape: {
           type: "circle" as const,

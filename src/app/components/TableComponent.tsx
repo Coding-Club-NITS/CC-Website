@@ -190,7 +190,7 @@ const TableComponent: React.FC<TableComponentProps> = ({ contests }) => {
     : ["Event", "Start Time (IST)", "End Time (IST)", "Duration", "Link"];
 
   return (
-    <div className="w-full max-w-full rounded-lg backdrop-blur-md bg-white/10 p-4 overflow-hidden md:p-1 sm:p-0.5">
+    <div className="w-full max-w-full rounded backdrop-blur-md bg-white/10 p-4 overflow-hidden md:p-1 sm:p-0.5">
       <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-gray-400">
         <table className="min-w-full border-collapse text-sm">
           {/* Table Header */}
