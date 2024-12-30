@@ -4,7 +4,7 @@
 export default function FooterComp() {
   return (
     <footer>
-      <div className="mt-12 flex w-full flex-col items-center justify-center border-t border-blue-gray-50 py-4 md:flex-row md:justify-between">
+      <div className="mt-12 flex w-full flex-col items-center justify-center border-t border-blue-gray-50 py-4 md:flex-row md:justify-between text-sm text-gray-600">
         {/* <Typography
           variant="small"
           className="mb-4 text-center font-normal text-blue-gray-900 md:mb-0"
