@@ -1,9 +1,11 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { CardBody, CardContainer, CardItem } from "../../components/ui/ytcard"; // Import the card component
-import { TextHoverEffect } from "../../components/ui/pcd"; // Import the card component
+import { CardBody, CardContainer, CardItem } from "../../components/ui/ytcard";
+import { TextHoverEffect } from "../../components/ui/pcd";
+import ParticlesComponent from "../../components/particles";
 import Link from "next/link";
+
 type Video = {
   title: string;
   videoUrl: string;
@@ -24,6 +26,7 @@ const YouTubePlaylistSorter: React.FC = () => {
     codeforces: [],
     codechef: [],
   });
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchVideos = async () => {
@@ -67,6 +70,7 @@ const YouTubePlaylistSorter: React.FC = () => {
         }
 
         setVideos({ codeforces, codechef, leetcode });
+        setIsLoading(false);
       } catch (error) {
         console.error("Error fetching playlist videos:", error);
       }
@@ -75,10 +79,30 @@ const YouTubePlaylistSorter: React.FC = () => {
     fetchVideos();
   }, []);
 
+  const renderSkeletonCards = () => {
+    const skeletonCards = Array.from({ length: 6 }, (_, index) => (
+      <CardContainer
+        key={index}
+        className="inter-var animate-pulse bg-gray-800 border-gray-700 w-auto sm:w-[20rem] rounded-xl p-5 m-1 border h-80"
+      >
+        <CardBody className="h-full flex flex-col justify-between">
+          <div className="h-40 bg-gray-700 rounded-lg"></div>
+          <div className="h-6 bg-gray-700 rounded w-3/4 mt-4"></div>
+          <div className="h-4 bg-gray-700 rounded w-1/2 mt-2"></div>
+        </CardBody>
+      </CardContainer>
+    ));
+    return skeletonCards;
+  };
+
   const renderVideos = (section: keyof VideosState) => {
+    if (isLoading) {
+      return renderSkeletonCards();
+    }
+
     return videos[section].map((video, index) => (
       <CardContainer key={index} className="inter-var">
-        <CardBody className="relative group/card hover:shadow-2xl  hover:shadow-yellow-500/[0.1]  bg-gray-900 border-white/[0.1] w-auto sm:w-[20rem] rounded-xl p-5 m-1 border h-80 ">
+        <CardBody className="relative group/card hover:shadow-2xl hover:shadow-yellow-500/[0.1] bg-gray-900 border-white/[0.1] w-auto sm:w-[20rem] rounded-xl p-5 m-1 border h-80">
           <CardItem translateZ="100" className="w-full">
             <Link href={video.videoUrl} passHref target="_blank">
               <Image
@@ -107,6 +131,7 @@ const YouTubePlaylistSorter: React.FC = () => {
 
   return (
     <div>
+      <ParticlesComponent id="pcd" />
       <div className="pt-20">
         <TextHoverEffect text="PCD" />
         <h1 className="text-4xl font-bold text-center mb-10">
@@ -114,17 +139,30 @@ const YouTubePlaylistSorter: React.FC = () => {
         </h1>
 
         <section className="flex flex-col items-center">
-          <h2>Codeforces</h2>
+          <div className="w-full bg-white/10 backdrop-blur-md py-4">
+            <h2 className="text-white text-3xl font-bold italic text-center">
+              Codeforces
+            </h2>
+          </div>
+
           <div className="flex flex-wrap">{renderVideos("codeforces")}</div>
         </section>
 
         <section className="flex flex-col items-center">
-          <h2>CodeChef</h2>
+          <div className="w-full bg-white/10 backdrop-blur-md py-4">
+            <h2 className="text-white text-3xl font-bold italic text-center">
+              CodeChef
+            </h2>
+          </div>
           <div className="flex flex-wrap">{renderVideos("codechef")}</div>
         </section>
 
         <section className="flex flex-col items-center">
-          <h2 className="">LeetCode</h2>
+          <div className="w-full bg-white/10 backdrop-blur-md py-4">
+            <h2 className="text-white text-3xl font-bold italic text-center">
+              LeetCode
+            </h2>
+          </div>
           <div className="flex flex-wrap">{renderVideos("leetcode")}</div>
         </section>
       </div>
