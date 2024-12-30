@@ -1,6 +1,6 @@
 "use client";
-import React, { useEffect } from "react";
-import { Sidebar, SidebarBody, SidebarLink } from "../components/ui/sidebar";
+import React from "react";
+// import { Sidebar, SidebarBody, SidebarLink } from "../components/ui/sidebar";
 import {
   IconHome,
   IconTrophy,
