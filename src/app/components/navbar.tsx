@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { Sidebar, SidebarBody, SidebarLink } from "../components/ui/sidebar";
 import {
   IconHome,
@@ -11,7 +11,7 @@ import {
   IconBriefcase,
   IconMail,
 } from "@tabler/icons-react";
-
+import Link from "next/link";
 export default function SidebarNavigation() {
   const navItems = [
     { label: "Home", href: "/", icon: <IconHome size={20} /> },
@@ -28,12 +28,31 @@ export default function SidebarNavigation() {
     { label: "Contact Us", href: "about", icon: <IconMail size={20} /> },
   ];
 
+  const handleMouseEnter = () => {
+    document.body.classList.add("overflow-hidden");
+  };
+
+  const handleMouseLeave = () => {
+    document.body.classList.remove("overflow-hidden");
+  };
+
+  useEffect(() => {
+    // Cleanup to ensure the class is removed if the component unmounts
+    return () => document.body.classList.remove("overflow-hidden");
+  }, []);
+
   return (
-    <div className="absolute z-50">
+    <div
+      className="absolute top-0 z-50 hover:bg-white/10 hover:backdrop-blur-md h-full p-2"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       <Sidebar>
         <SidebarBody>
           {navItems.map((item, index) => (
-            <SidebarLink key={index} link={item} />
+            <Link href={item.href}>
+              <SidebarLink key={index} link={item} />
+            </Link>
           ))}
         </SidebarBody>
       </Sidebar>

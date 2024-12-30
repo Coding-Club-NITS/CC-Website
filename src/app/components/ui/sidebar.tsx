@@ -1,6 +1,6 @@
 "use client";
 import { cn } from "@/lib/utils";
-import Link, { LinkProps } from "next/link";
+// import Link, { LinkProps } from "next/link";
 import React, { useState, createContext, useContext } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { IconMenu2, IconX } from "@tabler/icons-react";
@@ -162,12 +162,11 @@ export const SidebarLink = ({
 }: {
   link: Links;
   className?: string;
-  props?: LinkProps;
+  // props?: LinkProps;
 }) => {
   const { open, animate } = useSidebar();
   return (
-    <Link
-      href={link.href}
+    <div
       className={cn(
         "flex items-center justify-start gap-2  group/sidebar py-2",
         className
@@ -185,6 +184,6 @@ export const SidebarLink = ({
       >
         {link.label}
       </motion.span>
-    </Link>
+    </div>
   );
 };

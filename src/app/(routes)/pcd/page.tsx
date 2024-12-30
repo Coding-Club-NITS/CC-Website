@@ -20,7 +20,7 @@ type VideosState = {
   codechef: Video[];
 };
 
-const YouTubePlaylistSorter: React.FC = () => {
+const PCD: React.FC = () => {
   const [videos, setVideos] = useState<VideosState>({
     leetcode: [],
     codeforces: [],
@@ -132,11 +132,11 @@ const YouTubePlaylistSorter: React.FC = () => {
   return (
     <div>
       <ParticlesComponent id="pcd" />
+      <h1 className="text-4xl font-bold text-center mt-10">
+        POST CONTEST DISCUSSION
+      </h1>
       <div className="pt-20">
         <TextHoverEffect text="PCD" />
-        <h1 className="text-4xl font-bold text-center mb-10">
-          POST CONTEST DISCUSSION
-        </h1>
 
         <section className="flex flex-col items-center">
           <div className="w-full bg-white/10 backdrop-blur-md py-4">
@@ -170,4 +170,4 @@ const YouTubePlaylistSorter: React.FC = () => {
   );
 };
 
-export default YouTubePlaylistSorter;
+export default PCD;

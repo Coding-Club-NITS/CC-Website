@@ -11,7 +11,7 @@ export default function FocusCardsDemo() {
               {section.title}
             </h1>
           </div>
-          <div className="w-full bg-blue-gray-900/30 backdrop-blur-md py-4 ">
+          <div className="w-full bg-blue-gray-900/30 backdrop-blur-md py-4">
             <FocusCards cards={section.data} />
           </div>
         </div>
