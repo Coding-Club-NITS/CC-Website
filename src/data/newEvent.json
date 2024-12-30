@@ -1,7 +1,7 @@
 {
-    "title": "Register for coding club now!!!",
+    "title": "Register for coding club now!!!(Visibilty can be controlled)",
     "description": "This is a new event",
     "deadline": "2021-12-31",
     "formlink": "https://docs.google.com/forms/d/e/1FAIpQLSd3FGTcCQ5Hx0NGpn3XJ_X4MzRYxWiRmKz-8jhBCvr-IETepQ/viewform?embedded=true",
-    "visible": false
+    "visible": true
 }

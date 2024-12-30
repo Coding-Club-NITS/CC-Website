@@ -10,6 +10,8 @@ import {
 import Link from "next/link";
 import { WavyBackground } from "../ui/wave";
 import AnimatedPin from "../sample3d";
+import event from "../../../data/newEvent.json";
+
 export const HeroParallax = ({
   products,
 }: {
@@ -64,6 +66,15 @@ export const HeroParallax = ({
         <p className="text-base md:text-lg mt-4 text-white font-normal inter-var text-center">
           to the official website of Coding Club NIT Silchar
         </p>
+        {event.visible && (
+          <button className="p-6 m-5 z-40">
+            <Link href="/register">
+              <div className="px-8 py-5  hover:bg-red-500  bg-gradient-to-r from-indigo-500 to-purple-500 rounded relative transition duration-2000 text-white  animate-bounce">
+                {event.title}
+              </div>
+            </Link>
+          </button>
+        )}
       </WavyBackground>
 
       <div
