@@ -132,9 +132,9 @@ const PCD: React.FC = () => {
   return (
     <div>
       <ParticlesComponent id="pcd" />
-      <h1 className="text-4xl font-bold text-center mt-10">
+      {/* <h1 className="text-4xl font-bold text-center mt-10">
         POST CONTEST DISCUSSION
-      </h1>
+      </h1> */}
       <div className="pt-20">
         <TextHoverEffect text="PCD" />
 

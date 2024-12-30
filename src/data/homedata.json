@@ -48,25 +48,5 @@
     "title": "Dummy Event 6",
     "link": "https://res.cloudinary.com/dtpmqu6lw/image/upload/v1718524959/dummy6.jpg",
     "thumbnail": "https://picsum.photos/200/300"
-  },
-  {
-    "title": "Dummy Event 7",
-    "link": "https://res.cloudinary.com/dtpmqu6lw/image/upload/v1718524959/dummy7.jpg",
-    "thumbnail": "https://picsum.photos/200/300"
-  },
-  {
-    "title": "Dummy Event 8",
-    "link": "https://res.cloudinary.com/dtpmqu6lw/image/upload/v1718524959/dummy8.jpg",
-    "thumbnail": "https://picsum.photos/200/300"
-  },
-  {
-    "title": "Dummy Event 9",
-    "link": "https://res.cloudinary.com/dtpmqu6lw/image/upload/v1718524959/dummy9.jpg",
-    "thumbnail": "https://picsum.photos/200/300"
-  },
-  {
-    "title": "Dummy Event 10",
-    "link": "https://res.cloudinary.com/dtpmqu6lw/image/upload/v1718524959/dummy10.jpg",
-    "thumbnail": "https://picsum.photos/200/300"
   }
 ]
