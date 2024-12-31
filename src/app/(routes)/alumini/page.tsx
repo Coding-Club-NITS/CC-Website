@@ -1,13 +1,17 @@
 "use client";
 import React from "react";
-import { CardHoverEffectDemo } from "../../components/hovercard";
-import ParticlesComponent from "../../components/particles";
-import { BackgroundLinesDemo } from "../../components/bglines";
+import { CardHoverEffectDemo } from "@/app/components/hovercard";
+import ParticlesComponent from "@/app/components/particles";
+import { BackgroundLinesDemo } from "@/app/components/bglines";
+import SmoothScrolling from "@/app/components/smoothScroll";
+
 function fame() {
   return (
     <div>
-      <BackgroundLinesDemo />
-      <CardHoverEffectDemo />
+      <SmoothScrolling>
+        <BackgroundLinesDemo />
+        <CardHoverEffectDemo />
+      </SmoothScrolling>
       <ParticlesComponent id="particles" />
     </div>
   );

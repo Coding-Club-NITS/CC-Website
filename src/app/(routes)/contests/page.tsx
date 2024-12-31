@@ -1,13 +1,14 @@
 "use client";
 
 import React from "react";
-import ParticlesComponent from "../../components/particles";
-import CodeForces from "../../components/Codeforces";
-import Leetcode from "../../components/Leetcode";
-import Codechef from "../../components/Codechef";
+import ParticlesComponent from "@/app/components/particles";
+import CodeForces from "@/app/components/Codeforces";
+import Leetcode from "@/app/components/Leetcode";
+import Codechef from "@/app/components/Codechef";
 // import Image from "next/image";
-import FloatingDock from "../../components/ContestNavbar";
-// import { Tabs } from "../../components/ui/tabs";
+import FloatingDock from "@/app/components/ContestNavbar";
+import SmoothScrolling from "@/app/components/smoothScroll";
+// import { Tabs } from "@/app/components/ui/tabs";
 
 // export default function Contest() {
 //   const tabs = [
@@ -101,17 +102,26 @@ const items = [
 const Home = () => {
   return (
     <div className="App">
-      <div className="">
-        <section>
-          <CodeForces />
-        </section>
-        <section>
-          <Leetcode />
-        </section>
-        <section>
-          <Codechef />
-        </section>
-      </div>
+      <SmoothScrolling>
+        <div>
+          <section>
+            <SmoothScrolling>
+              <CodeForces />
+            </SmoothScrolling>
+          </section>
+          <section>
+            <SmoothScrolling>
+              <Leetcode />
+            </SmoothScrolling>
+          </section>
+          <section>
+            <SmoothScrolling>
+              {" "}
+              <Codechef />
+            </SmoothScrolling>
+          </section>
+        </div>
+      </SmoothScrolling>
       <ParticlesComponent id="particles" />
       <FloatingDock items={items} />
     </div>
