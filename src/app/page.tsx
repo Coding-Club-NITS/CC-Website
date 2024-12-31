@@ -4,7 +4,7 @@ import ScrollCards from "./components/scrollcards";
 import Testimonials from "./components/testimonials";
 import { FlipWordsDemo } from "./components/flipwords";
 import Parallax from "./components/parallax";
-
+// import ReactLenis from "lenis/react";
 export default function page() {
   return (
     <div className="dark:bg-black-900 bg-white-800">

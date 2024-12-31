@@ -98,7 +98,6 @@ const FloatingDockMobile = ({
               >
                 <Link
                   href={item.href}
-                  target="_blank"
                   rel="noopener noreferrer"
                   className="h-12 w-12 rounded-full bg-neutral-800/90 backdrop-blur-sm border border-neutral-700 flex items-center justify-center hover:bg-neutral-700 transition-colors"
                 >
@@ -231,3 +230,4 @@ function IconContainer({
 }
 
 export default FloatingDock;
+export { FloatingDockMobile };
