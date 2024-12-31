@@ -24,7 +24,10 @@ export default function AnimatedPin() {
   return (
     <>
       {Platforms.map((platform, index) => (
-        <div className="h-[50rem] w-full flex items-center" key={index}>
+        <div
+          className="h-[50rem] w-full md:flex lg:flex hidden items-center overflow-scroll"
+          key={index}
+        >
           <Link href={platform.url} passHref target="_blank">
             <PinContainer title={platform.name} href={platform.url}>
               <div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[15rem] h-[15rem] ">
