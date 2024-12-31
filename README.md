@@ -1,5 +1,5 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
+Announcements: Use newEvents.json in data file to show annoucements for new events and registration.
 ## Getting Started
 
 First, run the development server:
