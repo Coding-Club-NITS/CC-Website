@@ -1,14 +1,17 @@
 "use client";
 import React from "react";
-import FocusCardsDemo from "../../components/focuscard";
-import { LampDemo } from "../../components/lampdemo";
+import FocusCardsDemo from "@/app/components/focuscard";
+import { LampDemo } from "@/app/components/lampdemo";
+import SmoothScrolling from "@/app/components/smoothScroll";
 function fame() {
   return (
     <div>
-      <LampDemo />
-      <div className="-translate-y-[14rem]">
-        <FocusCardsDemo />
-      </div>
+      <SmoothScrolling>
+        <LampDemo />
+        <div className="-translate-y-[14rem]">
+          <FocusCardsDemo />
+        </div>
+      </SmoothScrolling>
     </div>
   );
 }

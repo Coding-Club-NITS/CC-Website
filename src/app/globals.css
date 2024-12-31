@@ -54,9 +54,6 @@ body {
   }
 }
 
-html {
-  scroll-behavior: smooth;
-}
 #particles {
   position: fixed;
   top: 0;

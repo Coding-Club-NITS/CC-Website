@@ -1,10 +1,11 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { CardBody, CardContainer, CardItem } from "../../components/ui/ytcard";
-import { TextHoverEffect } from "../../components/ui/pcd";
-import ParticlesComponent from "../../components/particles";
+import { CardBody, CardContainer, CardItem } from "@/app/components/ui/ytcard";
+import { TextHoverEffect } from "@/app/components/ui/pcd";
+import ParticlesComponent from "@/app/components/particles";
 import Link from "next/link";
+import SmoothScrolling from "@/app/components/smoothScroll";
 
 type Video = {
   title: string;
@@ -138,33 +139,41 @@ const PCD: React.FC = () => {
       <div className="pt-20">
         <TextHoverEffect text="PCD" />
 
-        <section className="flex flex-col items-center">
-          <div className="w-full bg-white/10 backdrop-blur-md py-4">
-            <h2 className="text-white text-3xl font-bold italic text-center">
-              Codeforces
-            </h2>
-          </div>
+        <SmoothScrolling>
+          <section className="flex flex-col items-center">
+            <div className="w-full bg-white/10 backdrop-blur-md py-4">
+              <h2 className="text-white text-3xl font-bold italic text-center">
+                Codeforces
+              </h2>
+            </div>
 
-          <div className="flex flex-wrap">{renderVideos("codeforces")}</div>
-        </section>
+            <div className="flex flex-wrap">
+              <SmoothScrolling>{renderVideos("codeforces")}</SmoothScrolling>
+            </div>
+          </section>
 
-        <section className="flex flex-col items-center">
-          <div className="w-full bg-white/10 backdrop-blur-md py-4">
-            <h2 className="text-white text-3xl font-bold italic text-center">
-              CodeChef
-            </h2>
-          </div>
-          <div className="flex flex-wrap">{renderVideos("codechef")}</div>
-        </section>
+          <section className="flex flex-col items-center">
+            <div className="w-full bg-white/10 backdrop-blur-md py-4">
+              <h2 className="text-white text-3xl font-bold italic text-center">
+                CodeChef
+              </h2>
+            </div>
+            <div className="flex flex-wrap">
+              <SmoothScrolling>{renderVideos("codechef")}</SmoothScrolling>
+            </div>
+          </section>
 
-        <section className="flex flex-col items-center">
-          <div className="w-full bg-white/10 backdrop-blur-md py-4">
-            <h2 className="text-white text-3xl font-bold italic text-center">
-              LeetCode
-            </h2>
-          </div>
-          <div className="flex flex-wrap">{renderVideos("leetcode")}</div>
-        </section>
+          <section className="flex flex-col items-center">
+            <div className="w-full bg-white/10 backdrop-blur-md py-4">
+              <h2 className="text-white text-3xl font-bold italic text-center">
+                LeetCode
+              </h2>
+            </div>
+            <div className="flex flex-wrap">
+              <SmoothScrolling>{renderVideos("leetcode")}</SmoothScrolling>
+            </div>
+          </section>
+        </SmoothScrolling>
       </div>
     </div>
   );

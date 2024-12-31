@@ -1,5 +1,5 @@
 import React from "react";
-import details from "../../../data/newEvent.json";
+import details from "@/data/newEvent.json";
 
 const EventNew: React.FC = () => {
   return (
