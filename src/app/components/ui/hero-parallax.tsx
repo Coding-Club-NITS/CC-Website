@@ -10,7 +10,7 @@ import {
 import Link from "next/link";
 import { WavyBackground } from "../ui/wave";
 import AnimatedPin from "../sample3d";
-import event from "../../../data/newEvent.json";
+import event from "@/data/newEvent.json";
 
 export const HeroParallax = ({
   products,

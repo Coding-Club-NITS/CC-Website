@@ -1,5 +1,5 @@
 "use client";
-import { cn } from "../../components/utils/cn";
+import { cn } from "@/app/components/utils/cn";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
