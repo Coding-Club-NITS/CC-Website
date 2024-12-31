@@ -39,7 +39,7 @@ export default function Navbar() {
             {navItems.map((item, index) => (
               <li
                 key={index}
-                className="block p-5 lg:p-1 font-sans text-sm antialiased font-medium leading-normal text-gray-500"
+                className="block p-5 lg:p-1 font-sans text-sm antialiased font-medium leading-normal text-gray-500 transition-all duration-300 transform hover:scale-110 hover:text-gray-800"
               >
                 <a
                   href={item.href}

@@ -1,4 +1,5 @@
 "use client";
+
 import { cn } from "./utils/cn";
 import { IconLayoutNavbarCollapse } from "@tabler/icons-react";
 import {
@@ -10,58 +11,25 @@ import {
   useTransform,
 } from "framer-motion";
 import { useRef, useState } from "react";
-// import Image from "next/image";
 import Link from "next/link";
 
-const items = [
-  {
-    title: "Codeforces",
-    icon: (
-      <img
-        src="https://cdn.iconscout.com/icon/free/png-256/free-code-forces-logo-icon-download-in-svg-png-gif-file-formats--technology-social-media-vol-2-pack-logos-icons-3029920.png?f=webp&w=256"
-        alt="Codeforces"
-        width={24}
-        height={24}
-        className="w-full h-full object-contain"
-      />
-    ),
-    href: "https://codeforces.com/contests",
-  },
+interface DockItem {
+  title: string;
+  icon: React.ReactNode;
+  href: string;
+}
 
-  {
-    title: "CodeChef",
-    icon: (
-      <img
-        src="https://user-images.githubusercontent.com/63710339/185728318-0b976716-4f78-4a0a-a377-1643cc18a57e.png"
-        alt="CodeChef"
-        width={24}
-        height={24}
-        className="w-full h-full object-contain"
-      />
-    ),
-    href: "https://www.codechef.com/contests",
-  },
-  {
-    title: "Leetcode",
-    icon: (
-      <img
-        src="https://shopallpremium.com/wp-content/uploads/2022/02/LeetCode_logo_rvs-1.png"
-        alt="Leetcode"
-        width={24}
-        height={24}
-        className="w-full h-full object-contain"
-      />
-    ),
-    href: "https://www.leetcode.com/contest",
-  },
-];
+interface FloatingDockProps {
+  items: DockItem[];
+  className?: string;
+}
 
-const FloatingDock = () => {
+const FloatingDock = ({ items, className }: FloatingDockProps) => {
   return (
     <>
       <FloatingDockDesktop
         items={items}
-        className="fixed bottom-9 -right-0 -translate-x-1/2"
+        className={cn("fixed bottom-9 -right-0 -translate-x-1/2", className)}
       />
       <FloatingDockMobile items={items} className="fixed bottom-9 right-8" />
     </>
@@ -72,7 +40,7 @@ const FloatingDockMobile = ({
   items,
   className,
 }: {
-  items: { title: string; icon: React.ReactNode; href: string }[];
+  items: DockItem[];
   className?: string;
 }) => {
   const [open, setOpen] = useState(false);
@@ -122,7 +90,7 @@ const FloatingDockDesktop = ({
   items,
   className,
 }: {
-  items: { title: string; icon: React.ReactNode; href: string }[];
+  items: DockItem[];
   className?: string;
 }) => {
   const mouseX = useMotionValue(Infinity);
