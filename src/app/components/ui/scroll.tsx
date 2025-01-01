@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useMotionValueEvent, useScroll } from "framer-motion";
 import { motion } from "framer-motion";
 import { cn } from "../utils/cn";
+import SmoothScrolling from "../smoothScroll";
 
 export const StickyScroll = ({
   content,
@@ -52,53 +53,55 @@ export const StickyScroll = ({
   }, [activeCard]);
 
   return (
-    <motion.div
-      animate={{
-        background: backgroundGradient, // Set the background to the gradient
-      }}
-      className="h-[20rem] overflow-y-auto flex justify-center relative space-x-10 rounded-md mt-10"
-      ref={ref}
-    >
-      <div className="div relative flex items-start px-4">
-        <div className="max-w-2xl">
-          {content.map((item, index) => (
-            <div key={item.title + index} className="my-20">
-              <motion.h2
-                initial={{
-                  opacity: 0,
-                }}
-                animate={{
-                  opacity: activeCard === index ? 1 : 0.3,
-                }}
-                className="text-2xl font-bold text-red-800"
-              >
-                {item.title}
-              </motion.h2>
-              <motion.p
-                initial={{
-                  opacity: 0,
-                }}
-                animate={{
-                  opacity: activeCard === index ? 1 : 0.3,
-                }}
-                className="text-kg text-slate-300 max-w-sm mt-10"
-              >
-                {item.description}
-              </motion.p>
-            </div>
-          ))}
-          <div className="h-40" />
-        </div>
-      </div>
-      <div
-        style={{ background: backgroundGradient }}
-        className={cn(
-          "hidden lg:block h-60 w-80 rounded-md bg-white sticky top-10 overflow-hidden",
-          contentClassName
-        )}
+    <SmoothScrolling>
+      <motion.div
+        animate={{
+          background: backgroundGradient, // Set the background to the gradient
+        }}
+        className="h-[20rem] overflow-y-auto flex justify-center relative space-x-10 rounded-md mt-10"
+        ref={ref}
       >
-        {content[activeCard].content ?? null}
-      </div>
-    </motion.div>
+        <div className="div relative flex items-start px-4">
+          <div className="max-w-2xl">
+            {content.map((item, index) => (
+              <div key={item.title + index} className="my-20">
+                <motion.h2
+                  initial={{
+                    opacity: 0,
+                  }}
+                  animate={{
+                    opacity: activeCard === index ? 1 : 0.3,
+                  }}
+                  className="text-2xl font-bold text-red-800"
+                >
+                  {item.title}
+                </motion.h2>
+                <motion.p
+                  initial={{
+                    opacity: 0,
+                  }}
+                  animate={{
+                    opacity: activeCard === index ? 1 : 0.3,
+                  }}
+                  className="text-kg text-slate-300 max-w-sm mt-10"
+                >
+                  {item.description}
+                </motion.p>
+              </div>
+            ))}
+            <div className="h-40" />
+          </div>
+        </div>
+        <div
+          style={{ background: backgroundGradient }}
+          className={cn(
+            "hidden lg:block h-60 w-80 rounded-md bg-white sticky top-10 overflow-hidden",
+            contentClassName
+          )}
+        >
+          {content[activeCard].content ?? null}
+        </div>
+      </motion.div>
+    </SmoothScrolling>
   );
 };
