@@ -1,3 +1,6 @@
+// ------------------------------IMP--------------------------------------------------------
+// fill content with 30-40 words only at max, as there will not be any scroll in the card
+// --------------------------------------------------------------------------------------
 const cards = [
   {
     description: "Coding Club - NIT Silchar",
