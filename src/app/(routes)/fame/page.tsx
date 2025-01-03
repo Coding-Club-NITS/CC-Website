@@ -1,20 +1,21 @@
-import React from 'react'
-import ExpandableCardDemo from '../../components/expandableCard'
-import './style.css';
-import TextRevealCardPreview from "../../components/textReveal"
-import SpotlightPreview from "../../components/SpotlightPreview"
+import React from "react";
+import ExpandableCardDemo from "../../components/expandableCard";
+import TextRevealCardPreview from "../../components/textReveal";
+import SpotlightPreview from "../../components/SpotlightPreview";
+import SmoothScrolling from "@/app/components/smoothScroll";
+
 function page() {
-  return (<div className="fame-container ">
-    <SpotlightPreview/>
-    <TextRevealCardPreview/>
-    <ExpandableCardDemo />
-  </div> 
-    
-
-
-    
-    
-  )
+  return (
+    <div>
+      <SmoothScrolling>
+        <SpotlightPreview />
+        <TextRevealCardPreview />
+        <div className="mt-10">
+          <ExpandableCardDemo />
+        </div>
+      </SmoothScrolling>
+    </div>
+  );
 }
 
-export default page
+export default page;

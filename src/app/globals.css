@@ -1,8 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Playwrite+CO+Guides&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Playwrite+CO+Guides&display=swap'); */
 
+
+/* amartya edits */
+
+@font-face {
+  font-family: "Monoton";
+  src: url("../../public/fonts/Monoton-Regular.ttf");
+}
+
+@font-face {
+  font-family: Keania One;
+  src: url("../../public/fonts/KeaniaOne-Regular.ttf");
+}
 
 
 :root {
