@@ -1,7 +1,9 @@
+
 import SmoothScrolling from "./smoothScroll";
 import FocusCards from "./ui/focuscard";
 import team from "@/data/teams.json"; // Import the JSON data
 export default function FocusCardsDemo() {
+
   return (
     <div>
       <SmoothScrolling>
@@ -12,11 +14,11 @@ export default function FocusCardsDemo() {
                 {section.title}
               </h1>
             </div>
-            <div className="w-full bg-blue-gray-900/30 backdrop-blur-md py-4">
-              <FocusCards cards={section.data} />
-            </div>
+                <FocusCards cards={section.data} />
           </div>
         ))}
+
+        
       </SmoothScrolling>
     </div>
   );
