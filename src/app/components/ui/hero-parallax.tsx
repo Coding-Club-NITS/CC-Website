@@ -30,7 +30,7 @@ export const HeroParallax = ({
     offset: ["start start", "end start"],
   });
 
-  const springConfig = { stiffness: 300, damping: 30, bounce: 100 };
+  const springConfig = { stiffness: 150, damping: 35, bounce: 0.5 };
 
   const translateX = useSpring(
     useTransform(scrollYProgress, [0, 1], [0, 1000]),
@@ -69,7 +69,7 @@ export const HeroParallax = ({
         {event.visible && (
           <button className="p-6 m-5 z-40">
             <Link href="/register">
-              <div className="px-8 py-5  hover:bg-red-500  bg-gradient-to-r from-indigo-500 to-purple-500 rounded relative transition duration-2000 text-white  animate-bounce">
+              <div className="px-8 py-5 hover:bg-red-500 bg-gradient-to-r from-indigo-500 to-purple-500 rounded relative transition duration-2000 text-white animate-bounce">
                 {event.title}
               </div>
             </Link>
@@ -79,7 +79,7 @@ export const HeroParallax = ({
 
       <div
         ref={ref}
-        className="h-[300vh] py-10 overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+        className="h-[300vh] py-10 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
       >
         <Header />
 
@@ -104,16 +104,10 @@ export const HeroParallax = ({
           <div className="absolute left-0 z-40 flex space-x-4">
             <button
               onClick={() => {
-                if (translateX.get() < 1500) {
-                  translateX.set(translateX.get() + 500);
-                } else {
-                  translateX.set(0);
-                }
-                if (translateXReverse.get() > -1500) {
-                  translateXReverse.set(translateXReverse.get() - 500);
-                } else {
-                  translateXReverse.set(0);
-                }
+                translateX.set(Math.min(translateX.get() + 500, 1500));
+                translateXReverse.set(
+                  Math.max(translateXReverse.get() - 500, -1500)
+                );
               }}
               className="p-4 bg-red-500 bg-opacity-70 text-white rounded-full hover:bg-red-600 transition"
             >
@@ -123,16 +117,10 @@ export const HeroParallax = ({
           <div className="absolute right-0 z-40 flex space-x-4">
             <button
               onClick={() => {
-                if (translateX.get() > -1000) {
-                  translateX.set(translateX.get() - 500);
-                } else {
-                  translateX.set(0);
-                }
-                if (translateXReverse.get() < 1000) {
-                  translateXReverse.set(translateXReverse.get() + 500);
-                } else {
-                  translateXReverse.set(0);
-                }
+                translateX.set(Math.max(translateX.get() - 500, -1000));
+                translateXReverse.set(
+                  Math.min(translateXReverse.get() + 500, 1000)
+                );
               }}
               className="p-4 bg-red-500 bg-opacity-70 text-white rounded-full hover:bg-red-600 transition"
             >
@@ -140,7 +128,7 @@ export const HeroParallax = ({
             </button>
           </div>
 
-          <motion.div className="flex flex-row  mb-10 space-x-20 ">
+          <motion.div className="flex flex-row mb-10 space-x-20">
             {secondRow.map((product) => (
               <ProductCard
                 product={product}
@@ -166,7 +154,7 @@ export const HeroParallax = ({
 
 export const Header = () => {
   return (
-    <div className="max-w-7xl relative mx-auto py-10 md:py-40 px-4 w-full  left-0 top-0">
+    <div className="max-w-7xl relative mx-auto py-10 md:py-40 px-4 w-full left-0 top-0">
       <h1 className="text-2xl md:text-7xl font-bold dark:text-white">
         <div className="text-red-800">Coding Club</div>
         <div className="text-yellow-500">NIT Silchar</div>
@@ -177,7 +165,7 @@ export const Header = () => {
       <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200">
         The Coding Club at NIT Silchar fosters a vibrant community for
         programming enthusiasts. It offers workshops and coding contests,
-        encouraging students to enhance their coding skills, collaboratation,
+        encouraging students to enhance their coding skills, collaboration,
         teamwork, and stay updated with the latest technology trends.
       </p>
     </div>
@@ -208,7 +196,7 @@ export const ProductCard = ({
     >
       <Link
         href={product.link}
-        className="block group-hover/product:shadow-2xl "
+        className="block group-hover/product:shadow-2xl"
       >
         <img
           src={product.thumbnail}
