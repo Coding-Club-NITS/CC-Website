@@ -31,35 +31,35 @@ export default function AnimatedPin() {
     },
   ];
 
-  useEffect(() => {
-    // GSAP ScrollTrigger animation for all cards
-    const pins = gsap.utils.toArray(".pin") as HTMLElement[]; // Explicitly type the result as HTMLElement[]
+  // useEffect(() => {
+  //   // GSAP ScrollTrigger animation for all cards
+  //   const pins = gsap.utils.toArray(".pin") as HTMLElement[]; // Explicitly type the result as HTMLElement[]
 
-    pins.forEach((pin, index) => {
-      gsap.fromTo(
-        pin,
-        {
-          scale: 0, // Start from small size (scaled down)
-          rotation: -180, // Start from a rotated state
-          opacity: 0, // Initial opacity
-        },
-        {
-          scale: 1, // Final size (normal scale)
-          rotation: 0, // Final rotation (no rotation)
-          opacity: 1, // Fade in effect
-          duration: 1,
-          delay: index * 0.2, // Staggered delay for each card
-          scrollTrigger: {
-            trigger: pin,
-            start: "top 100%", // Trigger when 50% of the card is in view (halfway scroll)
-            end: "bottom", // End when the card leaves the screen
-            scrub: false, // Do not scrub, let the animation run independently
-            once: true, // The animation runs once and doesn't reset
-          },
-        }
-      );
-    });
-  }, []);
+  //   pins.forEach((pin, index) => {
+  //     gsap.fromTo(
+  //       pin,
+  //       {
+  //         scale: 0, // Start from small size (scaled down)
+  //         rotation: -180, // Start from a rotated state
+  //         opacity: 0, // Initial opacity
+  //       },
+  //       {
+  //         scale: 1, // Final size (normal scale)
+  //         rotation: 0, // Final rotation (no rotation)
+  //         opacity: 1, // Fade in effect
+  //         duration: 1,
+  //         delay: index * 0.2, // Staggered delay for each card
+  //         scrollTrigger: {
+  //           trigger: pin,
+  //           start: "top 100%", // Trigger when 50% of the card is in view (halfway scroll)
+  //           end: "bottom", // End when the card leaves the screen
+  //           scrub: false, // Do not scrub, let the animation run independently
+  //           once: true, // The animation runs once and doesn't reset
+  //         },
+  //       }
+  //     );
+  //   });
+  // }, []);
 
   return (
     <>
