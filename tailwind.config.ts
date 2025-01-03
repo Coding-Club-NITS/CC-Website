@@ -13,7 +13,17 @@ module.exports = withMT({
   darkMode: ["class", "class"],
   theme: {
 	  extend: {
-			
+		
+		letterSpacing: {
+			widest: '.40em', // Adjust this value as needed
+			med: '.05em',
+		},
+
+		fontFamily: {
+			'monoton': ['Monoton', 'serif'],
+			'keania-one': ['Keania One', 'serif'],
+		},
+
   		animation: {
 			  scroll: 'scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite',
 				        spotlight: "spotlight 2s ease .75s 1 forwards"
