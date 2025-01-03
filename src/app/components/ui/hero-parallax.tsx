@@ -30,7 +30,7 @@ export const HeroParallax = ({
     offset: ["start start", "end start"],
   });
 
-  const springConfig = { stiffness: 300, damping: 30, bounce: 100 };
+  const springConfig = { stiffness: 150, damping: 35, bounce: 0.5 };
 
   const translateX = useSpring(
     useTransform(scrollYProgress, [0, 1], [0, 1000]),
@@ -57,38 +57,94 @@ export const HeroParallax = ({
     springConfig
   );
 
+  const fadeInVariant = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 1 } },
+  };
+
   return (
     <>
       <WavyBackground className="max-w-4xl mx-auto pb-40 mt-5">
-        <div className="relative w-full flex justify-center items-center">
-          <img src="/CC-logo.png" alt="Logo" className="w-48 h-48 md:w-64 md:h-64 lg:w-96 lg:h-96" />
+        <motion.div
+          className="relative w-full flex justify-center items-center"
+          initial="hidden"
+          animate="visible"
+          variants={fadeInVariant}
+        >
+          <motion.img
+            src="/CC-logo.png"
+            alt="Logo"
+            className="w-48 h-48 md:w-64 md:h-64 lg:w-96 lg:h-96"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
+          />
           <div className="absolute bottom-0 mb-16 text-2xl md:text-4xl lg:text-7xl text-white font-bold inter-var text-center font-monoton">
             <div className="w-full flex justify-center">
-              <span className="tracking-med">CODING</span>
+              <motion.span
+                initial={{ opacity: 0, rotateX: -90, scale: 0.8 }}
+                animate={{ opacity: 1, rotateX: 0, scale: 1 }}
+                transition={{
+                  delay: 0.5,
+                  duration: 1,
+                  type: "spring",
+                  stiffness: 200,
+                  damping: 20,
+                }}
+                className="text-4xl lg:text-7xl font-bold tracking-wider"
+              >
+                Coding
+              </motion.span>
             </div>
+
             <div className="w-full flex justify-center">
-              <span className="tracking-widest ml-6">CLUB</span>
+              <motion.span
+                initial={{ opacity: 0, rotateX: 90, scale: 0.8 }}
+                animate={{ opacity: 1, rotateX: 0, scale: 1 }}
+                transition={{
+                  delay: 0.8,
+                  duration: 1,
+                  type: "spring",
+                  stiffness: 200,
+                  damping: 20,
+                }}
+                className="text-4xl lg:text-7xl font-bold tracking-wider"
+              >
+                Club
+              </motion.span>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <p className="text-base md:text-4xl mt-0 text-white font-normal inter-var text-center font-keania-one">
+        <motion.p
+          className="text-base md:text-4xl mt-0 text-white font-normal inter-var text-center font-keania-one"
+          initial="hidden"
+          animate="visible"
+          variants={fadeInVariant}
+          transition={{ delay: 2 }}
+        >
           NIT Silchar
-        </p>
+        </motion.p>
+
         {event.visible && (
-          <button className="p-6 m-5 z-40">
+          <motion.button
+            className="p-6 m-5 z-40"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 3, duration: 0.5 }}
+          >
             <Link href="/register">
-              <div className="px-8 py-5  hover:bg-red-500  bg-gradient-to-r from-indigo-500 to-purple-500 rounded relative transition duration-2000 text-white  animate-bounce">
+              <div className="px-8 py-5 hover:bg-red-500 bg-gradient-to-r from-indigo-500 to-purple-500 rounded relative transition duration-2000 text-white animate-bounce">
                 {event.title}
               </div>
             </Link>
-          </button>
+          </motion.button>
         )}
       </WavyBackground>
 
       <div
         ref={ref}
-        className="h-[300vh] py-10 overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+        className="h-[300vh] py-10 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
       >
         <Header />
 
@@ -113,16 +169,10 @@ export const HeroParallax = ({
           <div className="absolute left-0 z-40 flex space-x-4">
             <button
               onClick={() => {
-                if (translateX.get() < 1500) {
-                  translateX.set(translateX.get() + 500);
-                } else {
-                  translateX.set(0);
-                }
-                if (translateXReverse.get() > -1500) {
-                  translateXReverse.set(translateXReverse.get() - 500);
-                } else {
-                  translateXReverse.set(0);
-                }
+                translateX.set(Math.min(translateX.get() + 500, 1500));
+                translateXReverse.set(
+                  Math.max(translateXReverse.get() - 500, -1500)
+                );
               }}
               className="p-4 bg-red-500 bg-opacity-70 text-white rounded-full hover:bg-red-600 transition"
             >
@@ -132,16 +182,10 @@ export const HeroParallax = ({
           <div className="absolute right-0 z-40 flex space-x-4">
             <button
               onClick={() => {
-                if (translateX.get() > -1000) {
-                  translateX.set(translateX.get() - 500);
-                } else {
-                  translateX.set(0);
-                }
-                if (translateXReverse.get() < 1000) {
-                  translateXReverse.set(translateXReverse.get() + 500);
-                } else {
-                  translateXReverse.set(0);
-                }
+                translateX.set(Math.max(translateX.get() - 500, -1000));
+                translateXReverse.set(
+                  Math.min(translateXReverse.get() + 500, 1000)
+                );
               }}
               className="p-4 bg-red-500 bg-opacity-70 text-white rounded-full hover:bg-red-600 transition"
             >
@@ -149,7 +193,7 @@ export const HeroParallax = ({
             </button>
           </div>
 
-          <motion.div className="flex flex-row  mb-10 space-x-20 ">
+          <motion.div className="flex flex-row mb-10 space-x-20">
             {secondRow.map((product) => (
               <ProductCard
                 product={product}
@@ -175,7 +219,7 @@ export const HeroParallax = ({
 
 export const Header = () => {
   return (
-    <div className="max-w-7xl relative mx-auto py-10 md:py-40 px-4 w-full  left-0 top-0">
+    <div className="max-w-7xl relative mx-auto py-10 md:py-40 px-4 w-full left-0 top-0">
       <h1 className="text-2xl md:text-7xl font-bold dark:text-white">
         <div className="text-red-800">Coding Club</div>
         <div className="text-yellow-500">NIT Silchar</div>
@@ -186,7 +230,7 @@ export const Header = () => {
       <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200">
         The Coding Club at NIT Silchar fosters a vibrant community for
         programming enthusiasts. It offers workshops and coding contests,
-        encouraging students to enhance their coding skills, collaboratation,
+        encouraging students to enhance their coding skills, collaboration,
         teamwork, and stay updated with the latest technology trends.
       </p>
     </div>
@@ -217,7 +261,7 @@ export const ProductCard = ({
     >
       <Link
         href={product.link}
-        className="block group-hover/product:shadow-2xl "
+        className="block group-hover/product:shadow-2xl"
       >
         <img
           src={product.thumbnail}
