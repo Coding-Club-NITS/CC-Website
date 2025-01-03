@@ -1,8 +1,14 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { PinContainer } from "./ui/3dpin";
 import Image from "next/image";
 import Link from "next/link";
+import { gsap } from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+
+// Register ScrollTrigger plugin
+gsap.registerPlugin(ScrollTrigger);
+
 export default function AnimatedPin() {
   const Platforms = [
     {
@@ -24,13 +30,41 @@ export default function AnimatedPin() {
       desc: "LeetCode is a platform for learning and improving coding skills with the goal of being a better programmer. It is a website that provides a large number of coding problems for people to solve.",
     },
   ];
+
+  useEffect(() => {
+    // GSAP ScrollTrigger animation for all cards
+    const pins = gsap.utils.toArray(".pin") as HTMLElement[]; // Explicitly type the result as HTMLElement[]
+
+    pins.forEach((pin, index) => {
+      gsap.fromTo(
+        pin,
+        {
+          scale: 0, // Start from small size (scaled down)
+          rotation: -180, // Start from a rotated state
+          opacity: 0, // Initial opacity
+        },
+        {
+          scale: 1, // Final size (normal scale)
+          rotation: 0, // Final rotation (no rotation)
+          opacity: 1, // Fade in effect
+          duration: 1,
+          delay: index * 0.2, // Staggered delay for each card
+          scrollTrigger: {
+            trigger: pin,
+            start: "top 100%", // Trigger when 50% of the card is in view (halfway scroll)
+            end: "bottom", // End when the card leaves the screen
+            scrub: false, // Do not scrub, let the animation run independently
+            once: true, // The animation runs once and doesn't reset
+          },
+        }
+      );
+    });
+  }, []);
+
   return (
     <>
-      {Platforms.map((platform, index) => (
-        <div
-          className="h-[50rem] w-full md:flex lg:flex hidden items-center overflow-scroll"
-          key={index}
-        >
+      {Platforms.map((platform) => (
+        <div className="h-[50rem] w-full md:flex lg:flex hidden items-center overflow-scroll pin">
           <Link
             href={platform.url}
             passHref
@@ -39,7 +73,7 @@ export default function AnimatedPin() {
           >
             <PinContainer title={platform.name} desc={platform.desc}>
               <div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[15rem] h-[15rem] ">
-                <h3 className="max-w-xs  font-bold  text-base text-slate-100"></h3>
+                <h3 className="max-w-xs font-bold text-base text-slate-100"></h3>
                 <div className="text-base font-normal">
                   <Image
                     src={platform.link}

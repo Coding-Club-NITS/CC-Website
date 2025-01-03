@@ -57,32 +57,88 @@ export const HeroParallax = ({
     springConfig
   );
 
+  const fadeInVariant = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 1 } },
+  };
+
   return (
     <>
       <WavyBackground className="max-w-4xl mx-auto pb-40 mt-5">
-        <div className="relative w-full flex justify-center items-center">
-          <img src="/CC-logo.png" alt="Logo" className="w-48 h-48 md:w-64 md:h-64 lg:w-96 lg:h-96" />
+        <motion.div
+          className="relative w-full flex justify-center items-center"
+          initial="hidden"
+          animate="visible"
+          variants={fadeInVariant}
+        >
+          <motion.img
+            src="/CC-logo.png"
+            alt="Logo"
+            className="w-48 h-48 md:w-64 md:h-64 lg:w-96 lg:h-96"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
+          />
           <div className="absolute bottom-0 mb-16 text-2xl md:text-4xl lg:text-7xl text-white font-bold inter-var text-center font-monoton">
             <div className="w-full flex justify-center">
-              <span className="tracking-med">CODING</span>
+              <motion.span
+                initial={{ opacity: 0, rotateX: -90, scale: 0.8 }}
+                animate={{ opacity: 1, rotateX: 0, scale: 1 }}
+                transition={{
+                  delay: 0.5,
+                  duration: 1,
+                  type: "spring",
+                  stiffness: 200,
+                  damping: 20,
+                }}
+                className="text-4xl lg:text-7xl font-bold tracking-wider"
+              >
+                Coding
+              </motion.span>
             </div>
+
             <div className="w-full flex justify-center">
-              <span className="tracking-widest ml-6">CLUB</span>
+              <motion.span
+                initial={{ opacity: 0, rotateX: 90, scale: 0.8 }}
+                animate={{ opacity: 1, rotateX: 0, scale: 1 }}
+                transition={{
+                  delay: 0.8,
+                  duration: 1,
+                  type: "spring",
+                  stiffness: 200,
+                  damping: 20,
+                }}
+                className="text-4xl lg:text-7xl font-bold tracking-wider"
+              >
+                Club
+              </motion.span>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <p className="text-base md:text-4xl mt-0 text-white font-normal inter-var text-center font-keania-one">
+        <motion.p
+          className="text-base md:text-4xl mt-0 text-white font-normal inter-var text-center font-keania-one"
+          initial="hidden"
+          animate="visible"
+          variants={fadeInVariant}
+          transition={{ delay: 2 }}
+        >
           NIT Silchar
-        </p>
+        </motion.p>
+
         {event.visible && (
-          <button className="p-6 m-5 z-40">
+          <motion.button
+            className="p-6 m-5 z-40"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 3, duration: 0.5 }}
+          >
             <Link href="/register">
               <div className="px-8 py-5 hover:bg-red-500 bg-gradient-to-r from-indigo-500 to-purple-500 rounded relative transition duration-2000 text-white animate-bounce">
                 {event.title}
               </div>
             </Link>
-          </button>
+          </motion.button>
         )}
       </WavyBackground>
 
