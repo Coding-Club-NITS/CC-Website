@@ -63,8 +63,11 @@ export default function AnimatedPin() {
 
   return (
     <>
-      {Platforms.map((platform) => (
-        <div className="h-[50rem] w-full md:flex lg:flex hidden items-center overflow-scroll pin">
+      {Platforms.map((platform, index) => (
+        <div
+          key={index} // Add a unique key for each element in the map
+          className="h-[50rem] w-full md:flex lg:flex hidden items-center overflow-scroll pin"
+        >
           <Link
             href={platform.url}
             passHref
