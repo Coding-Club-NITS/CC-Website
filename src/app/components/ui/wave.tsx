@@ -14,6 +14,7 @@ export const WavyBackground = ({
   blur = 10,
   speed = "fast",
   waveOpacity = 0.5,
+  mode = "dark", // New prop to toggle between light and dark modes
   ...props
 }: {
   children?: string | React.ReactNode;
@@ -25,6 +26,7 @@ export const WavyBackground = ({
   blur?: number;
   speed?: "slow" | "fast";
   waveOpacity?: number;
+  mode?: "light" | "dark"; // Mode for light/dark theme
   [key: string]: any;
 }) => {
   const noise = createNoise3D();
@@ -36,6 +38,7 @@ export const WavyBackground = ({
     ctx: any,
     canvas: any;
   const canvasRef = useRef<HTMLCanvasElement>(null);
+
   const getSpeed = () => {
     switch (speed) {
       case "slow":
@@ -62,13 +65,12 @@ export const WavyBackground = ({
     render();
   };
 
-  const waveColors = colors ?? [
-    "#f87171",
-    "#f87171",
-    "#ef4444",
-    "#facc15",
-    "#eab308",
-  ];
+  // Default colors for light and dark modes
+  const darkModeColors = ["#f87171", "#ef4444", "#facc15", "#eab308"];
+  const lightModeColors = ["#93c5fd", "#3b82f6", "#a5b4fc", "#818cf8"];
+  const waveColors =
+    colors ?? (mode === "dark" ? darkModeColors : lightModeColors);
+
   const drawWave = (n: number) => {
     nt += getSpeed();
     for (i = 0; i < n; i++) {
@@ -77,7 +79,7 @@ export const WavyBackground = ({
       ctx.strokeStyle = waveColors[i % waveColors.length];
       for (x = 0; x < w; x += 5) {
         const y = noise(x / 800, 0.3 * i, nt) * 100;
-        ctx.lineTo(x, y + h * 0.5); // adjust for height, currently at 50% of the container
+        ctx.lineTo(x, y + h * 0.5); // Adjust for height, currently at 50% of the container
       }
       ctx.stroke();
       ctx.closePath();
@@ -86,7 +88,7 @@ export const WavyBackground = ({
 
   let animationId: number;
   const render = () => {
-    ctx.fillStyle = backgroundFill || "black";
+    ctx.fillStyle = backgroundFill || (mode === "dark" ? "black" : "white");
     ctx.globalAlpha = waveOpacity || 0.5;
     ctx.fillRect(0, 0, w, h);
     drawWave(5);
@@ -98,11 +100,10 @@ export const WavyBackground = ({
     return () => {
       cancelAnimationFrame(animationId);
     };
-  }, []);
+  }, [mode, colors]); // Re-initialize on mode or color change
 
   const [isSafari, setIsSafari] = useState(false);
   useEffect(() => {
-    // I'm sorry but i have got to support it on safari.
     setIsSafari(
       typeof window !== "undefined" &&
         navigator.userAgent.includes("Safari") &&
