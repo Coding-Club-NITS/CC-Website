@@ -9,7 +9,8 @@ import {
   IconSchool,
   IconBriefcase,
   IconMail,
-} from "@tabler/icons-react";
+  IconTimeline,
+} from "@tabler/icons-react"; // Ensure you import the Timeline icon
 import { FloatingDockMobile } from "./ContestNavbar";
 // import Link from "next/link";
 
@@ -20,18 +21,15 @@ const navItems = [
   { title: "Team", href: "members", icon: <IconUsers size={20} /> },
   { title: "PCD", href: "pcd", icon: <IconChartBar size={20} /> },
   { title: "Alumni", href: "alumini", icon: <IconSchool size={20} /> },
-  {
-    title: "Resources",
-    href: "resources",
-    icon: <IconBriefcase size={20} />,
-  },
+  { title: "Resources", href: "resources", icon: <IconBriefcase size={20} /> },
+  { title: "Timeline", href: "events", icon: <IconTimeline size={20} /> }, // Added Timeline here
   { title: "Contact Us", href: "about", icon: <IconMail size={20} /> },
 ];
 
 export default function Navbar() {
   return (
     <nav className="absolute w-full z-50 p-5">
-      {/* <SidebarNavigation /> */}
+      {/* Mobile Navigation */}
       <FloatingDockMobile items={navItems} className="fixed bottom-9 right-8" />
       <div className="flex items-center justify-end">
         <div className="hidden lg:block">
@@ -56,41 +54,3 @@ export default function Navbar() {
     </nav>
   );
 }
-
-// export function SidebarNavigation() {
-//   const handleMouseEnter = () => {
-//     document.body.classList.add("overflow-hidden");
-//   };
-
-//   const handleMouseLeave = () => {
-//     document.body.classList.remove("overflow-hidden");
-//   };
-
-//   useEffect(() => {
-//     return () => document.body.classList.remove("overflow-hidden");
-//   }, []);
-
-//   return (
-//     <div
-//       className="absolute top-0 z-50 hover:bg-white/10 hover:backdrop-blur-md h-full p-2 md:hidden"
-//       onMouseEnter={handleMouseEnter}
-//       onMouseLeave={handleMouseLeave}
-//     >
-//       <Sidebar>
-//         <SidebarBody>
-//           {navItems.map((item) => (
-//             <Link href={item.href} passHref>
-//               <SidebarLink
-//                 link={{
-//                   label: item.label,
-//                   href: item.href,
-//                   icon: item.icon,
-//                 }}
-//               />
-//             </Link>
-//           ))}
-//         </SidebarBody>
-//       </Sidebar>
-//     </div>
-//   );
-// }
