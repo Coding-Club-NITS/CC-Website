@@ -5,6 +5,7 @@ import Testimonials from "./components/testimonials";
 import { FlipWordsDemo } from "./components/flipwords";
 import Parallax from "./components/parallax";
 import SmoothScrolling from "./components/smoothScroll";
+import Timelinedemo from "./components/timelinedemo";
 
 export default function page() {
   return (
