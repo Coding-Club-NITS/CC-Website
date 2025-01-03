@@ -60,11 +60,20 @@ export const HeroParallax = ({
   return (
     <>
       <WavyBackground className="max-w-4xl mx-auto pb-40 mt-5">
-        <p className="text-2xl md:text-4xl lg:text-7xl text-white font-bold inter-var text-center">
-          Welcome
-        </p>
-        <p className="text-base md:text-lg mt-4 text-white font-normal inter-var text-center">
-          to the official website of Coding Club NIT Silchar
+        <div className="relative w-full flex justify-center items-center">
+          <img src="/CC-logo.png" alt="Logo" className="w-48 h-48 md:w-64 md:h-64 lg:w-96 lg:h-96" />
+          <div className="absolute bottom-0 mb-16 text-2xl md:text-4xl lg:text-7xl text-white font-bold inter-var text-center font-monoton">
+            <div className="w-full flex justify-center">
+              <span className="tracking-med">CODING</span>
+            </div>
+            <div className="w-full flex justify-center">
+              <span className="tracking-widest ml-6">CLUB</span>
+            </div>
+          </div>
+        </div>
+
+        <p className="text-base md:text-4xl mt-0 text-white font-normal inter-var text-center font-keania-one">
+          NIT Silchar
         </p>
         {event.visible && (
           <button className="p-6 m-5 z-40">
