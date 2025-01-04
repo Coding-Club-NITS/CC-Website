@@ -1,0 +1,358 @@
+/* page.module.css */
+/* Add these new styles to your existing CSS module */
+
+.accordionContainer {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.accordionItem {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.accordionHeader {
+  width: 100%;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  text-align: left;
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.accordionHeader:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.accordionHeader.active {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.accordionIcon {
+  font-size: 1.5rem;
+  font-weight: 300;
+  transition: transform 0.3s ease;
+}
+
+.accordionContent {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.accordionContent.open {
+  max-height: 500px;
+}
+
+.accordionText {
+  padding: 20px;
+  color: #e0e0e0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.accordionText p {
+  margin: 0 0 10px 0;
+}
+
+.accordionText p:last-child {
+  margin-bottom: 0;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 30px;
+  color: #a0a0a0;
+}
+
+.note {
+  font-size: 0.9rem;
+}
+
+.note span {
+  color: #ffd700;
+}
+
+/* Animation for accordion content */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.accordionContent.open .accordionText {
+  animation: slideDown 0.3s ease-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .accordionContainer {
+    padding: 0 15px;
+  }
+
+  .accordionHeader {
+    padding: 15px;
+    font-size: 1rem;
+  }
+
+  .accordionText {
+    padding: 15px;
+    font-size: 0.9rem;
+  }
+}
+.wrapper {
+  background: #121212;
+  min-height: 100vh;
+  color: #ffffff;
+  padding-top: 100px; /* Add padding to create space below navbar */
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+}
+
+.containers {
+  width: 550px;
+  height: 100%;
+  margin-left: 10px;
+}
+
+.pic {
+  box-shadow: 6px 6px 7px rgba(0, 0, 0, 0.5); /* Darker shadow */
+  width: 300px;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 100px;
+  margin-left: 135px;
+  transform: rotate(45deg);
+  border: 2px solid #2a2a2a; /* Dark border */
+}
+
+.pic:hover,
+.box1:hover,
+.box2:hover,
+.social1:hover,
+.social2:hover,
+.social3:hover {
+  box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.box1 {
+  box-shadow: 6px 6px 7px rgba(0, 0, 0, 0.5);
+  width: 100px;
+  height: 100px;
+  position: relative;
+  overflow: hidden;
+  margin-top: -124px;
+  margin-left: 16px;
+  transform: rotate(45deg);
+  border: 2px solid #2a2a2a;
+  background-color: #ff0000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.box1 svg {
+  font-size: 40px;
+  color: #ffffff; /* Icon color */
+  transform: rotate(-45deg); /* Reverse the box rotation */
+  transition: all 0.3s ease;
+}
+
+/* Hover effect for icons */
+.box1:hover svg {
+  transform: rotate(-45deg) scale(1.1); /* Slightly enlarge the icon */
+}
+.box2 {
+  box-shadow: 6px 6px 7px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+  width: 194px;
+  height: 99px;
+  margin-top: 14px;
+  margin-left: 78px;
+  transform: rotate(45deg);
+  border: 2px solid #2a2a2a;
+}
+
+.tiltedImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.3s ease;
+}
+
+.tiltedImage:hover {
+  transform: scale(1.5); /* Slight zoom effect on hover */
+}
+
+.content {
+  height: 100%;
+  width: 500px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.05); /* Slight light background */
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+}
+
+.content p {
+  font-family: "Open Sans Condensed", sans-serif;
+  color: #e0e0e0;
+}
+
+.content h2 {
+  font-family: "Dancing Script", cursive;
+  color: #e0e0e0;
+}
+
+.contentHead {
+  font-family: "Open Sans Condensed", sans-serif;
+  font-size: 60px;
+  font-weight: 500;
+  text-decoration: underline;
+  color: #ffffff;
+  margin-bottom: 30px;
+}
+
+.content sup {
+  font-family: "Open Sans Condensed", sans-serif;
+  font-style: italic;
+  font-size: smaller;
+  color: #e0e0e0;
+}
+
+.content span {
+  color: #ff69b4;
+}
+
+.note {
+  color: #a0a0a0 !important;
+  font-size: 18px;
+}
+
+.centerAlign {
+  text-align: center;
+}
+
+.social1,
+.social2,
+.social3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 6px 6px 7px rgba(0, 0, 0, 0.5);
+  width: 80px;
+  height: 80px;
+  transform: rotate(45deg);
+  border: 2px solid #2a2a2a;
+}
+
+/* Facebook box */
+.social1 {
+  background-color: #1877f2; /* Facebook Blue */
+  margin-top: -57px;
+  margin-left: 305px;
+}
+
+/* Instagram box */
+.social2 {
+  background-color: #e4405f; /* Instagram Pink-Red */
+  margin-top: -142px;
+  margin-left: 370px;
+}
+
+/* LinkedIn box */
+.social3 {
+  background-color: #0077b5; /* LinkedIn Blue */
+  margin-top: -143px;
+  margin-left: 435px;
+}
+
+/* Center and style the icons */
+.social1 svg,
+.social2 svg,
+.social3 svg {
+  font-size: 40px;
+  color: #ffffff; /* Icon color */
+  transform: rotate(-45deg); /* Reverse the box rotation */
+  transition: all 0.3s ease;
+}
+
+/* Hover effect for icons */
+.social1:hover svg,
+.social2:hover svg,
+.social3:hover svg {
+  transform: rotate(-45deg) scale(1.1); /* Slightly enlarge the icon */
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .containers {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .content {
+    width: 100%;
+    padding: 20px;
+    margin-top: 30px;
+  }
+
+  .pic {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .social1,
+  .social2,
+  .social3 {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .wrapper {
+    padding-top: 80px; /* Slightly less padding on mobile */
+  }
+
+  .row {
+    padding-top: 1rem;
+  }
+}
+
+/* Add some subtle animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.content {
+  animation: fadeIn 0.8s ease-out;
+}
