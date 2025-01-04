@@ -16,7 +16,7 @@ const nextConfig = {
       "cdn.iconscout.com",
       "user-images.githubusercontent.com",
       "media.licdn.com",
-      "newsnetworktv.com",
+      "i.sstatic.net",
     ],
   },
 };
