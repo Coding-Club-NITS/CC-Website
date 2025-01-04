@@ -3,7 +3,7 @@ import { BackgroundLines } from "./ui/bglines";
 
 export function BackgroundLinesDemo() {
   return (
-    <BackgroundLines className="flex items-center justify-center w-full flex-col px-4">
+    <BackgroundLines className="flex items-center justify-center w-full flex-col px-4 bg-transparent">
       <h2 className="bg-clip-text text-center bg-gradient-to-b  text-white text-2xl md:text-4xl lg:text-7xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight">
         The Alumini Page of <br /> Coding Club NITS!!
       </h2>
