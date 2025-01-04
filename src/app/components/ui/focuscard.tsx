@@ -1,10 +1,15 @@
 /* eslint-disable */
 "use client";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import { cn } from "@/lib/utils";
 import Icon from "./cficon";
+import SmoothScrolling from "../smoothScroll";
+
 export const Card = React.memo(
   ({
     card,
@@ -37,11 +42,11 @@ export const Card = React.memo(
           hovered === index ? "opacity-100" : "opacity-0"
         )}
       >
-        <div className="flex-col">
+        <div className="flex flex-col">
           <div className="text-xl md:text-2xl font-medium bg-clip-text text-white bg-gradient-to-b from-neutral-50 to-neutral-200">
             {card.title}
           </div>
-          <div className="text-xl md:text-0.2xl font-thin bg-clip-text text-white bg-gradient-to-b from-neutral-50 to-neutral-200">
+          <div className="text-lg md:text-xl font-thin bg-clip-text text-white bg-gradient-to-b from-neutral-50 to-neutral-200">
             {card.description}
           </div>
         </div>
@@ -50,10 +55,10 @@ export const Card = React.memo(
           passHref
           target="_blank"
           rel="noopener noreferrer"
+          className="ml-4"
         >
           <Icon />
         </Link>
-        {/*  */}
       </div>
     </div>
   )
@@ -61,25 +66,65 @@ export const Card = React.memo(
 
 Card.displayName = "Card";
 
-type Card = {
+type CardType = {
   title: string;
   src: string;
+  description: string;
+  profile: string;
 };
 
-export default function FocusCards({ cards }: { cards: Card[] }) {
+export default function FocusCards({ cards }: { cards: CardType[] }) {
   const [hovered, setHovered] = useState<number | null>(null);
+  const cardsRef = useRef<HTMLDivElement[]>([]);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    cardsRef.current.forEach((card, index) => {
+      if (card) {
+        gsap.fromTo(
+          card,
+          { opacity: 0, scale: 0.2 },
+          {
+            opacity: 1,
+            scale: 1,
+            duration: 1,
+            delay: index * 0.1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 90%",
+              end: "top 50%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      }
+    });
+
+    // Cleanup ScrollTrigger
+    return () => ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+  }, []);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-4 gap-5 max-w-8xl mx-auto md:px-2 w-full">
-      {cards.map((card, index) => (
-        <Card
-          key={card.title}
-          card={card}
-          index={index}
-          hovered={hovered}
-          setHovered={setHovered}
-        />
-      ))}
-    </div>
+    <SmoothScrolling>
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-5 max-w-8xl mx-auto md:px-2 w-full">
+        {cards.map((card, index) => (
+          <div
+            key={card.title}
+            ref={(el) => {
+              if (el) cardsRef.current[index] = el;
+            }}
+          >
+            <Card
+              card={card}
+              index={index}
+              hovered={hovered}
+              setHovered={setHovered}
+            />
+          </div>
+        ))}
+      </div>
+    </SmoothScrolling>
   );
 }

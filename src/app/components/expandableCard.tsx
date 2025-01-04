@@ -3,8 +3,9 @@ import Image from "next/image";
 import React, { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "./hooks/use-outside-click";
+import cards from "@/data/expandCard";
 
-  export default function ExpandableCardDemo() {
+export default function ExpandableCardDemo() {
   const [active, setActive] = useState<(typeof cards)[number] | boolean | null>(
     null
   );
@@ -38,7 +39,7 @@ import { useOutsideClick } from "./hooks/use-outside-click";
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/20 h-full w-full z-10"
+            className="fixed inset-0 backdrop-blur-sm bg-black/20 h-full w-full z-10"
           />
         )}
       </AnimatePresence>
@@ -68,7 +69,7 @@ import { useOutsideClick } from "./hooks/use-outside-click";
             <motion.div
               layoutId={`card-${active.title}-${id}`}
               ref={ref}
-              className="w-full max-w-[500px]  h-full md:h-fit md:max-h-[90%]  flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden"
+              className="w-full max-w-[500px]  h-full md:h-fit md:max-h-[90%] backdrop-blur-md flex flex-col bg-blue-gray-900/70 sm:rounded-3xl overflow-hidden"
             >
               <motion.div layoutId={`image-${active.title}-${id}`}>
                 <Image
@@ -102,18 +103,18 @@ import { useOutsideClick } from "./hooks/use-outside-click";
                     layoutId={`button-${active.title}-${id}`}
                     href={active.ctaLink}
                     target="_blank"
-                    className="px-4 py-3 text-sm rounded-full font-bold bg-green-500 text-white"
+                    className="px-4 py-2 text-sm rounded-full font-bold bg-red-500 text-white"
                   >
                     {active.ctaText}
                   </motion.a>
                 </div>
-                <div className="pt-4 relative px-4">
+                <div className="relative px-4">
                   <motion.div
                     layout
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="text-black text-xs md:text-sm lg:text-base h-40 md:h-fit pb-10 flex flex-col items-start gap-4 overflow-auto dark:text-neutral-400 [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]"
+                    className="text-white/60 text-xs md:text-sm lg:text-base h-40 md:h-fit pb-10 flex flex-col items-start gap-4 p-5 dark:text-neutral-400 [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]"
                   >
                     {typeof active.content === "function"
                       ? active.content()
@@ -125,15 +126,29 @@ import { useOutsideClick } from "./hooks/use-outside-click";
           </div>
         ) : null}
       </AnimatePresence>
-      <ul className="max-w-2xl mx-auto w-full gap-4">
+      <ul className="max-w-2xl mx-auto w-full gap-4 ">
         {cards.map((card, index) => (
           <motion.div
             layoutId={`card-${card.title}-${id}`}
             key={`card-${card.title}-${id}`}
             onClick={() => setActive(card)}
             className="p-4 flex flex-col md:flex-row justify-between items-center hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer"
+            initial={{
+              opacity: 0,
+              x: -500, // Translate in from the left
+              scale: 0.1, // Start smaller
+            }}
+            animate={{
+              opacity: 1,
+              x: 0, // Set to final position
+              scale: 1, // Scale up to normal size
+            }}
+            transition={{
+              duration: 1,
+              delay: index * 0.2, // Add staggered delay for each item
+            }}
           >
-            <div className="flex gap-4 flex-col md:flex-row ">
+            <div className="flex gap-4 flex-col md:flex-row">
               <motion.div layoutId={`image-${card.title}-${id}`}>
                 <Image
                   width={100}
@@ -160,7 +175,7 @@ import { useOutsideClick } from "./hooks/use-outside-click";
             </div>
             <motion.button
               layoutId={`button-${card.title}-${id}`}
-              className="px-4 py-2 text-sm rounded-full font-bold bg-gray-100 hover:bg-green-500 hover:text-white text-black mt-4 md:mt-0"
+              className="px-4 py-2 text-sm rounded-full font-bold bg-gray-100 hover:bg-red-500 hover:text-white text-black mt-4 md:mt-0"
             >
               {card.ctaText}
             </motion.button>
@@ -195,7 +210,7 @@ export const CloseIcon = () => {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="h-4 w-4 text-black"
+      className="h-4 w-4 text-white"
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
       <path d="M18 6l-12 12" />
@@ -203,77 +218,3 @@ export const CloseIcon = () => {
     </motion.svg>
   );
 };
-
-const cards = [
-  {
-    description: "Coding Club - NIT Silchar",
-    title: "Hall of Fame 2024",
-    src: "https://assets.aceternity.com/demos/lana-del-rey.jpeg", // Use previous Aceternity image URL
-    ctaText: "View More",
-    ctaLink: "https://ui.aceternity.com/templates",
-    content: () => {
-      return (
-        <p>
-          The Coding Club at NIT Silchar has made tremendous strides in the world of competitive programming. With a dedicated team of members, the club has consistently performed well in regional and national coding competitions. The Hall of Fame recognizes those who have made significant contributions to the success and growth of the club. Each member's dedication to solving complex problems and helping others grow makes them an integral part of the NIT Silchar coding community.
-        </p>
-      );
-    },
-  },
-  {
-    description: "Member - Nawadeep Atreya",
-    title: "Coder of the Year",
-    src: "https://assets.aceternity.com/demos/babbu-maan.jpeg", // Use previous Aceternity image URL
-    ctaText: "View More",
-    ctaLink: "https://ui.aceternity.com/templates",
-    content: () => {
-      return (
-        <p>
-          Nawadeep Atreya, a third-year student at NIT Silchar, has earned the title of "Coder of the Year" due to his consistent performance in coding competitions and contributions to the Coding Club. Nawadeep's dedication to learning and mentoring junior members has helped the club achieve remarkable success in various hackathons and coding contests.
-        </p>
-      );
-    },
-  },
-  {
-    description: "Member - Aakash Mehta",
-    title: "Top Performer 2024",
-    src: "https://assets.aceternity.com/demos/metallica.jpeg", // Use previous Aceternity image URL
-    ctaText: "View More",
-    ctaLink: "https://ui.aceternity.com/templates",
-    content: () => {
-      return (
-        <p>
-          Aakash Mehta has been recognized as the top performer of the year for his exceptional problem-solving skills. Aakash has showcased his skills in multiple competitions, securing top ranks. His contributions to various group projects and enthusiasm in organizing coding events have made him an essential part of the Coding Club at NIT Silchar.
-        </p>
-      );
-    },
-  },
-  {
-    description: "Member - Rishabh Gupta",
-    title: "Future Leader of the Club",
-    src: "https://assets.aceternity.com/demos/led-zeppelin.jpeg", // Use previous Aceternity image URL
-    ctaText: "View More",
-    ctaLink: "https://ui.aceternity.com/templates",
-    content: () => {
-      return (
-        <p>
-          Rishabh Gupta, known for his leadership and problem-solving abilities, is recognized as the future leader of the Coding Club. Rishabh's passion for coding and his strategic approach to tackling challenges make him the perfect candidate to lead the club into the next generation of coders at NIT Silchar.
-        </p>
-      );
-    },
-  },
-  {
-    description: "Member - Priya Sharma",
-    title: "Outstanding Contributor",
-    src: "https://assets.aceternity.com/demos/toh-phir-aao.jpeg", // Use previous Aceternity image URL
-    ctaText: "View More",
-    ctaLink: "https://ui.aceternity.com/templates",
-    content: () => {
-      return (
-        <p>
-          Priya Sharma has been an outstanding contributor to the Coding Club. She has consistently helped organize workshops and coding events, fostering a collaborative learning environment for all club members. Her leadership and dedication to empowering others make her a true asset to the club.
-        </p>
-      );
-    },
-  },
-];
-

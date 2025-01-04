@@ -66,10 +66,7 @@ export const TextRevealCard = ({
       onTouchEnd={mouseLeaveHandler}
       onTouchMove={touchMoveHandler}
       ref={cardRef}
-      className={cn(
-        "  rounded-lg  relative overflow-hidden",
-        className
-      )}
+      className={cn("  rounded-lg  relative overflow-hidden", className)}
     >
       {children}
 
