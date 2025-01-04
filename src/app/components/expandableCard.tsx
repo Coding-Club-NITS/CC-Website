@@ -126,15 +126,29 @@ export default function ExpandableCardDemo() {
           </div>
         ) : null}
       </AnimatePresence>
-      <ul className="max-w-2xl mx-auto w-full gap-4">
-        {cards.map((card) => (
+      <ul className="max-w-2xl mx-auto w-full gap-4 ">
+        {cards.map((card, index) => (
           <motion.div
             layoutId={`card-${card.title}-${id}`}
             key={`card-${card.title}-${id}`}
             onClick={() => setActive(card)}
             className="p-4 flex flex-col md:flex-row justify-between items-center hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer"
+            initial={{
+              opacity: 0,
+              x: -500, // Translate in from the left
+              scale: 0.1, // Start smaller
+            }}
+            animate={{
+              opacity: 1,
+              x: 0, // Set to final position
+              scale: 1, // Scale up to normal size
+            }}
+            transition={{
+              duration: 1,
+              delay: index * 0.2, // Add staggered delay for each item
+            }}
           >
-            <div className="flex gap-4 flex-col md:flex-row ">
+            <div className="flex gap-4 flex-col md:flex-row">
               <motion.div layoutId={`image-${card.title}-${id}`}>
                 <Image
                   width={100}

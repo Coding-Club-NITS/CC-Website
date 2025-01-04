@@ -1,4 +1,5 @@
 "use client";
+import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { CardBody, CardContainer, CardItem } from "@/app/components/ui/ytcard";
@@ -82,17 +83,26 @@ const PCD: React.FC = () => {
 
   const renderSkeletonCards = () => {
     const skeletonCards = Array.from({ length: 6 }, (_, index) => (
-      <CardContainer
+      <motion.div
         key={index}
-        className="inter-var animate-pulse bg-gray-800 border-gray-700 w-auto sm:w-[20rem] rounded-xl p-5 m-1 border h-80"
+        className="inter-var bg-yellow-800/10 border-white/10 backdrop-blur-lg w-auto sm:w-[20rem] rounded-xl p-5 m-1 border h-80"
+        animate={{
+          rotateY: [0, 360],
+        }}
+        transition={{
+          duration: 1,
+          repeat: Infinity,
+          ease: "linear",
+        }}
       >
-        <CardBody className="h-full flex flex-col justify-between">
-          <div className="h-40 bg-gray-700 rounded-lg"></div>
-          <div className="h-6 bg-gray-700 rounded w-3/4 mt-4"></div>
-          <div className="h-4 bg-gray-700 rounded w-1/2 mt-2"></div>
-        </CardBody>
-      </CardContainer>
+        <div className="h-full flex flex-col justify-between">
+          <div className="h-40 bg-gray-700/10 backdrop-blur-lg  rounded-lg"></div>
+          <div className="h-6 bg-gray-700/10 backdrop-blur-lg rounded w-3/4 mt-4"></div>
+          <div className="h-4 bg-gray-700/10 backdrop-blur-lg  rounded w-1/2 mt-2"></div>
+        </div>
+      </motion.div>
     ));
+
     return skeletonCards;
   };
 
@@ -103,7 +113,7 @@ const PCD: React.FC = () => {
 
     return videos[section].map((video, index) => (
       <CardContainer key={index} className="inter-var">
-        <CardBody className="relative group/card hover:shadow-2xl hover:shadow-yellow-500/[0.1] bg-gray-900 border-white/[0.1] w-auto sm:w-[20rem] rounded-xl p-5 m-1 border h-80">
+        <CardBody className="relative group/card hover:shadow-2xl hover:shadow-yellow-500/[0.1] bg-yellow-600/15 backdrop-blur-lg border-white/[0.1] w-auto sm:w-[20rem] rounded-xl p-5 m-1 border h-80">
           <CardItem translateZ="100" className="w-full">
             <Link href={video.videoUrl} passHref target="_blank">
               <Image
