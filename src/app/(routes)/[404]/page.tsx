@@ -1,18 +1,23 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+
 export default function BounceGame404() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [gameStarted, setGameStarted] = useState(false);
   const [score, setScore] = useState(0);
   let scr = 0;
   const [maxScore, setMaxScore] = useState(0);
+
   useEffect(() => {
     if (!gameStarted) return;
+
     const canvas = canvasRef.current!;
     const ctx = canvas.getContext("2d")!;
     const favicon = document.querySelector<HTMLLinkElement>("link[rel='icon']");
+
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+
     const ball = {
       x: canvas.width / 2,
       y: 50,
@@ -22,17 +27,25 @@ export default function BounceGame404() {
       img: new Image(),
     };
     ball.img.src = favicon ? favicon.href : "";
+
     const paddle = {
-      x: 0,
+      x: canvas.width / 2 - 75,
       y: canvas.height - 30,
       width: 150,
       height: 10,
     };
+
     let animationFrame: number;
+
     const handleMouseMove = (event: MouseEvent) => {
-      paddle.x = event.clientX - paddle.width / 2;
+      paddle.x = Math.max(
+        0,
+        Math.min(event.clientX - paddle.width / 2, canvas.width - paddle.width)
+      );
     };
+
     window.addEventListener("mousemove", handleMouseMove);
+
     const drawBall = () => {
       if (ball.img.complete) {
         ctx.drawImage(
@@ -50,22 +63,29 @@ export default function BounceGame404() {
         ctx.closePath();
       }
     };
+
     const drawPaddle = () => {
-      ctx.fillStyle = "blue";
+      ctx.fillStyle = "yellow";
       ctx.fillRect(paddle.x, paddle.y, paddle.width, paddle.height);
     };
+
     const update = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       drawBall();
       drawPaddle();
+
       ball.x += ball.dx;
       ball.y += ball.dy;
+
+      // Ball collision with walls
       if (ball.x + ball.radius > canvas.width || ball.x - ball.radius < 0) {
         ball.dx = -ball.dx;
       }
       if (ball.y - ball.radius < 0) {
         ball.dy = -ball.dy;
       }
+
+      // Ball collision with the paddle
       if (
         ball.y + ball.radius > paddle.y &&
         ball.x > paddle.x &&
@@ -77,20 +97,26 @@ export default function BounceGame404() {
         ball.dy *= 1.05;
         setScore(scr);
       }
+
+      // Ball falling out of bounds
       if (ball.y - ball.radius > canvas.height) {
         cancelAnimationFrame(animationFrame);
-        setMaxScore((prevMax) => Math.max(prevMax, score));
+        setMaxScore(Math.max(scr, maxScore));
         setGameStarted(false);
         return;
       }
+
       animationFrame = requestAnimationFrame(update);
     };
+
     update();
+
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
       cancelAnimationFrame(animationFrame);
     };
   }, [gameStarted]);
+
   return (
     <div
       style={{
@@ -99,6 +125,7 @@ export default function BounceGame404() {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        overflow: "hidden",
       }}
     >
       <div
@@ -155,7 +182,7 @@ export default function BounceGame404() {
           cursor: "none",
         }}
       />
-      {/* Score Component */}
+
       <div
         style={{
           position: "absolute",
