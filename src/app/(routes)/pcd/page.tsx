@@ -85,7 +85,7 @@ const PCD: React.FC = () => {
     const skeletonCards = Array.from({ length: 6 }, (_, index) => (
       <motion.div
         key={index}
-        className="inter-var bg-blue-800/10 border-white/10 backdrop-blur-lg w-auto sm:w-[20rem] rounded-xl p-5 m-1 border h-80"
+        className="inter-var bg-yellow-800/10 border-white/10 backdrop-blur-lg w-auto sm:w-[20rem] rounded-xl p-5 m-1 border h-80"
         animate={{
           rotateY: [0, 360],
         }}
@@ -113,7 +113,7 @@ const PCD: React.FC = () => {
 
     return videos[section].map((video, index) => (
       <CardContainer key={index} className="inter-var">
-        <CardBody className="relative group/card hover:shadow-2xl hover:shadow-yellow-500/[0.1] bg-blue-600/15 backdrop-blur-lg border-white/[0.1] w-auto sm:w-[20rem] rounded-xl p-5 m-1 border h-80">
+        <CardBody className="relative group/card hover:shadow-2xl hover:shadow-yellow-500/[0.1] bg-yellow-600/15 backdrop-blur-lg border-white/[0.1] w-auto sm:w-[20rem] rounded-xl p-5 m-1 border h-80">
           <CardItem translateZ="100" className="w-full">
             <Link href={video.videoUrl} passHref target="_blank">
               <Image

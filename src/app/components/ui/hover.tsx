@@ -22,7 +22,7 @@ export const HoverEffect = ({
   return (
     <div
       className={cn(
-        "grid grid-cols-1 md:grid-cols-3  lg:grid-cols-4  py-10",
+        "grid grid-cols-1 md:grid-cols-3  lg:grid-cols-4  py-10  bg-gray-900/30 blur-10 backdrop-blur-sm",
         className
       )}
     >
@@ -37,7 +37,7 @@ export const HoverEffect = ({
           <AnimatePresence>
             {hoveredIndex == idx && (
               <motion.span
-                className="absolute inset-0 h-full w-full bg-blue-gray-900 block rounded-3xl z-10"
+                className="absolute inset-0 h-full w-full bg-blue-gray-900/50 backdrop-blur-lg  block rounded-3xl z-10"
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
@@ -46,14 +46,14 @@ export const HoverEffect = ({
             )}
           </AnimatePresence>
 
-          <Card className="flex flex-col items-center justify-center">
+          <Card className="flex flex-col items-center justify-center  bg-black/10 backdrop-blur-xl">
             <Image
               src={item.image}
               alt="Card Image"
               className="object-cover"
               width={300}
               height={100}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" // Responsive sizing
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
             <CardTitle>{item.title}</CardTitle>
             <CardDescription>{item.description}</CardDescription>
