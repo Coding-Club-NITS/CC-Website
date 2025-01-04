@@ -53,7 +53,7 @@ export const HeroParallax = ({
     springConfig
   );
   const translateY = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [-700, 500]),
+    useTransform(scrollYProgress, [0, 0.2], [-600, 150]),
     springConfig
   );
 
@@ -64,7 +64,7 @@ export const HeroParallax = ({
 
   return (
     <>
-      <WavyBackground className="max-w-4xl mx-auto pb-40 mt-5">
+      <WavyBackground className="max-w-4xl mx-auto pb-40 mt-5" mode="dark">
         <motion.div
           className="relative w-full flex justify-center items-center"
           initial="hidden"
@@ -144,10 +144,9 @@ export const HeroParallax = ({
 
       <div
         ref={ref}
-        className="h-[300vh] py-10 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+        className="h-[250vh] overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
       >
         <Header />
-
         <motion.div
           style={{
             rotateX,
@@ -182,9 +181,9 @@ export const HeroParallax = ({
           <div className="absolute right-0 z-40 flex space-x-4">
             <button
               onClick={() => {
-                translateX.set(Math.max(translateX.get() - 500, -1000));
+                translateX.set(Math.max(translateX.get() - 500, -100));
                 translateXReverse.set(
-                  Math.min(translateXReverse.get() + 500, 1000)
+                  Math.min(translateXReverse.get() + 500, 100)
                 );
               }}
               className="p-4 bg-red-500 bg-opacity-70 text-white rounded-full hover:bg-red-600 transition"
@@ -193,7 +192,7 @@ export const HeroParallax = ({
             </button>
           </div>
 
-          <motion.div className="flex flex-row mb-10 space-x-20">
+          <motion.div className="flex flex-row space-x-20">
             {secondRow.map((product) => (
               <ProductCard
                 product={product}
@@ -213,26 +212,40 @@ export const HeroParallax = ({
           </motion.div>
         </motion.div>
       </div>
+      <div className="flex flex-col justify-around sm:flex-row">
+        <AnimatedPin />
+      </div>
     </>
   );
 };
 
 export const Header = () => {
   return (
-    <div className="max-w-7xl relative mx-auto py-10 md:py-40 px-4 w-full left-0 top-0">
-      <h1 className="text-2xl md:text-7xl font-bold dark:text-white">
-        <div className="text-red-800">Coding Club</div>
-        <div className="text-yellow-500">NIT Silchar</div>
-      </h1>
-      <div className="absolute top-200 left-100 flex flex-col pt-10 mt-10 sm:flex-row">
-        <AnimatedPin />
+    <div className="flex backdrop-blur-lg">
+      <div className="max-w-4xl relative py-10 md:py-40 px-4 w-full left-0 top-0 bg-red-400/10">
+        <h1 className="text-2xl md:text-7xl font-bold dark:text-white">
+          <div className="flex flex-row justify-around">
+            <img src="/CC-logo.png" alt="Logo" width={200} height={200} />
+            <div>
+              <div className="text-red-800 ">Coding Club</div>
+              <div className="text-yellow-500">NIT Silchar</div>
+            </div>
+          </div>
+        </h1>
+        <p className="max-w-2xl text-base md:text-xl mt-8 pl-10 dark:text-neutral-200">
+          The Coding Club at NIT Silchar fosters a vibrant community for
+          programming enthusiasts. It offers workshops and coding contests,
+          encouraging students to enhance their coding skills, collaboration,
+          teamwork, and stay updated with the latest technology trends.
+        </p>
       </div>
-      <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200">
-        The Coding Club at NIT Silchar fosters a vibrant community for
-        programming enthusiasts. It offers workshops and coding contests,
-        encouraging students to enhance their coding skills, collaboration,
-        teamwork, and stay updated with the latest technology trends.
-      </p>
+
+      <img
+        src="https://newsnetworktv.com/wp-content/uploads/2024/08/National-Institute-of-Technology-NIT-Silchar.jpg"
+        alt="college_image"
+        width={600}
+        height={100}
+      />
     </div>
   );
 };
@@ -257,7 +270,7 @@ export const ProductCard = ({
         y: -20,
       }}
       key={product.title}
-      className="group/product h-96 w-[30rem] relative flex-shrink-0"
+      className="group/product h-96 w-[30rem] relative flex-shrink-0 z-20"
     >
       <Link
         href={product.link}

@@ -65,7 +65,6 @@ export const WavyBackground = ({
     render();
   };
 
-  // Default colors for light and dark modes
   const darkModeColors = ["#f87171", "#ef4444", "#facc15", "#eab308"];
   const lightModeColors = ["#93c5fd", "#3b82f6", "#a5b4fc", "#818cf8"];
   const waveColors =
