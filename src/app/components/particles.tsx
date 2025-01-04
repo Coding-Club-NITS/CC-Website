@@ -75,7 +75,7 @@ const ParticlesComponent: React.FC<ParticlesComponentProps> = ({ id }) => {
           density: {
             enable: true,
           },
-          value: 500,
+          value: 100,
         },
         opacity: {
           value: 0.5,
