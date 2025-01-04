@@ -10,14 +10,13 @@ import {
   IconTimeline,
   IconInfoCircle,
   IconArchive,
-  IconMail,
+  // IconMail,
 } from "@tabler/icons-react"; // Ensure you import the Timeline icon
 import { FloatingDockMobile } from "./ContestNavbar";
 import { motion } from "framer-motion";
 
 const navItems = [
   { title: "Home", href: "/", icon: <IconHome size={20} /> },
-  { title: "About Us", href: "aboutus", icon: <IconInfoCircle size={20} /> }, // Added About Us here
   { title: "Contests", href: "contests", icon: <IconTrophy size={20} /> },
   { title: "Hall of Fame", href: "fame", icon: <IconStar size={20} /> },
   { title: "Team", href: "members", icon: <IconUsers size={20} /> },
@@ -25,7 +24,8 @@ const navItems = [
   { title: "Alumni", href: "alumini", icon: <IconSchool size={20} /> },
   { title: "Resources", href: "resources", icon: <IconArchive size={20} /> },
   { title: "Timeline", href: "events", icon: <IconTimeline size={20} /> },
-  { title: "Contact Us", href: "contact", icon: <IconMail size={20} /> }, // Retained Contact Us
+  { title: "About Us", href: "aboutus", icon: <IconInfoCircle size={20} /> }, // Added About Us here
+  // { title: "Contact Us", href: "contact", icon: <IconMail size={20} /> }, // Retained Contact Us
 ];
 
 const containerVariants = {
