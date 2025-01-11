@@ -11,7 +11,7 @@ import {
   IconInfoCircle,
   IconArchive,
   // IconMail,
-} from "@tabler/icons-react"; // Ensure you import the Timeline icon
+} from "@tabler/icons-react"; // Ensure you import the required icons
 import { FloatingDockMobile } from "./ContestNavbar";
 import { motion } from "framer-motion";
 
@@ -22,10 +22,10 @@ const navItems = [
   { title: "Team", href: "members", icon: <IconUsers size={20} /> },
   { title: "PCD", href: "pcd", icon: <IconChartBar size={20} /> },
   { title: "Alumni", href: "alumini", icon: <IconSchool size={20} /> },
-  { title: "Resources", href: "resources", icon: <IconArchive size={20} /> },
+  { title: "Resources", href: "resources", icon: <IconArchive size={20} /> }, // Resources entry corrected
   { title: "Timeline", href: "events", icon: <IconTimeline size={20} /> },
-  { title: "About Us", href: "aboutus", icon: <IconInfoCircle size={20} /> }, // Added About Us here
-  // { title: "Contact Us", href: "contact", icon: <IconMail size={20} /> }, // Retained Contact Us
+  { title: "About Us", href: "aboutus", icon: <IconInfoCircle size={20} /> },
+  // { title: "Contact Us", href: "contact", icon: <IconMail size={20} /> }, // Optional Contact Us
 ];
 
 const containerVariants = {
