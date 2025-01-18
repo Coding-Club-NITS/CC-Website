@@ -73,7 +73,7 @@ export const InfiniteMovingCards = ({
     <div
       ref={containerRef}
       className={cn(
-        "scroller relative z-20 max-w-7xl overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
+        "scroller relative z-20 max-w-7xl overflow-hidden dark:[mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)] [mask-image:linear-gradient(to_right,transparent_0%,red_20%,white_80%,transparent)] ",
         className
       )}
     >
@@ -87,10 +87,10 @@ export const InfiniteMovingCards = ({
       >
         {items.map((item) => (
           <li
-            className="w-[350px] max-w-full relative rounded-2xl border border-b-2 flex-shrink-0 border-red-700 px-8 py-6 md:w-[450px]"
+            className="w-[350px] max-w-full relative rounded-2xl border border-b-2 flex-shrink-0 border-blue-700 px-8 py-6 md:w-[450px]"
             style={{
               background:
-                "linear-gradient(180deg, var(--yellow-500), var(--yellow-800)",
+                "linear-gradient(180deg, var(--cyan-500), var(--cyan-800)",
             }}
             key={item.name}
           >
@@ -100,7 +100,7 @@ export const InfiniteMovingCards = ({
                 className="user-select-none -z-1 pointer-events-none absolute -left-0.5 -top-0.5 h-[calc(100%_+_4px)] w-[calc(100%_+_4px)]"
               ></div>
               <span
-                className="relative z-20 text-sm leading-[1.6] text-black font-normal italic"
+                className="relative z-20 text-sm leading-[1.6] text-white font-normal italic"
                 style={{
                   fontFamily: "'Playwrite Colombia Guides Static', cursive",
                 }}
@@ -110,13 +110,13 @@ export const InfiniteMovingCards = ({
               <div className="relative z-20 mt-6 flex flex-row items-center">
                 <span className="flex flex-col gap-1">
                   <span
-                    className="text-sm leading-[1.6] text-black font-normal italic"
+                    className="text-sm leading-[1.6] text-white font-normal italic"
                     style={{ fontFamily: "'Playwrite CO Guides', sans-serif" }}
                   >
                     {item.name}
                   </span>
                   <span
-                    className="text-sm leading-[1.6] text-black font-normal italic"
+                    className="text-sm leading-[1.6] text-white font-normal italic"
                     style={{ fontFamily: "'Playwrite CO Guides', sans-serif" }}
                   >
                     {item.title}

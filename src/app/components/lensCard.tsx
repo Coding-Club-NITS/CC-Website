@@ -29,10 +29,10 @@ export const LensDemo: React.FC<LensDemoProps> = ({ url }) => {
             }}
             className="py-4 relative z-20"
           >
-            <h2 className="text-white text-2xl text-left font-bold">
+            <h2 className="text-blue-900 dark:text-white text-2xl text-left font-bold">
               Code | Compile | Learn
             </h2>
-            <p className="text-neutral-200 text-left  mt-4">
+            <p className="text-black dark:text-neutral-200 text-left  mt-4">
               Try out different languages, data structures, algorithms and much
               more.Coding together is always FUN!!.
             </p>
