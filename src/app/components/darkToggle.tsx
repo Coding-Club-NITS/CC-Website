@@ -1,6 +1,8 @@
 "use client";
+
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import { IconMoon, IconSun } from "@tabler/icons-react";
 
 const ThemeToggle = () => {
   const { theme, setTheme, resolvedTheme } = useTheme();
@@ -15,15 +17,17 @@ const ThemeToggle = () => {
   if (!mounted) return null;
 
   return (
-    <div className="absolute z-50">
+    <div>
       <button
-        onClick={() => {
-          setTheme(currentTheme === "dark" ? "light" : "dark");
-          console.log(currentTheme);
-        }}
-        className="p-2 border rounded"
+        onClick={() => setTheme(currentTheme === "dark" ? "light" : "dark")}
+        className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-all"
+        aria-label="Toggle theme"
       >
-        {currentTheme === "dark" ? "Light Mode" : "Dark Mode"}
+        {currentTheme === "dark" ? (
+          <IconSun className="w-6 h-6 text-yellow-400" />
+        ) : (
+          <IconMoon className="w-6 h-6 text-gray-900 dark:text-gray-100" />
+        )}
       </button>
     </div>
   );

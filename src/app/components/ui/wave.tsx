@@ -3,6 +3,7 @@
 import { cn } from "../utils/cn";
 import React, { useEffect, useRef, useState } from "react";
 import { createNoise3D } from "simplex-noise";
+import { useTheme } from "next-themes";
 
 export const WavyBackground = ({
   children,
@@ -14,7 +15,6 @@ export const WavyBackground = ({
   blur = 10,
   speed = "fast",
   waveOpacity = 0.5,
-  mode = "dark", // New prop to toggle between light and dark modes
   ...props
 }: {
   children?: string | React.ReactNode;
@@ -26,9 +26,23 @@ export const WavyBackground = ({
   blur?: number;
   speed?: "slow" | "fast";
   waveOpacity?: number;
-  mode?: "light" | "dark"; // Mode for light/dark theme
   [key: string]: any;
 }) => {
+  const { theme, resolvedTheme } = useTheme(); // Import theme from next-themes
+  const [mounted, setMounted] = useState(false);
+
+  // Ensure the component is mounted
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Determine the current mode after the first render
+  const currentMode = mounted
+    ? theme === "system"
+      ? resolvedTheme
+      : theme
+    : "light";
+
   const noise = createNoise3D();
   let w: number,
     h: number,
@@ -68,7 +82,7 @@ export const WavyBackground = ({
   const darkModeColors = ["#f87171", "#ef4444", "#facc15", "#eab308"];
   const lightModeColors = ["#93c5fd", "#3b82f6", "#a5b4fc", "#818cf8"];
   const waveColors =
-    colors ?? (mode === "dark" ? darkModeColors : lightModeColors);
+    colors ?? (currentMode === "dark" ? darkModeColors : lightModeColors);
 
   const drawWave = (n: number) => {
     nt += getSpeed();
@@ -87,7 +101,8 @@ export const WavyBackground = ({
 
   let animationId: number;
   const render = () => {
-    ctx.fillStyle = backgroundFill || (mode === "dark" ? "black" : "white");
+    ctx.fillStyle =
+      backgroundFill || (currentMode === "dark" ? "black" : "#f8fafc");
     ctx.globalAlpha = waveOpacity || 0.5;
     ctx.fillRect(0, 0, w, h);
     drawWave(5);
@@ -95,11 +110,11 @@ export const WavyBackground = ({
   };
 
   useEffect(() => {
-    init();
+    if (mounted) init();
     return () => {
       cancelAnimationFrame(animationId);
     };
-  }, [mode, colors]); // Re-initialize on mode or color change
+  }, [mounted, currentMode, colors]); // Re-initialize on mode or color change
 
   const [isSafari, setIsSafari] = useState(false);
   useEffect(() => {
@@ -109,6 +124,8 @@ export const WavyBackground = ({
         !navigator.userAgent.includes("Chrome")
     );
   }, []);
+
+  if (!mounted) return null;
 
   return (
     <div
