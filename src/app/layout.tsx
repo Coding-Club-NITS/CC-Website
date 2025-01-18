@@ -2,6 +2,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Footer from "./components/footercomp";
 import Navbar from "./components/navbar";
+import ThemeToggle from "./components/darkToggle";
+import { ThemeProvider } from "next-themes";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,14 +18,15 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    // <SmoothScrolling>
     <html lang="en">
-      <body className={inter.className}>
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
-      </body>
+      <ThemeProvider attribute="class" defaultTheme="light">
+        <body className={`${inter.className} bg-white dark:bg-black`}>
+          <Navbar />
+          <ThemeToggle />
+          <main>{children}</main>
+          <Footer />
+        </body>
+      </ThemeProvider>
     </html>
-    // </SmoothScrolling>
   );
 }

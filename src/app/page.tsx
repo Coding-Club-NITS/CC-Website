@@ -1,22 +1,30 @@
 "use client";
-// import { HeroParallax } from './components/ui/hero-parallax'
+
 import ScrollCards from "./components/scrollcards";
 import Testimonials from "./components/testimonials";
 import { FlipWordsDemo } from "./components/flipwords";
 import Parallax from "./components/parallax";
 import SmoothScrolling from "./components/smoothScroll";
+import { ThemeProvider } from "next-themes";
+import { useEffect } from "react";
 
-export default function page() {
+export default function Page() {
+  useEffect(() => {
+    console.log("HTML Class:", document.documentElement.className);
+  }, []);
+
   return (
-    <SmoothScrolling>
-      <div className="dark:bg-black-900 bg-white-800">
-        <Parallax />
-        <ScrollCards />
-        <div className="h-[40rem] rounded-md flex flex-col antialiased items-center justify-center relative overflow-hidden">
-          <FlipWordsDemo />
-          <Testimonials />
+    <ThemeProvider attribute="class" defaultTheme="dark">
+      <SmoothScrolling>
+        <div className="dark:bg-black bg-white">
+          <Parallax />
+          <ScrollCards />
+          <div className="h-[40rem] rounded-md flex flex-col antialiased items-center justify-center relative overflow-hidden">
+            <FlipWordsDemo />
+            <Testimonials />
+          </div>
         </div>
-      </div>
-    </SmoothScrolling>
+      </SmoothScrolling>
+    </ThemeProvider>
   );
 }
