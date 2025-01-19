@@ -51,13 +51,13 @@ export default function Home() {
 
             {/* New Design Section */}
             <div className="mt-12 text-center">
-              <h3 className="text-[transparent] text-4xl font-extrabold inline bg-clip-text bg-gradient-to-r from-purple-500 via-violet-500 to-pink-500">
+              <h3 className="text-[transparent] text-4xl font-extrabold inline bg-clip-text bg-gradient-to-r from-yellow-500 via-violet-500 to-pink-500">
                 TOGETHER WE{" "}
               </h3>
-              <h3 className="text-[transparent] text-4xl font-extrabold inline bg-clip-text bg-gradient-to-r from-purple-500 via-violet-500 to-pink-500">
+              <h3 className="text-[transparent] text-4xl font-extrabold inline bg-clip-text bg-gradient-to-r from-yellow-500 via-violet-500 to-pink-500">
                 CAN MAKE{" "}
               </h3>
-              <h3 className="text-[transparent] text-4xl font-extrabold inline bg-clip-text bg-gradient-to-r from-purple-500 via-violet-500 to-pink-500">
+              <h3 className="text-[transparent] text-4xl font-extrabold inline bg-clip-text bg-gradient-to-r from-yellow-500 via-violet-500 to-pink-500">
                 A
               </h3>
             </div>
