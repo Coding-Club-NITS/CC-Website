@@ -65,7 +65,7 @@ export const HeroParallax = ({
 
   return (
     <>
-      <WavyBackground className="max-w-4xl mx-auto pb-40 mt-5" mode="dark">
+      <WavyBackground className="max-w-4xl mx-auto pb-40 mt-5">
         <motion.div
           className="relative w-full flex justify-center items-center"
           initial="hidden"
@@ -222,7 +222,7 @@ export const HeroParallax = ({
 
 export const Header = () => {
   return (
-    <div className="flex backdrop-blur-lg bg-gray-200">
+    <div className="flex backdrop-blur-lg bg-white/10 dark:bg-black">
       <div className="max-w-4xl relative py-10 md:py-40 px-4 w-full left-0 top-0">
         <h1 className="text-2xl md:text-7xl font-bold dark:text-white">
           <div className="flex flex-row backdrop-blur-lg">
