@@ -11,6 +11,7 @@ import Link from "next/link";
 import { WavyBackground } from "../ui/wave";
 import AnimatedPin from "../sample3d";
 import event from "@/data/newEvent.json";
+import { LensDemo } from "../lensCard";
 
 export const HeroParallax = ({
   products,
@@ -79,7 +80,7 @@ export const HeroParallax = ({
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
           />
-          <div className="absolute bottom-0 mb-16 text-2xl md:text-4xl lg:text-7xl text-white font-bold inter-var text-center font-monoton">
+          <div className="absolute bottom-0 mb-16 text-2xl md:text-4xl lg:text-7xl text-gray-900 dark:text-white font-bold inter-var text-center font-monoton">
             <div className="w-full flex justify-center">
               <motion.span
                 initial={{ opacity: 0, rotateX: -90, scale: 0.8 }}
@@ -117,7 +118,7 @@ export const HeroParallax = ({
         </motion.div>
 
         <motion.p
-          className="text-base md:text-4xl mt-0 text-white font-normal inter-var text-center font-keania-one"
+          className="text-base md:text-4xl mt-0 text-gray-700 dark:text-white font-normal inter-var text-center font-keania-one"
           initial="hidden"
           animate="visible"
           variants={fadeInVariant}
@@ -221,31 +222,29 @@ export const HeroParallax = ({
 
 export const Header = () => {
   return (
-    <div className="flex backdrop-blur-lg">
-      <div className="max-w-4xl relative py-10 md:py-40 px-4 w-full left-0 top-0 bg-red-400/10">
+    <div className="flex backdrop-blur-lg bg-gray-200">
+      <div className="max-w-4xl relative py-10 md:py-40 px-4 w-full left-0 top-0">
         <h1 className="text-2xl md:text-7xl font-bold dark:text-white">
-          <div className="flex flex-row justify-around">
+          <div className="flex flex-row backdrop-blur-lg">
             <img src="/CC-logo.png" alt="Logo" width={200} height={200} />
             <div>
-              <div className="text-red-800 ">Coding Club</div>
-              <div className="text-yellow-500">NIT Silchar</div>
+              <div className="text-indigo-800 dark:text-red-800 ">
+                Coding Club
+              </div>
+              <div className="text-red-500 dark:text-yellow-500">
+                NIT Silchar
+              </div>
             </div>
           </div>
         </h1>
-        <p className="max-w-2xl text-base md:text-xl mt-8 pl-10 dark:text-neutral-200">
+        <p className="max-w-2xl text-base md:text-xl mt-8 pl-10 text-gray-900 dark:text-neutral-200">
           The Coding Club at NIT Silchar fosters a vibrant community for
           programming enthusiasts. It offers workshops and coding contests,
           encouraging students to enhance their coding skills, collaboration,
           teamwork, and stay updated with the latest technology trends.
         </p>
       </div>
-
-      <img
-        src="https://newsnetworktv.com/wp-content/uploads/2024/08/National-Institute-of-Technology-NIT-Silchar.jpg"
-        alt="college_image"
-        width={600}
-        height={100}
-      />
+      <LensDemo url="https://i.sstatic.net/rlNuN.png" />
     </div>
   );
 };
@@ -284,8 +283,8 @@ export const ProductCard = ({
           alt={product.title}
         />
       </Link>
-      <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-black pointer-events-none"></div>
-      <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white">
+      <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-white/50 dark:bg-black pointer-events-none"></div>
+      <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-black dark:text-white">
         {product.title}
       </h2>
     </motion.div>

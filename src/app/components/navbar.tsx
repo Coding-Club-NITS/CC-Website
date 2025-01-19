@@ -10,22 +10,23 @@ import {
   IconTimeline,
   IconInfoCircle,
   IconArchive,
-  IconMail,
-} from "@tabler/icons-react"; // Ensure you import the Timeline icon
+  // IconMail,
+} from "@tabler/icons-react"; // Ensure you import the required icons
 import { FloatingDockMobile } from "./ContestNavbar";
 import { motion } from "framer-motion";
+import ThemeToggle from "@/app/components/darkToggle";
 
 const navItems = [
   { title: "Home", href: "/", icon: <IconHome size={20} /> },
-  { title: "About Us", href: "aboutus", icon: <IconInfoCircle size={20} /> }, // Added About Us here
   { title: "Contests", href: "contests", icon: <IconTrophy size={20} /> },
   { title: "Hall of Fame", href: "fame", icon: <IconStar size={20} /> },
   { title: "Team", href: "members", icon: <IconUsers size={20} /> },
   { title: "PCD", href: "pcd", icon: <IconChartBar size={20} /> },
   { title: "Alumni", href: "alumini", icon: <IconSchool size={20} /> },
-  { title: "Resources", href: "resources", icon: <IconArchive size={20} /> },
+  { title: "Resources", href: "resources", icon: <IconArchive size={20} /> }, // Resources entry corrected
   { title: "Timeline", href: "events", icon: <IconTimeline size={20} /> },
-  { title: "Contact Us", href: "contact", icon: <IconMail size={20} /> }, // Retained Contact Us
+  { title: "About Us", href: "aboutus", icon: <IconInfoCircle size={20} /> },
+  // { title: "Contact Us", href: "contact", icon: <IconMail size={20} /> }, // Optional Contact Us
 ];
 
 const containerVariants = {
@@ -48,7 +49,6 @@ export default function Navbar() {
     <nav className="absolute w-full z-50 p-5">
       {/* Mobile Navigation */}
       <FloatingDockMobile items={navItems} className="fixed bottom-9 right-8" />
-
       <div className="flex items-center justify-end">
         <div className="hidden lg:block">
           <motion.ul
@@ -60,18 +60,21 @@ export default function Navbar() {
             {navItems.map((item, index) => (
               <motion.li
                 key={index}
-                className="block p-5 lg:p-1 font-sans text-sm antialiased font-medium leading-normal text-gray-500 transition-all duration-300 transform hover:scale-110 hover:text-gray-800"
+                className="block p-5 lg:p-1 font-sans text-sm antialiased font-medium leading-normal text-blue-900 dark:text-gray-500 transition-all duration-300 transform hover:scale-110 hover:text-gray-800"
                 variants={itemVariants}
               >
                 <a
                   href={item.href}
-                  className="flex items-center transition-colors hover:text-red-500"
+                  className="flex items-center transition-colors hover:black dark:hover:text-red-500"
                 >
                   {item.icon}
                   {item.title}
                 </a>
               </motion.li>
             ))}
+            <li>
+              <ThemeToggle />
+            </li>
           </motion.ul>
         </div>
       </div>
