@@ -5,7 +5,6 @@ import Image from "next/image";
 import { CardBody, CardContainer, CardItem } from "@/app/components/ui/ytcard";
 import { TextHoverEffect } from "@/app/components/ui/pcd";
 import ParticlesComponent from "@/app/components/particles";
-import Link from "next/link";
 import SmoothScrolling from "@/app/components/smoothScroll";
 import SparklesPreview from "@/app/components/SparklesPreview";
 
@@ -141,16 +140,15 @@ const PCD: React.FC = () => {
     return videos[section].map((video, index) => (
       <CardContainer key={index} className="inter-var">
         <CardBody className="relative group/card hover:shadow-2xl hover:shadow-yellow-500/[0.1] bg-yellow-600/15 backdrop-blur-lg border-white/[0.1] w-auto sm:w-[20rem] rounded-xl p-5 m-1 border h-80">
-          <CardItem translateZ="100" className="w-full">
-            <Link href={video.videoUrl} passHref target="_blank">
-              <Image
-                src={video.thumbnail}
-                height="1000"
-                width="1000"
-                className="h-30 w-full object-cover rounded-xl group-hover/card:shadow-xl"
-                alt={video.title}
-              />
-            </Link>
+          <CardItem translateZ="100" className="w-full h-40">
+            <iframe
+              src={`https://www.youtube.com/embed/${
+                video.videoUrl.split("v=")[1]
+              }`}
+              className="w-full h-full rounded-xl group-hover/card:shadow-xl"
+              allowFullScreen
+              title={video.title}
+            ></iframe>
           </CardItem>
           <CardItem translateZ="50" className="text-xl font-bold text-white">
             {video.title}
@@ -160,7 +158,7 @@ const PCD: React.FC = () => {
             translateZ="60"
             className="text-sm max-w-sm mt-2 text-neutral-300"
           >
-            Views: {video.views} | Likes : {video.likes}
+            Views: {video.views} | Likes: {video.likes}
           </CardItem>
         </CardBody>
       </CardContainer>
@@ -169,14 +167,14 @@ const PCD: React.FC = () => {
 
   return (
     <div>
-      <div className="pt-20 bg-black/50 backdrop-blur-lg">
+      <div className="pt-20 bg-white dark:bg-black/50 backdrop-blur-lg">
         <div className="absolute inset-0 z-0 opacity-40">
           <ParticlesComponent id="pcd" />
         </div>
         <div className="relative">
           <SparklesPreview />
-          <div className="absolute bottom-0 left-0 right-0 transform translate-y-1/2">
-            <TextHoverEffect text="PCD" />
+          <div className="absolute bottom-0 left-0 right-0 transform translate-y-70">
+            <TextHoverEffect text="Post Contest Discussion" />
           </div>
         </div>
         <div className="mt-20">
