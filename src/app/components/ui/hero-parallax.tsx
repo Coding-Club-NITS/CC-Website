@@ -12,6 +12,7 @@ import { WavyBackground } from "../ui/wave";
 import AnimatedPin from "../sample3d";
 import event from "@/data/newEvent.json";
 import { LensDemo } from "../lensCard";
+import HSI from "./horizontalScrollImages";
 
 export const HeroParallax = ({
   products,
@@ -33,16 +34,16 @@ export const HeroParallax = ({
 
   const springConfig = { stiffness: 150, damping: 35, bounce: 0.5 };
 
-  const translateX = useSpring(
-    useTransform(scrollYProgress, [0, 1], [0, 1000]),
-    springConfig
-  );
-  const translateXReverse = useSpring(
-    useTransform(scrollYProgress, [0, 1], [0, -1000]),
-    springConfig
-  );
+  // const translateX = useSpring(
+  //   useTransform(scrollYProgress, [0, 0.2], [500, 0]),
+  //   springConfig
+  // );
+  // const translateXReverse = useSpring(
+  //   useTransform(scrollYProgress, [0, 0.2], [100, 0]),
+  //   springConfig
+  // );
   const rotateX = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [15, 0]),
+    useTransform(scrollYProgress, [0, 2], [15, 80]),
     springConfig
   );
   const opacity = useSpring(
@@ -50,11 +51,15 @@ export const HeroParallax = ({
     springConfig
   );
   const rotateZ = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [20, 0]),
+    useTransform(scrollYProgress, [0, 0.2], [40, 0]),
     springConfig
   );
   const translateY = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [-600, 150]),
+    useTransform(scrollYProgress, [0, 0.2], [-900, -50]),
+    springConfig
+  );
+  const translateYReverse = useSpring(
+    useTransform(scrollYProgress, [0, 0.2], [-60, 0]),
     springConfig
   );
 
@@ -142,10 +147,10 @@ export const HeroParallax = ({
           </motion.button>
         )}
       </WavyBackground>
-
+      <HSI />
       <div
         ref={ref}
-        className="h-[250vh] overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+        className="h-[220vh] overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
       >
         <Header />
         <motion.div
@@ -157,16 +162,18 @@ export const HeroParallax = ({
           }}
           className=""
         >
-          <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-10">
+          <motion.div className="flex flex-row-reverse space-x-reverse space-x-20">
             {firstRow.map((product) => (
-              <ProductCard
-                product={product}
-                translate={translateX}
-                key={product.title}
-              />
+              <div className="p-5 m-2">
+                <ProductCard
+                  product={product}
+                  translate={translateY}
+                  key={product.title}
+                />
+              </div>
             ))}
           </motion.div>
-          <div className="absolute left-0 z-40 flex space-x-4">
+          {/* <div className="absolute left-0 z-40 flex space-x-4">
             <button
               onClick={() => {
                 translateX.set(Math.min(translateX.get() + 500, 1500));
@@ -191,24 +198,28 @@ export const HeroParallax = ({
             >
               ➡
             </button>
-          </div>
+          </div> */}
 
           <motion.div className="flex flex-row space-x-20">
             {secondRow.map((product) => (
-              <ProductCard
-                product={product}
-                translate={translateXReverse}
-                key={product.title}
-              />
+              <div className="p-5 m-2">
+                <ProductCard
+                  product={product}
+                  translate={translateYReverse}
+                  key={product.title}
+                />
+              </div>
             ))}
           </motion.div>
           <motion.div className="flex flex-row-reverse space-x-reverse space-x-20">
             {thirdRow.map((product) => (
-              <ProductCard
-                product={product}
-                translate={translateX}
-                key={product.title}
-              />
+              <div className="p-5 m-2">
+                <ProductCard
+                  product={product}
+                  translate={translateY}
+                  key={product.title}
+                />
+              </div>
             ))}
           </motion.div>
         </motion.div>
@@ -269,7 +280,7 @@ export const ProductCard = ({
         y: -20,
       }}
       key={product.title}
-      className="group/product h-96 w-[30rem] relative flex-shrink-0 z-20"
+      className="group/product h-40 w-[10rem] relative flex-shrink-0 z-20"
     >
       <Link
         href={product.link}
@@ -277,16 +288,12 @@ export const ProductCard = ({
       >
         <img
           src={product.thumbnail}
-          height="600"
-          width="600"
+          height="20"
+          width="40"
           className="object-cover object-left-top absolute h-full w-full inset-0"
           alt={product.title}
         />
       </Link>
-      <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-white/50 dark:bg-black pointer-events-none"></div>
-      <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-black dark:text-white">
-        {product.title}
-      </h2>
     </motion.div>
   );
 };

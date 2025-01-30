@@ -1,0 +1,112 @@
+[
+  {
+    "title": "JavaScript",
+    "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+    "thumbnail": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+  },
+  {
+    "title": "TypeScript",
+    "link": "https://www.typescriptlang.org/docs/",
+    "thumbnail": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+  },
+  {
+    "title": "Python",
+    "link": "https://docs.python.org/3/",
+    "thumbnail": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+  },
+  {
+    "title": "Java",
+    "link": "https://docs.oracle.com/en/java/javase/17/docs/",
+    "thumbnail": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
+  },
+  {
+    "title": "C++",
+    "link": "https://cplusplus.com/doc/",
+    "thumbnail": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"
+  },
+  {
+    "title": "C",
+    "link": "https://en.cppreference.com/w/c",
+    "thumbnail": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg"
+  },
+  {
+    "title": "Go",
+    "link": "https://go.dev/doc/",
+    "thumbnail": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg"
+  },
+  {
+    "title": "Rust",
+    "link": "https://doc.rust-lang.org/book/",
+    "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuA5MT2v_fGWaA0Sd6skEtRYifcYmXnMehCQ&s"
+  },
+  {
+    "title": "PHP",
+    "link": "https://www.php.net/docs.php",
+    "thumbnail": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg"
+  },
+  {
+    "title": "Swift",
+    "link": "https://swift.org/documentation/",
+    "thumbnail": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg"
+  },
+  {
+    "title": "Kotlin",
+    "link": "https://kotlinlang.org/docs/home.html",
+    "thumbnail": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg"
+  },
+  {
+    "title": "Ruby",
+    "link": "https://ruby-doc.org/",
+    "thumbnail": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-original.svg"
+  },
+  {
+    "title": "Dart",
+    "link": "https://dart.dev/guides",
+    "thumbnail": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg"
+  },
+  {
+    "title": "Shell",
+    "link": "https://www.gnu.org/software/bash/manual/bash.html",
+    "thumbnail": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg"
+  },
+  {
+    "title": "Perl",
+    "link": "https://perldoc.perl.org/",
+    "thumbnail": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/perl/perl-original.svg"
+  },
+  {
+    "title": "Scala",
+    "link": "https://docs.scala-lang.org/",
+    "thumbnail": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scala/scala-original.svg"
+  },
+  {
+    "title": "Lua",
+    "link": "https://www.lua.org/docs.html",
+    "thumbnail": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/lua/lua-original.svg"
+  },
+  {
+    "title": "Haskell",
+    "link": "https://www.haskell.org/documentation/",
+    "thumbnail": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/haskell/haskell-original.svg"
+  },
+  {
+    "title": "Elixir",
+    "link": "https://elixir-lang.org/docs.html",
+    "thumbnail": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/elixir/elixir-original.svg"
+  },
+  {
+    "title": "R",
+    "link": "https://cran.r-project.org/manuals.html",
+    "thumbnail": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg"
+  },
+  {
+    "title": "Objective-C",
+    "link": "https://developer.apple.com/documentation/objectivec",
+    "thumbnail": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/objectivec/objectivec-original.svg"
+  },
+  {
+    "title": "F#",
+    "link": "https://learn.microsoft.com/en-us/dotnet/fsharp/",
+    "thumbnail": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fsharp/fsharp-original.svg"
+  }
+]
