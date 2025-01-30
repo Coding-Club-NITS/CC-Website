@@ -17,6 +17,8 @@ const nextConfig = {
       "user-images.githubusercontent.com",
       "media.licdn.com",
       "i.sstatic.net",
+      "cdn.jsdelivr.net",
+      "encrypted-tbn0.gstatic.com",
     ],
   },
 };
