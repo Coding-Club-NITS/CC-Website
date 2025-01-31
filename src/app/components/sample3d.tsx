@@ -76,7 +76,9 @@ export default function AnimatedPin() {
           >
             <PinContainer title={platform.name} desc={platform.desc}>
               <div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[15rem] h-[15rem] ">
-                <h3 className="max-w-xs font-bold text-base text-slate-100"></h3>
+                <h3 className="max-w-xs font-bold text-base text-slate-100">
+                  {platform.name}
+                </h3>
                 <div className="text-base font-normal">
                   <Image
                     src={platform.link}

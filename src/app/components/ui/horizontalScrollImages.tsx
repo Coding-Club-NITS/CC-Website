@@ -1,7 +1,8 @@
 "use client";
 import { motion, useTransform, useScroll } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import images from "@/data/homedata.json";
+import ImageModal from "@/app/components/ui/imageModal";
 
 interface ImageData {
   title: string;
@@ -16,18 +17,34 @@ const HSI: React.FC = () => {
   });
 
   const x = useTransform(scrollYProgress, [0, 1], ["1%", "-95%"]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  const openModal = (image: string) => {
+    setSelectedImage(image);
+    setIsModalOpen(true);
+  };
 
   return (
     <section ref={targetRef} className="relative h-[300vh] bg-neutral-900">
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
         <motion.div style={{ x }} className="flex gap-4">
           {images.map((image: ImageData, index: number) => (
-            <a key={index} href={image.link}>
+            <a
+              key={index}
+              onClick={() => openModal(image.thumbnail)} // Open modal on click
+            >
               <Card image={image} />
             </a>
           ))}
         </motion.div>
       </div>
+      {/* Modal Component */}
+      <ImageModal
+        isOpen={isModalOpen}
+        setIsOpen={setIsModalOpen}
+        image={selectedImage}
+      />
     </section>
   );
 };
