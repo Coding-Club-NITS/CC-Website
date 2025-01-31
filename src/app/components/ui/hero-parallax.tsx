@@ -1,19 +1,14 @@
 "use client";
 import React from "react";
-import {
-  motion,
-  useScroll,
-  useTransform,
-  useSpring,
-  MotionValue,
-} from "framer-motion";
-import Link from "next/link";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+
 import { WavyBackground } from "../ui/wave";
 import AnimatedPin from "../sample3d";
-import event from "@/data/newEvent.json";
-import { LensDemo } from "../lensCard";
 import HSI from "./horizontalScrollImages";
-
+import ProductCard from "@/app/components/ui/langLogos";
+import Logo from "@/app/components/logo";
+import Header from "./headerHome";
+import ImageParallax from "../imageParalax";
 export const HeroParallax = ({
   products,
 }: {
@@ -34,14 +29,6 @@ export const HeroParallax = ({
 
   const springConfig = { stiffness: 150, damping: 35, bounce: 0.5 };
 
-  // const translateX = useSpring(
-  //   useTransform(scrollYProgress, [0, 0.2], [500, 0]),
-  //   springConfig
-  // );
-  // const translateXReverse = useSpring(
-  //   useTransform(scrollYProgress, [0, 0.2], [100, 0]),
-  //   springConfig
-  // );
   const rotateX = useSpring(
     useTransform(scrollYProgress, [0, 2], [15, 0]),
     springConfig
@@ -63,91 +50,11 @@ export const HeroParallax = ({
     springConfig
   );
 
-  const fadeInVariant = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { duration: 1 } },
-  };
-
   return (
     <>
       <WavyBackground className="max-w-4xl mx-auto pb-40 mt-5">
-        <motion.div
-          className="relative w-full flex justify-center items-center"
-          initial="hidden"
-          animate="visible"
-          variants={fadeInVariant}
-        >
-          <motion.img
-            src="/CC-logo.png"
-            alt="Logo"
-            className="w-48 h-48 md:w-64 md:h-64 lg:w-96 lg:h-96"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1 }}
-          />
-          <div className="absolute bottom-0 mb-16 text-2xl md:text-4xl lg:text-7xl text-gray-900 dark:text-white font-bold inter-var text-center font-monoton">
-            <div className="w-full flex justify-center">
-              <motion.span
-                initial={{ opacity: 0, rotateX: -90, scale: 0.8 }}
-                animate={{ opacity: 1, rotateX: 0, scale: 1 }}
-                transition={{
-                  delay: 0.5,
-                  duration: 1,
-                  type: "spring",
-                  stiffness: 200,
-                  damping: 20,
-                }}
-                className="text-4xl lg:text-7xl font-bold tracking-wider"
-              >
-                Coding
-              </motion.span>
-            </div>
-
-            <div className="w-full flex justify-center">
-              <motion.span
-                initial={{ opacity: 0, rotateX: 90, scale: 0.8 }}
-                animate={{ opacity: 1, rotateX: 0, scale: 1 }}
-                transition={{
-                  delay: 0.8,
-                  duration: 1,
-                  type: "spring",
-                  stiffness: 200,
-                  damping: 20,
-                }}
-                className="text-4xl lg:text-7xl font-bold tracking-wider"
-              >
-                Club
-              </motion.span>
-            </div>
-          </div>
-        </motion.div>
-
-        <motion.p
-          className="text-base md:text-4xl mt-0 text-gray-700 dark:text-white font-normal inter-var text-center font-keania-one"
-          initial="hidden"
-          animate="visible"
-          variants={fadeInVariant}
-          transition={{ delay: 2 }}
-        >
-          NIT Silchar
-        </motion.p>
-
-        {event.visible && (
-          <motion.button
-            className="p-6 m-5 z-40"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 3, duration: 0.5 }}
-          >
-            <Link href="/register">
-              <div className="px-8 py-5 hover:bg-red-500 bg-gradient-to-r from-indigo-500 to-purple-500 rounded relative transition duration-2000 text-white animate-bounce">
-                {event.title}
-              </div>
-            </Link>
-          </motion.button>
-        )}
+        <Logo />
       </WavyBackground>
-      <HSI />
       <div
         ref={ref}
         className="h-[220vh] overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
@@ -224,76 +131,11 @@ export const HeroParallax = ({
           </motion.div>
         </motion.div>
       </div>
+      <HSI />
       <div className="flex flex-col justify-around sm:flex-row">
         <AnimatedPin />
       </div>
+      <ImageParallax />
     </>
-  );
-};
-
-export const Header = () => {
-  return (
-    <div className="flex backdrop-blur-lg bg-white/10 dark:bg-black">
-      <div className="max-w-4xl relative py-10 md:py-40 px-4 w-full left-0 top-0">
-        <h1 className="text-2xl md:text-7xl font-bold dark:text-white">
-          <div className="flex flex-row backdrop-blur-lg">
-            <img src="/CC-logo.png" alt="Logo" width={200} height={200} />
-            <div>
-              <div className="text-indigo-800 dark:text-red-800 ">
-                Coding Club
-              </div>
-              <div className="text-red-500 dark:text-yellow-500">
-                NIT Silchar
-              </div>
-            </div>
-          </div>
-        </h1>
-        <p className="max-w-2xl text-base md:text-xl mt-8 pl-10 text-gray-900 dark:text-neutral-200">
-          The Coding Club at NIT Silchar fosters a vibrant community for
-          programming enthusiasts. It offers workshops and coding contests,
-          encouraging students to enhance their coding skills, collaboration,
-          teamwork, and stay updated with the latest technology trends.
-        </p>
-      </div>
-      <LensDemo url="https://i.sstatic.net/rlNuN.png" />
-    </div>
-  );
-};
-
-export const ProductCard = ({
-  product,
-  translate,
-}: {
-  product: {
-    title: string;
-    link: string;
-    thumbnail: string;
-  };
-  translate: MotionValue<number>;
-}) => {
-  return (
-    <motion.div
-      style={{
-        x: translate,
-      }}
-      whileHover={{
-        y: -20,
-      }}
-      key={product.title}
-      className="group/product h-40 w-[10rem] relative flex-shrink-0 z-20"
-    >
-      <Link
-        href={product.link}
-        className="block group-hover/product:shadow-2xl"
-      >
-        <img
-          src={product.thumbnail}
-          height="20"
-          width="40"
-          className="object-cover object-left-top absolute h-full w-full inset-0"
-          alt={product.title}
-        />
-      </Link>
-    </motion.div>
   );
 };
