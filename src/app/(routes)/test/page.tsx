@@ -1,100 +1,143 @@
 "use client";
-import React, { useEffect, useRef } from "react";
-import { gsap } from "gsap";
+import React, { MutableRefObject, useRef, useState } from "react";
+import { motion } from "framer-motion";
+import { twMerge } from "tailwind-merge";
 
-const AnimatedDots = () => {
-  const svgRef = useRef<SVGSVGElement>(null);
+const DragCards = () => {
+  return (
+    <section className="relative grid min-h-screen w-full place-content-center overflow-hidden bg-neutral-950">
+      <h2 className="relative z-0 text-[20vw] font-black text-neutral-800 md:text-[200px]">
+        ASTRO<span className="text-indigo-500">.</span>
+      </h2>
+      <Cards />
+    </section>
+  );
+};
 
-  useEffect(() => {
-    const svg = svgRef.current;
-    const dots: any[] = [];
-    const circleRadius = 1;
-    const margin = 30;
-
-    if (!svg) return;
-
-    const bounding = svg.getBoundingClientRect();
-    const width = bounding.width;
-    const height = bounding.height;
-
-    const dotSize = circleRadius + margin;
-    const rows = Math.floor(height / dotSize);
-    const cols = Math.floor(width / dotSize);
-    const xStart = (width % dotSize) / 2;
-    const yStart = (height % dotSize) / 2;
-
-    // Create dots
-    for (let row = 0; row < rows; row++) {
-      for (let col = 0; col < cols; col++) {
-        const dot = {
-          x: xStart + col * dotSize,
-          y: yStart + row * dotSize,
-          velocity: { x: 0, y: 0 },
-        };
-
-        const circle = document.createElementNS(
-          "http://www.w3.org/2000/svg",
-          "circle"
-        );
-        circle.setAttribute("cx", String(dot.x));
-        circle.setAttribute("cy", String(dot.y));
-        circle.setAttribute("r", String(circleRadius));
-        circle.setAttribute("fill", "white"); // White dots
-
-        const path = document.createElementNS(
-          "http://www.w3.org/2000/svg",
-          "path"
-        );
-        path.setAttribute("stroke", "white"); // White paths
-
-        svg.appendChild(circle);
-        svg.appendChild(path);
-
-        dots.push({ ...dot, el: circle, path });
-      }
-    }
-
-    // GSAP Animation
-    const onMouseMove = (e: MouseEvent) => {
-      dots.forEach((dot) => {
-        const dx = e.clientX - dot.x;
-        const dy = e.clientY - dot.y;
-        const distance = Math.max(Math.sqrt(dx * dx + dy * dy), 1); // Avoid division by zero
-        const force = Math.min(200 / distance, 3); // Increased force factor for more movement
-
-        dot.velocity.x += (dx / distance) * force;
-        dot.velocity.y += (dy / distance) * force;
-
-        gsap.to(dot.el, {
-          cx: dot.x + dot.velocity.x,
-          cy: dot.y + dot.velocity.y,
-          duration: 0.05, // Faster updates
-          ease: "power2.out", // Responsive easing
-        });
-
-        dot.velocity.x *= 0.8; // Reduced friction for faster motion
-        dot.velocity.y *= 0.8;
-      });
-    };
-
-    window.addEventListener("mousemove", onMouseMove);
-
-    return () => {
-      window.removeEventListener("mousemove", onMouseMove);
-    };
-  }, []);
+const Cards = () => {
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
   return (
-    <div className="flex items-center justify-center h-screen w-screen bg-black">
-      {/* Black background */}
-      <svg
-        ref={svgRef}
-        xmlns="http://www.w3.org/2000/svg"
-        className="w-full h-full"
-        style={{ overflow: "visible" }}
+    <div className="absolute inset-0 z-10" ref={containerRef}>
+      <Card
+        containerRef={containerRef}
+        src="https://images.unsplash.com/photo-1635373670332-43ea883bb081?q=80&w=2781&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt="Example image"
+        rotate="6deg"
+        top="20%"
+        left="25%"
+        className="w-36 md:w-56"
+      />
+      <Card
+        containerRef={containerRef}
+        src="https://images.unsplash.com/photo-1576174464184-fb78fe882bfd?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt="Example image"
+        rotate="12deg"
+        top="45%"
+        left="60%"
+        className="w-24 md:w-48"
+      />
+      <Card
+        containerRef={containerRef}
+        src="https://images.unsplash.com/photo-1503751071777-d2918b21bbd9?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt="Example image"
+        rotate="-6deg"
+        top="20%"
+        left="40%"
+        className="w-52 md:w-80"
+      />
+      <Card
+        containerRef={containerRef}
+        src="https://images.unsplash.com/photo-1620428268482-cf1851a36764?q=80&w=2609&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt="Example image"
+        rotate="8deg"
+        top="50%"
+        left="40%"
+        className="w-48 md:w-72"
+      />
+      <Card
+        containerRef={containerRef}
+        src="https://images.unsplash.com/photo-1602212096437-d0af1ce0553e?q=80&w=2671&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt="Example image"
+        rotate="18deg"
+        top="20%"
+        left="65%"
+        className="w-40 md:w-64"
+      />
+      <Card
+        containerRef={containerRef}
+        src="https://images.unsplash.com/photo-1622313762347-3c09fe5f2719?q=80&w=2640&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt="Example image"
+        rotate="-3deg"
+        top="35%"
+        left="55%"
+        className="w-24 md:w-48"
       />
     </div>
   );
 };
 
-export default AnimatedDots;
+interface Props {
+  containerRef: MutableRefObject<HTMLDivElement | null>;
+  src: string;
+  alt: string;
+  top: string;
+  left: string;
+  rotate: string;
+  className?: string;
+}
+
+const Card = ({
+  containerRef,
+  src,
+  alt,
+  top,
+  left,
+  rotate,
+  className,
+}: Props) => {
+  const [zIndex, setZIndex] = useState(0);
+
+  const updateZIndex = () => {
+    const els = document.querySelectorAll(".drag-elements");
+
+    let maxZIndex = -Infinity;
+
+    els.forEach((el) => {
+      let zIndex = parseInt(
+        window.getComputedStyle(el).getPropertyValue("z-index")
+      );
+
+      if (!isNaN(zIndex) && zIndex > maxZIndex) {
+        maxZIndex = zIndex;
+      }
+    });
+
+    setZIndex(maxZIndex + 1);
+  };
+
+  return (
+    <motion.img
+      onMouseDown={updateZIndex}
+      style={{
+        top,
+        left,
+        rotate,
+        zIndex,
+      }}
+      className={twMerge(
+        "drag-elements absolute w-48 bg-neutral-200 p-1 pb-4",
+        className
+      )}
+      src={src}
+      alt={alt}
+      drag
+      dragConstraints={containerRef}
+      // Uncomment below and remove dragElastic to remove movement after release
+      //   dragMomentum={false}
+      dragElastic={0.65}
+    />
+  );
+};
+
+export default DragCards;

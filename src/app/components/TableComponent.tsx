@@ -53,7 +53,7 @@
 //   // Handle empty contests
 //   if (!contests || contests.length === 0) {
 //     return (
-//       <div className="text-center p-4 text-gray-500">No upcoming contests</div>
+//       <div className="text-center p-4 text-blue-gray-900 dark:text-gray-500">No upcoming contests</div>
 //     );
 //   }
 
@@ -102,7 +102,7 @@
 //             {columns.map((column) => (
 //               <TableColumn
 //                 key={column.key}
-//                 className="bg-transparent px-4 py-2 text-xs font-medium text-gray-500 border-b border-gray-300"
+//                 className="bg-transparent px-4 py-2 text-xs font-medium text-blue-gray-900 dark:text-gray-500 border-b border-gray-300"
 //               >
 //                 {column.label}
 //               </TableColumn>
@@ -117,7 +117,7 @@
 //                 {columns.map((column) => (
 //                   <TableCell
 //                     key={column.key}
-//                     className="px-4 py-2 text-xs text-gray-400 whitespace-nowrap"
+//                     className="px-4 py-2 text-xs text-blue-gray-900 dark:text-gray-400 whitespace-nowrap"
 //                   >
 //                     {item[column.key as keyof typeof item]}
 //                   </TableCell>
@@ -180,7 +180,9 @@ const TableComponent: React.FC<TableComponentProps> = ({ contests }) => {
   // Handle empty contests
   if (!contests || contests.length === 0) {
     return (
-      <div className="text-center p-4 text-gray-500">No upcoming contests</div>
+      <div className="text-center p-4 text-black dark:text-blue-gray-900">
+        No upcoming contests
+      </div>
     );
   }
 
@@ -199,7 +201,7 @@ const TableComponent: React.FC<TableComponentProps> = ({ contests }) => {
               {columns.map((column, index) => (
                 <th
                   key={index}
-                  className="bg-transparent px-4 py-2 text-xs font-medium text-gray-500 border-b border-gray-300 text-left"
+                  className="bg-transparent px-4 py-2 text-xs font-medium text-blue-gray-900 dark:text-gray-500 border-b dark:border-gray-300  border-black text-left"
                 >
                   {column}
                 </th>
@@ -213,18 +215,18 @@ const TableComponent: React.FC<TableComponentProps> = ({ contests }) => {
                 key={contest.id}
                 className="hover:bg-white/10 transition duration-200"
               >
-                <td className="px-4 py-2 text-xs text-gray-400 whitespace-nowrap">
+                <td className="px-4 py-2 text-xs text-blue-gray-900 dark:text-gray-400 whitespace-nowrap">
                   {contest.event}
                 </td>
-                <td className="px-4 py-2 text-xs text-gray-400 whitespace-nowrap">
+                <td className="px-4 py-2 text-xs text-blue-gray-900 dark:text-gray-400 whitespace-nowrap">
                   {convertToIST(contest.start)}
                 </td>
                 {!isMobile && (
                   <>
-                    <td className="px-4 py-2 text-xs text-gray-400 whitespace-nowrap">
+                    <td className="px-4 py-2 text-xs text-blue-gray-900 dark:text-gray-400 whitespace-nowrap">
                       {convertToIST(contest.end)}
                     </td>
-                    <td className="px-4 py-2 text-xs text-gray-400 whitespace-nowrap">
+                    <td className="px-4 py-2 text-xs text-blue-gray-900 dark:text-gray-400 whitespace-nowrap">
                       {`${Math.floor(contest.duration / 60)} mins`}
                     </td>
                   </>

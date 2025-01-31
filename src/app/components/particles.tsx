@@ -55,10 +55,10 @@ const ParticlesComponent: React.FC<ParticlesComponentProps> = ({ id }) => {
           value: "#FFFFFF",
         },
         links: {
-          color: "#FFFFFF",
+          color: "#ffffff",
           distance: 150,
           enable: true,
-          opacity: 0.3,
+          opacity: 0.5,
           width: 0.5,
         },
         move: {

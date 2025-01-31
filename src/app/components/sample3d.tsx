@@ -32,29 +32,29 @@ export default function AnimatedPin() {
   ];
 
   useEffect(() => {
-    // GSAP ScrollTrigger animation for all cards
-    const pins = gsap.utils.toArray(".pin") as HTMLElement[]; // Explicitly type the result as HTMLElement[]
+    const pins = gsap.utils.toArray(".pin") as HTMLElement[];
 
-    pins.forEach((pin, index) => {
+    pins.forEach((pin) => {
       gsap.fromTo(
         pin,
         {
-          scale: 0, // Start from small size (scaled down)
-          rotation: -180, // Start from a rotated state
-          opacity: 0, // Initial opacity
+          opacity: 0.2, // Initially hidden
+          y: 50, // Move slightly down
+          rotationX: -180,
+          scale: 0.8, // Slightly scaled down
         },
         {
-          scale: 1, // Final size (normal scale)
-          rotation: 0, // Final rotation (no rotation)
-          opacity: 1, // Fade in effect
-          duration: 1,
-          delay: index * 0.2, // Staggered delay for each card
+          opacity: 1, // Fully visible
+          y: 0, // Move to original position
+          scale: 1, // Full scale
+          rotationX: 0,
+          duration: 1, // Duration of animation
+          ease: "backInOut", // Smooth easing
           scrollTrigger: {
             trigger: pin,
-            start: "top 100%", // Trigger when 50% of the card is in view (halfway scroll)
-            end: "bottom", // End when the card leaves the screen
-            scrub: false, // Do not scrub, let the animation run independently
-            once: true, // The animation runs once and doesn't reset
+            start: "top 0%", // Start animation when 80% of the element is visible
+            end: "top 30%",
+            toggleActions: "play none none reverse", // Play forward on enter, reverse on leave
           },
         }
       );
@@ -65,8 +65,8 @@ export default function AnimatedPin() {
     <>
       {Platforms.map((platform, index) => (
         <div
-          key={index} // Add a unique key for each element in the map
-          className="h-[50rem] w-full md:flex lg:flex hidden items-center overflow-scroll pin"
+          key={index}
+          className="h-[50rem] w-full md:flex lg:flex hidden items-center overflow-scroll pin bg-gradient-to-b from-red-900/0 via-red-900/80 to-red-900/0"
         >
           <Link
             href={platform.url}
@@ -76,7 +76,9 @@ export default function AnimatedPin() {
           >
             <PinContainer title={platform.name} desc={platform.desc}>
               <div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[15rem] h-[15rem] ">
-                <h3 className="max-w-xs font-bold text-base text-slate-100"></h3>
+                <h3 className="max-w-xs font-bold text-base text-slate-100">
+                  {platform.name}
+                </h3>
                 <div className="text-base font-normal">
                   <Image
                     src={platform.link}
