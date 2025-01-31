@@ -20,15 +20,18 @@ export const ImageParallax: React.FC = () => {
           lerp: 0.05,
         }}
       >
+        <div className="bottom-0 left-0 right-0 h-96 bg-gradient-to-b from-red-900 to-red-900/0 backdrop-blur-lg" />
+
         <TextEditorsList />
         <Hero />
+        <div className="bottom-0 left-0 right-0 h-96 bg-gradient-to-b from-red-900/0 to-red-900" />
       </ReactLenis>
     </div>
   );
 };
 
 // Section Heights
-const SECTION_HEIGHT = 1000;
+const SECTION_HEIGHT = 650;
 
 const Hero: React.FC = () => {
   return (
@@ -37,7 +40,6 @@ const Hero: React.FC = () => {
       className="relative w-full"
     >
       <ParallaxImages />
-      <div className="bottom-0 left-0 right-0 h-96 bg-gradient-to-b from-zinc-950/0 to-zinc-950" />
     </div>
   );
 };

@@ -53,7 +53,7 @@ export default function AnimatedPin() {
           scrollTrigger: {
             trigger: pin,
             start: "top 0%", // Start animation when 80% of the element is visible
-            end: "top 60%",
+            end: "top 30%",
             toggleActions: "play none none reverse", // Play forward on enter, reverse on leave
           },
         }
