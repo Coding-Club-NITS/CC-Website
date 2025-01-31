@@ -20,7 +20,7 @@ export const ImageParallax: React.FC = () => {
           lerp: 0.05,
         }}
       >
-        <div className="bottom-0 left-0 right-0 h-96 bg-gradient-to-b from-red-900 to-red-900/0 backdrop-blur-lg" />
+        {/* <div className="bottom-0 left-0 right-0 h-96 bg-gradient-to-b from-red-900 to-red-900/0 backdrop-blur-lg" /> */}
         <ShootingStars />
         <TextEditorsList />
         <Hero />
