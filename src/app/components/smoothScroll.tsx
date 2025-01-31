@@ -1,6 +1,6 @@
 "use client";
 import { ReactLenis } from "@studio-freight/react-lenis";
-import { ReactNode } from "react"; // Import ReactNode for typing
+import { ReactNode } from "react";
 
 interface SmoothScrollingProps {
   children: ReactNode; // Properly type children

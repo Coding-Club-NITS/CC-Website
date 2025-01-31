@@ -8,6 +8,7 @@ import HSI from "./horizontalScrollImages";
 import ProductCard from "@/app/components/ui/langLogos";
 import Logo from "@/app/components/logo";
 import Header from "./headerHome";
+import ImageParallax from "../imageParalax";
 export const HeroParallax = ({
   products,
 }: {
@@ -134,6 +135,7 @@ export const HeroParallax = ({
       <div className="flex flex-col justify-around sm:flex-row">
         <AnimatedPin />
       </div>
+      <ImageParallax />
     </>
   );
 };
