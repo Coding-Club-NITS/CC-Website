@@ -55,11 +55,13 @@ export const HeroParallax = ({
       <WavyBackground className="max-w-4xl mx-auto pb-40 mt-5">
         <Logo />
       </WavyBackground>
+
       <div
         ref={ref}
         className="h-[220vh] overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
       >
         <Header />
+        <div className="bottom-0 left-0 right-0 h-10 bg-gradient-to-b from-blue-900/60 to-black" />
         <motion.div
           style={{
             rotateX,
@@ -67,7 +69,6 @@ export const HeroParallax = ({
             translateY,
             opacity,
           }}
-          className=""
         >
           <motion.div className="flex flex-row-reverse space-x-reverse space-x-20">
             {firstRow.map((product) => (
@@ -131,10 +132,12 @@ export const HeroParallax = ({
           </motion.div>
         </motion.div>
       </div>
+
       <HSI />
       <div className="flex flex-col justify-around sm:flex-row">
         <AnimatedPin />
       </div>
+
       <ImageParallax />
     </>
   );
