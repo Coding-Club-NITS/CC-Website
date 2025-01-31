@@ -55,7 +55,6 @@ export const HeroParallax = ({
       <WavyBackground className="max-w-4xl mx-auto pb-40 mt-5">
         <Logo />
       </WavyBackground>
-      <HSI />
       <div
         ref={ref}
         className="h-[220vh] overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
@@ -132,6 +131,7 @@ export const HeroParallax = ({
           </motion.div>
         </motion.div>
       </div>
+      <HSI />
       <div className="flex flex-col justify-around sm:flex-row">
         <AnimatedPin />
       </div>

@@ -9,7 +9,7 @@ import {
 import { FiDownload } from "react-icons/fi";
 import { useRef } from "react";
 import Link from "next/link";
-
+import { ShootingStars } from "@/app/components/ui/shooting-stars";
 // Smooth Scroll Hero Section
 export const ImageParallax: React.FC = () => {
   return (
@@ -21,7 +21,7 @@ export const ImageParallax: React.FC = () => {
         }}
       >
         <div className="bottom-0 left-0 right-0 h-96 bg-gradient-to-b from-red-900 to-red-900/0 backdrop-blur-lg" />
-
+        <ShootingStars />
         <TextEditorsList />
         <Hero />
         <div className="bottom-0 left-0 right-0 h-96 bg-gradient-to-b from-red-900/0 to-red-900" />
@@ -30,7 +30,6 @@ export const ImageParallax: React.FC = () => {
   );
 };
 
-// Section Heights
 const SECTION_HEIGHT = 650;
 
 const Hero: React.FC = () => {
