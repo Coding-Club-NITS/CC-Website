@@ -13,7 +13,7 @@ import { ShootingStars } from "@/app/components/ui/shooting-stars";
 // Smooth Scroll Hero Section
 export const ImageParallax: React.FC = () => {
   return (
-    <div className="bg-yellow-200/0">
+    <div className="bg-gradient-to-b from-black to-blue-900/50">
       <ReactLenis
         root
         options={{
@@ -24,7 +24,7 @@ export const ImageParallax: React.FC = () => {
         <ShootingStars />
         <TextEditorsList />
         <Hero />
-        <div className="bottom-0 left-0 right-0 h-96 bg-gradient-to-b from-red-900/0 to-red-900" />
+        <div className="bottom-0 left-0 right-0 h-96 bg-gradient-to-b from-blue-900/0 to-black" />
       </ReactLenis>
     </div>
   );
@@ -148,7 +148,7 @@ const textEditors = [
 
 const TextEditorsList: React.FC = () => {
   return (
-    <section className="mx-auto max-w-5xl px-4 py-16 text-white">
+    <section className="mx-auto max-w-5xl px-6 py-16 text-white ">
       <motion.h1
         initial={{ y: 48, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}

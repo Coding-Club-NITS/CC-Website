@@ -1,10 +1,10 @@
 import { LensDemo } from "@/app/components/lensCard";
 const Header = () => {
   return (
-    <div className="flex backdrop-blur-lg bg-white/10 dark:bg-black">
+    <div className="flex flex-col lg:flex-row md:flex-row backdrop-blur-lg bg-white/10 dark:bg-gradient-to-b from-black to-blue-900/50">
       <div className="max-w-4xl relative py-10 md:py-40 px-4 w-full left-0 top-0">
         <h1 className="text-2xl md:text-7xl font-bold dark:text-white">
-          <div className="flex flex-row backdrop-blur-lg">
+          <div className="flex flex-row backdrop-blur-lg p-2 bg-white/10">
             <img src="/CC-logo.png" alt="Logo" width={200} height={200} />
             <div>
               <div className="text-indigo-800 dark:text-red-800 ">

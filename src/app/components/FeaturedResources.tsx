@@ -52,7 +52,7 @@ function FeaturedResources() {
                   <p className="text-lg sm:text-xl text-black mt-4 mb-2 dark:text-neutral-200">
                     {course.title}
                   </p>
-                  <p className="text-sm text-neutral-600 dark:text-neutral-400 flex-grow">
+                  <p className="text-sm text-neutral-600 flex-grow">
                     {course.description}
                   </p>
                   <Link
