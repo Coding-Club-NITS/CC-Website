@@ -66,7 +66,7 @@ export default function AnimatedPin() {
       {Platforms.map((platform, index) => (
         <div
           key={index}
-          className="h-[50rem] w-full md:flex lg:flex hidden items-center overflow-scroll pin bg-gradient-to-b from-red-900/0 via-red-900 to-red-900/0"
+          className="h-[50rem] w-full md:flex lg:flex hidden items-center overflow-scroll pin bg-gradient-to-b from-red-900/0 via-red-900/80 to-red-900/0"
         >
           <Link
             href={platform.url}
