@@ -10,7 +10,7 @@ import { FiDownload } from "react-icons/fi";
 import { useRef } from "react";
 import Link from "next/link";
 import { ShootingStars } from "@/app/components/ui/shooting-stars";
-// Smooth Scroll Hero Section
+
 export const ImageParallax: React.FC = () => {
   return (
     <div className=" bg-gradient-to-b from-black via-blue-900/40 to-black">
@@ -36,7 +36,7 @@ const Hero: React.FC = () => {
   return (
     <div
       style={{ height: `calc(${SECTION_HEIGHT}px + 100vh)` }}
-      className="relative w-full block sm:hidden"
+      className="relative w-full hidden lg:block md:block"
     >
       <ParallaxImages />
     </div>
