@@ -13,7 +13,7 @@ import { ShootingStars } from "@/app/components/ui/shooting-stars";
 // Smooth Scroll Hero Section
 export const ImageParallax: React.FC = () => {
   return (
-    <div className="bg-gradient-to-b from-black to-blue-900/50">
+    <div className=" bg-gradient-to-b from-black via-blue-900/40 to-black">
       <ReactLenis
         root
         options={{
@@ -36,7 +36,7 @@ const Hero: React.FC = () => {
   return (
     <div
       style={{ height: `calc(${SECTION_HEIGHT}px + 100vh)` }}
-      className="relative w-full"
+      className="relative w-full block sm:hidden"
     >
       <ParallaxImages />
     </div>
