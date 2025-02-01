@@ -1,11 +1,14 @@
 "use client";
 import React from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-
+import { useInView } from "framer-motion";
+import { useRef } from "react";
 import { WavyBackground } from "../ui/wave";
 import AnimatedPin from "../sample3d";
 import HSI from "./horizontalScrollImages";
 import ProductCard from "@/app/components/ui/langLogos";
+import event from "@/data/newEvent.json";
+import Link from "next/link";
 import Logo from "@/app/components/logo";
 import Header from "./headerHome";
 import ImageParallax from "../imageParalax";
@@ -50,12 +53,35 @@ export const HeroParallax = ({
     useTransform(scrollYProgress, [0, 0.2, 1], [900, 250, -900]),
     springConfig
   );
-
+  const waveref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
   return (
     <>
-      <WavyBackground className="max-w-4xl mx-auto pb-40 mt-5">
-        <Logo />
-      </WavyBackground>
+      {event.visible && (
+        <motion.button
+          className="p-6 m-5 z-50 sticky top-0"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 3, duration: 0.5 }}
+        >
+          <Link href="/register">
+            <div className="px-8 py-5 hover:bg-red-500 bg-gradient-to-r from-indigo-500 to-purple-500  transition duration-2000 text-white animate-bounce ">
+              {event.title}
+            </div>
+          </Link>
+        </motion.button>
+      )}
+      <motion.div
+        ref={waveref}
+        initial={{ opacity: 0, y: 50, visibility: "hidden" }}
+        animate={isInView ? { opacity: 1, y: 0, visibility: "visible" } : {}}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
+        <WavyBackground className="max-w-4xl mx-auto pb-40 mt-5">
+          <Logo />
+        </WavyBackground>
+      </motion.div>
+
       <div
         ref={ref}
         className="h-[220vh] overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
