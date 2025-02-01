@@ -25,12 +25,15 @@ const VelocityText = () => {
   );
   const skewX = useSpring(skewXRaw, { mass: 3, stiffness: 400, damping: 50 });
 
-  const xRaw = useTransform(scrollYProgress, [0, 1], [0, -1000]);
+  const xRaw = useTransform(scrollYProgress, [0, 1], [-300, -1500]);
   const x = useSpring(xRaw, { mass: 3, stiffness: 400, damping: 50 });
 
   return (
-    <section ref={targetRef} className="bg-black text-gray-500/50">
-      <div className="flex h-screen items-center overflow-hidden">
+    <section
+      ref={targetRef}
+      className="relative bg-black text-white/10 h-50 overflow-hidden"
+    >
+      <div className="flex h-screen items-center">
         <motion.pre
           style={{ skewX, x }}
           className="origin-bottom-left whitespace-pre text-5xl font-black uppercase leading-[0.85] md:text-7xl md:leading-[0.85]"

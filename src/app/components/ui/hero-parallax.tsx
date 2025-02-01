@@ -9,6 +9,7 @@ import ProductCard from "@/app/components/ui/langLogos";
 import Logo from "@/app/components/logo";
 import Header from "./headerHome";
 import ImageParallax from "../imageParalax";
+import VelocityText from "./velocityText";
 export const HeroParallax = ({
   products,
 }: {
@@ -55,7 +56,6 @@ export const HeroParallax = ({
       <WavyBackground className="max-w-4xl mx-auto pb-40 mt-5">
         <Logo />
       </WavyBackground>
-
       <div
         ref={ref}
         className="h-[220vh] overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
@@ -100,7 +100,7 @@ export const HeroParallax = ({
                 translateX.set(Math.max(translateX.get() - 500, -100));
                 translateXReverse.set(
                   Math.min(translateXReverse.get() + 500, 100)
-                );
+                  );
               }}
               className="p-4 bg-red-500 bg-opacity-70 text-white rounded-full hover:bg-red-600 transition"
             >
@@ -133,11 +133,11 @@ export const HeroParallax = ({
         </motion.div>
       </div>
 
+      <VelocityText />
       <HSI />
       <div className="flex flex-col justify-around sm:flex-row">
         <AnimatedPin />
       </div>
-
       <ImageParallax />
     </>
   );

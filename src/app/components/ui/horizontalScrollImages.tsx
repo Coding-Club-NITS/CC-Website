@@ -26,7 +26,10 @@ const HSI: React.FC = () => {
   };
 
   return (
-    <section ref={targetRef} className="relative h-[300vh] bg-neutral-900">
+    <section
+      ref={targetRef}
+      className="relative h-[300vh]  bg-gradient-to-b from-blue-900/10  via-deep-purple-700/40 to-black"
+    >
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
         <motion.div style={{ x }} className="flex gap-4">
           {images.map((image: ImageData, index: number) => (
