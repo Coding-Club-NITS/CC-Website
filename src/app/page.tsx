@@ -6,13 +6,8 @@ import { FlipWordsDemo } from "./components/flipwords";
 import Parallax from "./components/parallax";
 import SmoothScrolling from "./components/smoothScroll";
 import { ThemeProvider } from "next-themes";
-import { useEffect } from "react";
 
 export default function Page() {
-  useEffect(() => {
-    console.log("HTML Class:", document.documentElement.className);
-  }, []);
-
   return (
     <ThemeProvider attribute="class" defaultTheme="dark">
       <SmoothScrolling>

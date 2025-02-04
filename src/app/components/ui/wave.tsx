@@ -130,10 +130,7 @@ export const WavyBackground = ({
         containerClassName
       )}
     >
-      <canvas
-        className="absolute inset-0 z-0 hidden lg:block md:block"
-        ref={canvasRef}
-      />
+      <canvas className="absolute inset-0 z-0" ref={canvasRef} />
       <div className={cn("relative z-10", className)} {...props}>
         {children}
       </div>
