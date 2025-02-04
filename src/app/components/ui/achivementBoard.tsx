@@ -5,8 +5,8 @@ import { twMerge } from "tailwind-merge";
 
 const AchivementBoard = () => {
   return (
-    <div className="border-8 border-yellow-700 p-4 bg-neutral-900 shadow-xl rounded-lg m-2">
-      <div className="relative w-full h-full border-4 border-yellow-700 flex items-center justify-center">
+    <div className="border-8 border-brown-900 p-4 bg-neutral-900 shadow-xl rounded-lg m-2">
+      <div className="relative w-full h-full border-4 border-brown-700 flex items-center justify-center">
         <section className="relative grid min-h-screen w-full place-content-center text-center overflow-hidden bg-neutral-950">
           <h2 className="relative z-0 text-[20vw] font-black text-neutral-800 md:text-[200px]">
             Top Achievements<span className="text-yellow-500">.</span>
