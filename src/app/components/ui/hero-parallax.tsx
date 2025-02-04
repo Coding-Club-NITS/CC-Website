@@ -1,8 +1,6 @@
 "use client";
 import React from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
 import { WavyBackground } from "../ui/wave";
 import AnimatedPin from "../sample3d";
 import HSI from "./horizontalScrollImages";
@@ -53,8 +51,7 @@ export const HeroParallax = ({
     useTransform(scrollYProgress, [0, 0.2, 1], [900, 250, -900]),
     springConfig
   );
-  const waveref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
   return (
     <>
       {event.visible && (
@@ -71,16 +68,10 @@ export const HeroParallax = ({
           </Link>
         </motion.button>
       )}
-      <motion.div
-        ref={waveref}
-        initial={{ opacity: 0, y: 50, visibility: "hidden" }}
-        animate={isInView ? { opacity: 1, y: 0, visibility: "visible" } : {}}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-      >
-        <WavyBackground className="max-w-4xl mx-auto pb-40 mt-5">
-          <Logo />
-        </WavyBackground>
-      </motion.div>
+
+      <WavyBackground className="max-w-4xl mx-auto pb-40 mt-5">
+        <Logo />
+      </WavyBackground>
 
       <div
         ref={ref}
