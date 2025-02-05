@@ -19,6 +19,20 @@ const nextConfig = {
       "i.sstatic.net",
       "cdn.jsdelivr.net",
       "encrypted-tbn0.gstatic.com",
+      "drive.google.com",
+      "lh3.googleusercontent.com",
+      "googleusercontent.com",
+    ],
+    unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**.googleusercontent.com",
+      },
+      {
+        protocol: "https",
+        hostname: "drive.google.com",
+      },
     ],
   },
 };
