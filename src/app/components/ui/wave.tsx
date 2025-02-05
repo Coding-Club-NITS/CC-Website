@@ -1,9 +1,8 @@
-/* eslint-disable */
 "use client";
 import { cn } from "../utils/cn";
-import React, { useEffect, useRef, useState, useCallback } from "react";
-import { createNoise3D } from "simplex-noise";
+import React, { useEffect, useRef } from "react";
 import { useTheme } from "next-themes";
+import { createNoise3D } from "simplex-noise";
 
 export const WavyBackground = ({
   children,
@@ -11,13 +10,12 @@ export const WavyBackground = ({
   containerClassName,
   colors,
   waveWidth = 50,
-  backgroundFill,
   blur = 10,
   speed = "fast",
   waveOpacity = 0.5,
   ...props
 }: {
-  children?: string | React.ReactNode;
+  children?: React.ReactNode;
   className?: string;
   containerClassName?: string;
   colors?: string[];
@@ -26,52 +24,29 @@ export const WavyBackground = ({
   blur?: number;
   speed?: "slow" | "fast";
   waveOpacity?: number;
-  [key: string]: any;
+  // [key: string]: any;
 }) => {
   const { theme, resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const animationRef = useRef<number | null>(null);
   const noise = useRef(createNoise3D());
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  const currentMode = mounted
-    ? theme === "system"
-      ? resolvedTheme
-      : theme
-    : "light";
-
-  const darkModeColors = ["#f87171", "#ef4444", "#facc15", "#eab308"];
-  const lightModeColors = ["#93c5fd", "#3b82f6", "#a5b4fc", "#818cf8"];
+  const currentMode = theme === "system" ? resolvedTheme : theme;
+  const darkModeColors = ["#ff8c00", "#ff4500", "#ffd700", "#dc143c"];
+  const lightModeColors = ["#00bfff", "#1e90ff", "#87cefa", "#6495ed"];
   const waveColors =
     colors ?? (currentMode === "dark" ? darkModeColors : lightModeColors);
 
   const getSpeed = () => (speed === "fast" ? 0.002 : 0.001);
 
-  const resizeCanvas = useCallback(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    ctx.filter = `blur(${blur}px)`;
-  }, [blur]);
-
   useEffect(() => {
-    if (!mounted) return;
-
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    let w = (canvas.width = window.innerWidth);
-    let h = (canvas.height = window.innerHeight);
+    const w = (canvas.width = window.innerWidth);
+    const h = (canvas.height = window.innerHeight);
     ctx.filter = `blur(${blur}px)`;
     let nt = 0;
 
@@ -95,33 +70,24 @@ export const WavyBackground = ({
     };
 
     const render = () => {
-      if (!ctx) return;
-      drawWave(5);
+      drawWave(4);
       animationRef.current = requestAnimationFrame(render);
     };
 
-    // Initialize animation
     render();
 
-    // Throttle window resize
-    const handleResize = () => requestAnimationFrame(resizeCanvas);
+    const handleResize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      ctx.filter = `blur(${blur}px)`;
+    };
     window.addEventListener("resize", handleResize);
 
     return () => {
       cancelAnimationFrame(animationRef.current!);
       window.removeEventListener("resize", handleResize);
     };
-  }, [
-    mounted,
-    currentMode,
-    colors,
-    resizeCanvas,
-    waveOpacity,
-    waveWidth,
-    blur,
-  ]);
-
-  if (!mounted) return null;
+  }, [currentMode, colors, waveOpacity, waveWidth, blur]);
 
   return (
     <div
@@ -130,10 +96,7 @@ export const WavyBackground = ({
         containerClassName
       )}
     >
-      <canvas
-        className="absolute inset-0 z-0 hidden lg:block md:block"
-        ref={canvasRef}
-      />
+      <canvas className="absolute inset-0 z-0" ref={canvasRef} />
       <div className={cn("relative z-10", className)} {...props}>
         {children}
       </div>

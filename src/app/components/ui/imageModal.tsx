@@ -21,9 +21,9 @@ const ImageModal = ({
           className="bg-slate-900/20 backdrop-blur fixed inset-0 z-50 grid place-items-center overflow-y-scroll cursor-pointer"
         >
           <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            exit={{ scale: 0 }}
+            initial={{ translateX: -800 }}
+            animate={{ translateX: 0 }}
+            exit={{ translateX: 1000 }}
             onClick={(e) => e.stopPropagation()}
             // className="bg-white rounded-lg shadow-xl  max-w-[90vw] max-h-[90vh]"
           >

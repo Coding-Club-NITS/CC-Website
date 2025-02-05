@@ -1,8 +1,6 @@
 "use client";
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import { useEffect } from "react";
-import event from "@/data/newEvent.json";
-import Link from "next/link";
 
 export default function Logo() {
   const mouseX = useMotionValue(window.innerWidth / 2);
@@ -87,21 +85,6 @@ export default function Logo() {
       >
         NIT Silchar
       </motion.p>
-
-      {event.visible && (
-        <motion.button
-          className="p-6 m-5 z-40"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 3, duration: 0.5 }}
-        >
-          <Link href="/register">
-            <div className="px-8 py-5 hover:bg-red-500 bg-gradient-to-r from-indigo-500 to-purple-500 rounded relative transition duration-2000 text-white animate-bounce">
-              {event.title}
-            </div>
-          </Link>
-        </motion.button>
-      )}
     </motion.div>
   );
 }

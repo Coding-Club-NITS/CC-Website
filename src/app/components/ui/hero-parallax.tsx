@@ -1,11 +1,12 @@
 "use client";
 import React from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-
 import { WavyBackground } from "../ui/wave";
 import AnimatedPin from "../sample3d";
 import HSI from "./horizontalScrollImages";
 import ProductCard from "@/app/components/ui/langLogos";
+import event from "@/data/newEvent.json";
+import Link from "next/link";
 import Logo from "@/app/components/logo";
 import Header from "./headerHome";
 import ImageParallax from "../imageParalax";
@@ -19,9 +20,10 @@ export const HeroParallax = ({
     thumbnail: string;
   }[];
 }) => {
-  const firstRow = products.slice(0, 5);
-  const secondRow = products.slice(5, 10);
-  const thirdRow = products.slice(10, 15);
+  const size = products.length;
+  const firstRow = products.slice(0, size / 3);
+  const secondRow = products.slice(size / 3, (2 * size) / 3);
+  const thirdRow = products.slice((2 * size) / 3 + 1, size);
   const ref = React.useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -31,7 +33,7 @@ export const HeroParallax = ({
   const springConfig = { stiffness: 150, damping: 35, bounce: 0.5 };
 
   const rotateX = useSpring(
-    useTransform(scrollYProgress, [0, 2], [15, 0]),
+    useTransform(scrollYProgress, [0, 2], [90, 0]),
     springConfig
   );
   const opacity = useSpring(
@@ -39,9 +41,10 @@ export const HeroParallax = ({
     springConfig
   );
   const rotateZ = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [50, 0]),
+    useTransform(scrollYProgress, [0, 0.2], [0, 0]),
     springConfig
   );
+
   const translateY = useSpring(
     useTransform(scrollYProgress, [0, 0.2, 2], [-900, -250, 900]),
     springConfig
@@ -53,9 +56,25 @@ export const HeroParallax = ({
 
   return (
     <>
+      {event.visible && (
+        <motion.button
+          className="p-6 m-5 z-50 sticky top-0"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 3, duration: 0.5 }}
+        >
+          <Link href="/register">
+            <div className="px-8 py-5 hover:bg-red-500 bg-gradient-to-r from-indigo-500 to-purple-500  transition duration-2000 text-white animate-bounce ">
+              {event.title}
+            </div>
+          </Link>
+        </motion.button>
+      )}
+
       <WavyBackground className="max-w-4xl mx-auto pb-40 mt-5">
         <Logo />
       </WavyBackground>
+
       <div
         ref={ref}
         className="h-[220vh] overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
