@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-const RainOfBitsLoader = () => {
+const PageLoader = () => {
   const bits = Array.from({ length: 100 }, (_, i) => i);
 
   return (
@@ -12,7 +12,7 @@ const RainOfBitsLoader = () => {
         return (
           <motion.div
             key={bit}
-            className={`absolute text-5xl font-bold ${
+            className={`absolute text-2xl font-bold ${
               isOne ? "text-red-500" : "text-yellow-800"
             }`}
             initial={{ y: -100, opacity: 0 }}
@@ -35,4 +35,4 @@ const RainOfBitsLoader = () => {
   );
 };
 
-export default RainOfBitsLoader;
+export default PageLoader;
