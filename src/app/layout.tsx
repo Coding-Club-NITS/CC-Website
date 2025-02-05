@@ -3,7 +3,6 @@ import "./globals.css";
 import Footer from "./components/footercomp";
 import Navbar from "./components/navbar";
 import { ThemeProvider } from "next-themes";
-
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {

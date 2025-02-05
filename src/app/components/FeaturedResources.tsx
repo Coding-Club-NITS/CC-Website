@@ -47,8 +47,8 @@ function FeaturedResources() {
                 delay: index * 0.2,
               }}
             >
-              <BackgroundGradient className="flex flex-col rounded-[22px] bg-black/90 overflow-hidden h-full max-w-sm">
-                <div className="p-4 sm:p-6 flex flex-col items-center text-center flex-grow">
+              <BackgroundGradient className="flex flex-col rounded-[22px] bg-black overflow-hidden h-full max-w-sm">
+                <div className="p-4 sm:p-6 flex flex-col items-center text-center flex-grow bg-[linear-gradient(45deg,transparent_25%,rgba(68,68,68,.2)_50%,transparent_75%,transparent_100%)] relative max-w-md overflow-hidden rounded-xl border border-slate-900 bg-[length:250%_250%,100%_100%] bg-[position:-100%_0,0_0] bg-no-repeat px-8 py-16 shadow-2xl transition-[background-position_0s_ease] hover:bg-[position:200%_0,0_0] hover:duration-[1500ms]">
                   <p className="text-lg sm:text-xl text-black mt-4 mb-2 dark:text-neutral-200">
                     {course.title}
                   </p>
