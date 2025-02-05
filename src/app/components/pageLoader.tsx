@@ -12,7 +12,7 @@ const PageLoader = () => {
         return (
           <motion.div
             key={bit}
-            className={`absolute text-5xl font-bold ${
+            className={`absolute text-2xl font-bold ${
               isOne ? "text-red-500" : "text-yellow-800"
             }`}
             initial={{ y: -100, opacity: 0 }}
