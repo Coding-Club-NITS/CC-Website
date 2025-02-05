@@ -20,9 +20,10 @@ export const HeroParallax = ({
     thumbnail: string;
   }[];
 }) => {
-  const firstRow = products.slice(0, 5);
-  const secondRow = products.slice(5, 10);
-  const thirdRow = products.slice(10, 15);
+  const size = products.length;
+  const firstRow = products.slice(0, size / 3);
+  const secondRow = products.slice(size / 3, (2 * size) / 3);
+  const thirdRow = products.slice((2 * size) / 3 + 1, size);
   const ref = React.useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -32,7 +33,7 @@ export const HeroParallax = ({
   const springConfig = { stiffness: 150, damping: 35, bounce: 0.5 };
 
   const rotateX = useSpring(
-    useTransform(scrollYProgress, [0, 2], [15, 0]),
+    useTransform(scrollYProgress, [0, 2], [90, 0]),
     springConfig
   );
   const opacity = useSpring(
@@ -40,9 +41,10 @@ export const HeroParallax = ({
     springConfig
   );
   const rotateZ = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [50, 0]),
+    useTransform(scrollYProgress, [0, 0.2], [0, 0]),
     springConfig
   );
+
   const translateY = useSpring(
     useTransform(scrollYProgress, [0, 0.2, 2], [-900, -250, 900]),
     springConfig
