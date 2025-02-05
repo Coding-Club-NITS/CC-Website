@@ -33,16 +33,12 @@ const HSI: React.FC = () => {
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
         <motion.div style={{ x }} className="flex gap-4">
           {images.map((image: ImageData, index: number) => (
-            <a
-              key={index}
-              onClick={() => openModal(image.thumbnail)} // Open modal on click
-            >
+            <a key={index} onClick={() => openModal(image.thumbnail)}>
               <Card image={image} />
             </a>
           ))}
         </motion.div>
       </div>
-      {/* Modal Component */}
       <ImageModal
         isOpen={isModalOpen}
         setIsOpen={setIsModalOpen}
