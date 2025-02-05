@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-const RainOfBitsLoader = () => {
+const PageLoader = () => {
   const bits = Array.from({ length: 100 }, (_, i) => i);
 
   return (
@@ -35,4 +35,4 @@ const RainOfBitsLoader = () => {
   );
 };
 
-export default RainOfBitsLoader;
+export default PageLoader;
