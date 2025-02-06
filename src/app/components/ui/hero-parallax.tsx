@@ -58,7 +58,7 @@ export const HeroParallax = ({
     <>
       {event.visible && (
         <motion.button
-          className="p-6 m-5 z-50 sticky top-0"
+          className="p-6 m-2 z-50 absolute"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 3, duration: 0.5 }}
@@ -77,7 +77,7 @@ export const HeroParallax = ({
 
       <div
         ref={ref}
-        className="h-[220vh] overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+        className="h-[220vh] overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d] bg-transparent"
       >
         <Header />
         <div className="bottom-0 left-0 right-0 h-10 bg-gradient-to-b from-blue-900/60 to-black" />
