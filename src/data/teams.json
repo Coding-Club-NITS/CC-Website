@@ -1,114 +1,402 @@
 {
-    "final year members": {
-      "title": "Final Year Members",
-      "data": [
-        {
-          "title": "Amartya Ahmed",
-          "src": "https://images.unsplash.com/photo-1518710843675-2540dd79065c?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-          "profile": "https://codeforces.com/profile/tourist",
-          "description": "Competitive Comder"
+  "Final year members": {
+    "title": "Final Year Members",
+    "data": [
+      {
+        "title": "Amartya Ahmed (Convener)",
+        "src": "https://res.cloudinary.com/dtpmqu6lw/image/upload/v1738775116/IMG_3277_-_Amartya_Ahmed_fbixbg.jpg",
+        "profile": {
+          "Codeforces": "https://codeforces.com/profile/Amartya3",
+          "Leetcode": "https://leetcode.com/u/Amartya3/",
+          "LinkedIn": "https://www.linkedin.com/in/amartyaahmed/",
+          "Facebook": "https://www.facebook.com/amartya.ahmed/"
         },
-        {
-          "title": "Siddhid Saha",
-          "src": "https://images.unsplash.com/photo-1600271772470-bd22a42787b3?q=80&w=3072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-          "profile": "https://codeforces.com/profile/tourist",
-          "description": "Competitive Comder"
+        "email": "amartyaahmed@gmail.com"
+      },
+      {
+        "title": "Siddhid Saha (Coordinator)",
+        "src": "https://res.cloudinary.com/dtpmqu6lw/image/upload/v1738775117/7a016014-867f-4a10-9bc5-0ff654fbbe89_-_Ss_j6hwi6.jpg",
+        "profile": {
+          "Codeforces": "https://codeforces.com/profile/sroid_03",
+          "Leetcode": "https://leetcode.com/u/siddhid_s",
+          "LinkedIn": "https://www.linkedin.com/in/siddhid-saha",
+          "Facebook": "https://www.facebook.com/siddhid.saha/"
         },
-        {
-            "title": "Arnab Kumar Singh",
-            "src": "https://images.unsplash.com/photo-1505142468610-359e7d316be0?q=80&w=3070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            "profile": "https://codeforces.com/profile/tourist",
-            "description": "Competitive Comder"
-          },
-          {
-            "title": "Anubhav Chakravarty",
-            "src": "https://images.unsplash.com/photo-1486915309851-b0cc1f8a0084?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            "profile": "https://codeforces.com/profile/tourist",
-            "description": "Competitive Comder"
-          },
-        {
-          "title": "Amartya Ahmed",
-          "src": "https://images.unsplash.com/photo-1518710843675-2540dd79065c?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-          "profile": "https://codeforces.com/profile/tourist",
-          "description": "Competitive Comder"
+        "email": "siddhid2003@gmail.com"
+      },
+      {
+        "title": "Arnab Kumar Singh",
+        "src": "https://res.cloudinary.com/dtpmqu6lw/image/upload/v1738775120/pic_-_ECE_010_Arnab_Kumar_Singh_wz4cn8.jpg",
+        "profile": {
+          "Codeforces": "https://codeforces.com/profile/Arnab_11",
+          "Leetcode": "https://leetcode.com/u/RedConsole/",
+          "LinkedIn": "https://www.linkedin.com/in/arnab-kumar-singh-405862240/",
+          "Facebook": "-"
         },
-        {
-          "title": "Siddhid Saha",
-          "src": "https://images.unsplash.com/photo-1600271772470-bd22a42787b3?q=80&w=3072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-          "profile": "https://codeforces.com/profile/tourist",
-          "description": "Competitive Comder"
+        "email": "arnabkumarjanuary.2002@gmail.com"
+      },
+      {
+        "title": "Dimpal Kalita",
+        "src": "https://res.cloudinary.com/dtpmqu6lw/image/upload/v1738775121/IMG-20250125-WA0058_-_Dimpal_Kalita_swlyc9.jpg",
+        "profile": {
+          "Codeforces": "https://codeforces.com/profile/Dimpal",
+          "Leetcode": "https://leetcode.com/u/dk_sensei",
+          "LinkedIn": "https://www.linkedin.com/in/dimpal-kalita-819121226/",
+          "Facebook": "https://www.facebook.com/dimpalkalita99/"
         },
-        {
-            "title": "Arnab Kumar Singh",
-            "src": "https://images.unsplash.com/photo-1505142468610-359e7d316be0?q=80&w=3070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            "profile": "https://codeforces.com/profile/tourist",
-            "description": "Competitive Comder"
-          },
-          {
-            "title": "Anubhav Chakravarty",
-            "src": "https://images.unsplash.com/photo-1486915309851-b0cc1f8a0084?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            "profile": "https://codeforces.com/profile/tourist",
-            "description": "Competitive Comder"
-          }
-      ]
-    },
-    "pre final year members": {
-      "title": "Pre Final Year Members",
-      "data": [
-        {
-            "title": "Amartya Ahmed",
-            "src": "https://images.unsplash.com/photo-1518710843675-2540dd79065c?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            "profile": "https://codeforces.com/profile/tourist",
-            "description": "Competitive Comder"
-          },
-          {
-            "title": "Siddhid Saha",
-            "src": "https://images.unsplash.com/photo-1600271772470-bd22a42787b3?q=80&w=3072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            "profile": "https://codeforces.com/profile/tourist",
-            "description": "Competitive Comder"
-          },
-          {
-              "title": "Arnab Kumar Singh",
-              "src": "https://images.unsplash.com/photo-1505142468610-359e7d316be0?q=80&w=3070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-              "profile": "https://codeforces.com/profile/tourist",
-              "description": "Competitive Comder"
-            },
-            {
-              "title": "Anubhav Chakravarty",
-              "src": "https://images.unsplash.com/photo-1486915309851-b0cc1f8a0084?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-              "profile": "https://codeforces.com/profile/tourist",
-              "description": "Competitive Comder"
-            }
-      ]
-    },
-    "our junior team members": {
-      "title": "Our Junior Team Members",
-      "data": [
-        {
-            "title": "Amartya Ahmed",
-            "src": "https://images.unsplash.com/photo-1518710843675-2540dd79065c?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            "profile": "https://codeforces.com/profile/tourist",
-            "description": "Competitive Comder"
-          },
-          {
-            "title": "Siddhid Saha",
-            "src": "https://images.unsplash.com/photo-1600271772470-bd22a42787b3?q=80&w=3072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            "profile": "https://codeforces.com/profile/tourist",
-            "description": "Competitive Comder"
-          },
-          {
-              "title": "Arnab Kumar Singh",
-              "src": "https://images.unsplash.com/photo-1505142468610-359e7d316be0?q=80&w=3070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-              "profile": "https://codeforces.com/profile/tourist",
-              "description": "Competitive Comder"
-            },
-            {
-              "title": "Anubhav Chakravarty",
-              "src": "https://images.unsplash.com/photo-1486915309851-b0cc1f8a0084?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-              "profile": "https://codeforces.com/profile/tourist",
-              "description": "Competitive Comder"
-            }
-      ]
-    }
+        "email": "kalitadimpal112@gmail.com"
+      },
+      {
+        "title": "Hirakjyoti Choudhury",
+        "src": "https://res.cloudinary.com/dtpmqu6lw/image/upload/v1738775119/IMG-20241228-WA0094_2_-_HIRAK_CHOUDHURY_kz7tk1.jpg",
+        "profile": {
+          "Codeforces": "https://codeforces.com/profile/he_rock18",
+          "Leetcode": "https://leetcode.com/u/he_rock18",
+          "LinkedIn": "https://www.linkedin.com/in/hirakjyoti-choudhury-544010255",
+          "Facebook": "https://www.facebook.com/share/18jVs2tLSW/"
+        },
+        "email": "hirakjyotichoudhury75060@gmail.com"
+      },
+      {
+        "title": "Darpan Deka",
+        "src": "https://res.cloudinary.com/dtpmqu6lw/image/upload/v1738775118/darpan_-_Darpan_Deka_rtwkkm.jpg",
+        "profile": {
+          "Codeforces": "https://codeforces.com/profile/Darpan2002",
+          "Leetcode": "https://leetcode.com/u/Darpan2002/",
+          "LinkedIn": "https://www.linkedin.com/in/darpan-deka-63a291231/",
+          "Facebook": "https://www.facebook.com/darpan.deka.10/"
+        },
+        "email": "darpandeka6000@gmail.com"
+      }
+    ]
+  },
+  "Pre Final year members": {
+    "title": "Pre Final Year Members",
+    "data": [
+      {
+        "title": "Mahesh Balaji Birajdar",
+        "src": "https://res.cloudinary.com/dtpmqu6lw/image/upload/v1738775115/My-Photo_2_-_MAHESH_BIRAJDAR_r5kkua.jpg",
+        "profile": {
+          "Codeforces": "https://codeforces.com/profile/Maheshbb",
+          "Leetcode": "",
+          "LinkedIn": "https://www.linkedin.com/in/mahesh-birajdar-53b050258",
+          "Facebook": "https://www.facebook.com/share/15VGR1nbv7/"
+        },
+        "email": "maheshbirajdar3355@gmail.com"
+      },
+      {
+        "title": "Nawadeep Atreya",
+        "src": "https://res.cloudinary.com/dtpmqu6lw/image/upload/v1738775134/IMG_8396_-_Nawadeep_Atreya_jkfk3z.jpg",
+        "profile": {
+          "Codeforces": "https://codeforces.com/profile/Atreya45",
+          "Leetcode": "https://leetcode.com/u/Atreya45/",
+          "LinkedIn": "https://www.linkedin.com/in/nawadeepatreya/",
+          "Facebook": "https://www.facebook.com/nawadeep.atreya.5"
+        },
+        "email": "atreyanawadeep@gmail.com"
+      },
+      {
+        "title": "PALLAV SHARMA",
+        "src": "https://res.cloudinary.com/dtpmqu6lw/image/upload/v1738775131/WhatsApp_Image_2025-01-05_at_20.33.30_-_Pallav_Sharma_iywulu.jpg",
+        "profile": {
+          "Codeforces": "https://codeforces.com/profile/pallavshrm27",
+          "Leetcode": "https://leetcode.com/u/pallavshrm27/",
+          "LinkedIn": "https://www.linkedin.com/in/pallav-sharma-68174424b/",
+          "Facebook": "https://www.facebook.com/profile.php?id=100088107152732"
+        },
+        "email": "pallavshrm27@gmail.com"
+      },
+      {
+        "title": "Mani Kiran Batchu",
+        "src": "https://res.cloudinary.com/dtpmqu6lw/image/upload/v1738775130/linkedin_profile_picture_-_Mani_Kiran_Batchu_qxn30j.jpg",
+        "profile": {
+          "Codeforces": "https://codeforces.com/profile/manikiran949",
+          "Leetcode": "https://leetcode.com/u/manikiran949/",
+          "LinkedIn": "https://www.linkedin.com/in/mani-kiran-batchu-4885b1249/",
+          "Facebook": "https://www.facebook.com/profile.php?id=100071684940149"
+        },
+        "email": "manikiranbatchu6@gmail.com"
+      },
+      {
+        "title": "Nikhil Sahani",
+        "src": "https://res.cloudinary.com/dtpmqu6lw/image/upload/v1738775131/IMG_20240415_130348_-_Nikhil_Sahani_yk7dgs.jpg",
+        "profile": {
+          "Codeforces": "https://codeforces.com/profile/KRISHN-ick",
+          "Leetcode": "https://leetcode.com/u/Nikhil_Sahani/",
+          "LinkedIn": "https://www.linkedin.com/in/nikhilsahani24",
+          "Facebook": "https://www.facebook.com/profile.php?id=100087762441488"
+        },
+        "email": "nikhilsahani242003@gmail.com"
+      },
+      {
+        "title": "Sunki Likith Reddy",
+        "src": "https://res.cloudinary.com/dtpmqu6lw/image/upload/v1738775129/IMG_20241226_205224_-_Hisoz_xqebal.jpg",
+        "profile": {
+          "Codeforces": "https://codeforces.com/profile/LikithReddy123",
+          "Leetcode": "",
+          "LinkedIn": "https://www.linkedin.com/in/likith-reddy-6948b9239",
+          "Facebook": "https://www.facebook.com/profile.php?id=100087822461696"
+        },
+        "email": "likith001sunki@gmail.com"
+      },
+      {
+        "title": "Rishi Kumar Jha",
+        "src": "https://res.cloudinary.com/dtpmqu6lw/image/upload/v1738775131/Screenshot_20241025-094619_-_Rishi_Jha_fnourw.png",
+        "profile": {
+          "Codeforces": "https://codeforces.com/profile/rishijha00007",
+          "Leetcode": "",
+          "LinkedIn": "https://www.linkedin.com/in/rishi-jha-3604191a3",
+          "Facebook": "https://www.facebook.com/share/18Wq8i1wUQ/"
+        },
+        "email": "rishijha00007@gmail.com"
+      },
+      {
+        "title": "Janisa Kashyap",
+        "src": "https://res.cloudinary.com/dtpmqu6lw/image/upload/v1738775127/WhatsApp_Image_2025-01-04_at_11.02.35_cf38189b_-_Janisa_Kashyap_ymmk4j.jpg",
+        "profile": {
+          "Codeforces": "https://codeforces.com/profile/sunkenship884",
+          "Leetcode": "https://leetcode.com/u/janisaa/",
+          "LinkedIn": "https://www.linkedin.com/in/janisa-kashyap-463674269/",
+          "Facebook": "https://www.facebook.com/profile.php?id=100093420313846"
+        },
+        "email": "kashyapjanisa1440@gmail.com"
+      },
+      {
+        "title": "Kanika Punia",
+        "src": "https://res.cloudinary.com/dtpmqu6lw/image/upload/v1738775125/IMG-20250104-WA0120_-_kanika_punia_tv9onk.jpg",
+        "profile": {
+          "Codeforces": "https://codeforces.com/profile/kanika119",
+          "Leetcode": "https://leetcode.com/u/Kanika_Punia/",
+          "LinkedIn": "https://www.linkedin.com/in/kanika-punia-5b15a5210/",
+          "Facebook": "-"
+        },
+        "email": "kanikapunia119@gmail.com"
+      },
+      {
+        "title": "Sumit Kumar Singh",
+        "src": "https://res.cloudinary.com/dtpmqu6lw/image/upload/v1738783997/WhatsApp_Image_2025-01-28_at_21.31.43_b161b1d7_-_Sumit_Singh_uz6fpi_09240d.jpg",
+        "profile": {
+          "Codeforces": "https://codeforces.com/profile/Indrajit",
+          "Leetcode": "https://leetcode.com/u/krsumitsingh2004/",
+          "LinkedIn": "https://www.linkedin.com/in/sumit756/",
+          "Facebook": "-"
+        },
+        "email": "krsumitsingh252004@gmail.com"
+      },
+      {
+        "title": "Aayan Borah Kalita",
+        "src": "https://res.cloudinary.com/dtpmqu6lw/image/upload/v1738783900/IMG_20250201_143851_-_Aayan_ABK_fej1ag_252723.jpg",
+        "profile": {
+          "Codeforces": "https://codeforces.com/profile/Determinist",
+          "Leetcode": "https://leetcode.com/u/maybk",
+          "LinkedIn": "https://www.linkedin.com/in/aayan-borah-kalita-5342571b3/",
+          "Facebook": "https://www.facebook.com/profile.php?id=100087922154594"
+        },
+        "email": "aayanabkofficial@gmail.com"
+      },
+      {
+        "title": "Manjit kr Poddar",
+        "src": "https://res.cloudinary.com/dtpmqu6lw/image/upload/v1738775118/IMG_20250131_123046_-_manjit_poddar_jymb8c.jpg",
+        "profile": {
+          "Codeforces": "https://codeforces.com/profile/noob4zero4",
+          "Leetcode": "https://leetcode.com/u/manashpoddar5/",
+          "LinkedIn": "https://www.linkedin.com/in/manjit-poddar",
+          "Facebook": "https://www.facebook.com/share/1BNBnACqv1/"
+        },
+        "email": "manashpoddar5@gmail.com"
+      },
+      {
+        "title": "Sohail Kazi",
+        "src": "https://res.cloudinary.com/dtpmqu6lw/image/upload/v1738775118/20240721_214904_-_Sohail_Kazi_itaczy.jpg",
+        "profile": {
+          "Codeforces": "https://codeforces.com/profile/sohailkazi",
+          "Leetcode": "https://leetcode.com/u/sohailkazi/",
+          "LinkedIn": "https://in.linkedin.com/in/sohail-kazi-951677249",
+          "Facebook": "https://www.facebook.com/sohail.kazi.1800"
+        },
+        "email": "sohailkazi001@gmail.com"
+      }
+    ]
+  },
+  "Junior members": {
+    "title": "Junior Members",
+    "data": [
+      {
+        "title": "Upamanyu Jit Phukan",
+        "src": "https://res.cloudinary.com/dtpmqu6lw/image/upload/v1738775123/WhatsApp_Image_2025-01-31_at_9.15.02_PM_-_Upamanyu_Jit_Phukan_l2fkvp.jpg",
+        "profile": {
+          "Codeforces": "https://codeforces.com/profile/Upamanyu_Phukan",
+          "Leetcode": "https://leetcode.com/u/Upamanyu_Phukan/",
+          "LinkedIn": "https://www.linkedin.com/in/upamanyu-jit-phukan-a98359291/",
+          "Facebook": "https://www.facebook.com/upamanyu.jitphukan/"
+        },
+        "email": "ujpghy@gmail.com"
+      },
+      {
+        "title": "Vikrant Agarwala",
+        "src": "https://res.cloudinary.com/dtpmqu6lw/image/upload/v1738775136/IMG-20240815-WA0076_2_-_Vikrant_Agarwala_ea1v2d.jpg",
+        "profile": {
+          "Codeforces": "https://codeforces.com/profile/V1rus_17",
+          "Leetcode": "",
+          "LinkedIn": "https://www.linkedin.com/in/vikrant-agarwala",
+          "Facebook": "https://www.facebook.com/vikrant017"
+        },
+        "email": "vikrantag17@gmail.com"
+      },
+      {
+        "title": "Kh. Radhapyari Devi",
+        "src": "https://res.cloudinary.com/dtpmqu6lw/image/upload/v1738775128/WhatsApp_Image_2023-10-22_at_11.50.57_AM_-_Copy_-_Radhapyari_Khumanthem_hsccv9.jpg",
+        "profile": {
+          "Codeforces": "https://codeforces.com/profile/turtle_",
+          "Leetcode": "https://leetcode.com/u/_rade/",
+          "LinkedIn": "https://www.linkedin.com/in/radhapyari-khumanthem-15949928b/",
+          "Facebook": "https://www.facebook.com/profile.php?id=61553120172360"
+        },
+        "email": "khumanthem_ug_23@cse.nits.ac.in"
+      },
+      {
+        "title": "Iftikar Hussain",
+        "src": "https://res.cloudinary.com/dtpmqu6lw/image/upload/v1738775127/WhatsApp_Image_2025-01-12_at_8.01.16_PM_-_Iftikar_Hussain_tadutz.jpg",
+        "profile": {
+          "Codeforces": "https://codeforces.com/profile/itsiftikar02",
+          "Leetcode": "https://leetcode.com/u/itsiftikar02/",
+          "LinkedIn": "https://www.linkedin.com/in/iftikar-hussain-457772286/",
+          "Facebook": "https://www.facebook.com/profile.php?id=61552087360824"
+        },
+        "email": "iftikarhussain002d@gmail.com"
+      },
+      {
+        "title": "Rahul Bhuiya",
+        "src": "https://res.cloudinary.com/dtpmqu6lw/image/upload/v1738775116/WhatsApp_Image_2025-01-11_at_23.21.48_-_Rahul_Bhuiya_kvuvpw.jpg",
+        "profile": {
+          "Codeforces": "https://codeforces.com/profile/racoder_1",
+          "Leetcode": "https://leetcode.com/u/racoder_1",
+          "LinkedIn": "https://www.linkedin.com/in/rahul-bhuiya-508773233/",
+          "Facebook": "https://www.facebook.com/profile.php?id=61553780318760"
+        },
+        "email": "rahulbhuiya2004@gmail.com"
+      },
+      {
+        "title": "Gauri Jain",
+        "src": "https://res.cloudinary.com/dtpmqu6lw/image/upload/v1738775126/IMG_20240625_112815_-_Gauri_Jain_jxprxy.jpg",
+        "profile": {
+          "Codeforces": "https://codeforces.com/profile/whiteLily1",
+          "Leetcode": "https://leetcode.com/u/gaurijainn_",
+          "LinkedIn": "https://www.linkedin.com/in/gauri-jain-545740312?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+          "Facebook": "https://www.facebook.com/share/15Lf4jbWeZ/"
+        },
+        "email": "gaurijainn@gmail.com"
+      },
+      {
+        "title": "Hirak Rajbonshi",
+        "src": "https://res.cloudinary.com/dtpmqu6lw/image/upload/v1738775118/PHOTO1.1_-_Hirak_Rajbonshi_j52nei.png",
+        "profile": {
+          "Codeforces": "https://codeforces.com/profile/karock",
+          "Leetcode": "https://leetcode.com/u/KAROCK/",
+          "LinkedIn": "https://www.linkedin.com/in/hirak-rajbonshi-baa6a628a/",
+          "Facebook": "https://www.facebook.com/hirak.rajbonshi.7/"
+        },
+        "email": "hrkraj0@gmail.com"
+      },
+      {
+        "title": "Vivek Sharma",
+        "src": "https://res.cloudinary.com/dtpmqu6lw/image/upload/v1738775126/reet_-_Vivek_Sharma_ehjuu4.jpg",
+        "profile": {
+          "Codeforces": "https://codeforces.com/profile/vivekk07",
+          "Leetcode": "https://leetcode.com/u/leetvivek99",
+          "LinkedIn": "https://www.linkedin.com/in/vivek-sharma-318593297",
+          "Facebook": "https://www.facebook.com/profile.php?id=61550951534773&mibextid=ZbWKwL"
+        },
+        "email": "beingviveksharma99@gmail.com"
+      },
+      {
+        "title": "Jey Nang Gogoi",
+        "src": "https://res.cloudinary.com/dtpmqu6lw/image/upload/v1738775126/20250101_132133_-_JEY_NANG_GOGOI_s4cuyl.jpg",
+        "profile": {
+          "Codeforces": "https://codeforces.com/profile/jeyni",
+          "Leetcode": "https://leetcode.com/u/jnnie/",
+          "LinkedIn": "https://www.linkedin.com/in/jey-nang-gogoi-7830a92b1",
+          "Facebook": "https://www.facebook.com/profile.php?id=61551416120715&mibextid=ZbWKwL"
+        },
+        "email": "jeynang12@gmail.com"
+      },
+      {
+        "title": "Saibalik Chakraborty",
+        "src": "https://res.cloudinary.com/dtpmqu6lw/image/upload/v1738775138/WhatsApp_Image_2025-01-11_at_23.04.29_06de36a1_-_Saibalik_Chakraborty_bgu12d.jpg",
+        "profile": {
+          "Codeforces": "https://codeforces.com/profile/SuperNovaDs",
+          "Leetcode": "https://leetcode.com/u/Surrealsuper/",
+          "LinkedIn": "https://www.linkedin.com/in/saibalik-chakraborty-802137284/",
+          "Facebook": "https://www.facebook.com/profile.php?id=61553583980749"
+        },
+        "email": "chakrabortysaibalik2323@gmail.com"
+      },
+      {
+        "title": "Balla Pranava Chaitanya",
+        "src": "https://res.cloudinary.com/dtpmqu6lw/image/upload/v1738775123/1704519662144_-_BALLA_PRANAVA_CHAITANYA_p033sf.jpg",
+        "profile": {
+          "Codeforces": "https://codeforces.com/profile/pranavachaitanyaballa",
+          "Leetcode": "https://leetcode.com/u/pranav2408/",
+          "LinkedIn": "https://www.linkedin.com/in/balla-pranava-chaitanya-59b84628a/",
+          "Facebook": "https://www.facebook.com/profile.php?id=61550684457505"
+        },
+        "email": "pranavachaitanyaballa@gmail.com"
+      },
+      {
+        "title": "Parishmita Banik",
+        "src": "https://res.cloudinary.com/dtpmqu6lw/image/upload/v1738775116/GridArt_20240905_141926484_-_Parishmita_Banik_rim2e1.jpg",
+        "profile": {
+          "Codeforces": "https://codeforces.com/profile/ParadoxicalAce",
+          "Leetcode": "https://leetcode.com/u/Parishmita02/",
+          "LinkedIn": "https://www.linkedin.com/in/parishmita-banik02",
+          "Facebook": "https://www.facebook.com/share/12DA2NTxQA1/"
+        },
+        "email": "parishmitabanik2005@gmail.com"
+      },
+      {
+        "title": "Yesh Agarwal",
+        "src": "https://res.cloudinary.com/dtpmqu6lw/image/upload/v1738775115/IMG20231111225010_-_Yesh_Agarwal_cmojzj.jpg",
+        "profile": {
+          "Codeforces": "https://codeforces.com/profile/Valhalla_RL",
+          "Leetcode": "https://leetcode.com/u/Yesh_005",
+          "LinkedIn": "https://www.linkedin.com/in/yesh-agarwal-b77290273",
+          "Facebook": "https://www.facebook.com/profile.php?id=100008367453751"
+        },
+        "email": "yashagarwal287@gmail.com"
+      },
+      {
+        "title": "Krish Jha",
+        "src": "https://res.cloudinary.com/dtpmqu6lw/image/upload/v1738775122/upload_-_Krish_Jha_oixmbj.jpg",
+        "profile": {
+          "Codeforces": "https://codeforces.com/profile/krishjha1121",
+          "Leetcode": "https://leetcode.com/u/krishjha1121/",
+          "LinkedIn": "https://www.linkedin.com/in/krish-jha-5059202a9/",
+          "Facebook": "https://www.facebook.com/krish.jha.33449"
+        },
+        "email": "krishjha1121@gmail.com"
+      },
+      {
+        "title": "Abhishekh Kumar Mishra",
+        "src": "https://res.cloudinary.com/dtpmqu6lw/image/upload/v1738775133/WhatsApp_Image_2024-08-20_at_17.54.16_-_Abhishekh_Mishra_sgt2rl.jpg",
+        "profile": {
+          "Codeforces": "https://codeforces.com/profile/abhi_mishra",
+          "Leetcode": "https://leetcode.com/u/Abhishekh_Mishra",
+          "LinkedIn": "https://www.linkedin.com/in/abhishekh-kumar-mishra-81a655291",
+          "Facebook": "https://www.facebook.com/profile.php?id=100055101542369"
+        },
+        "email": "abhishekhmishra4145@gmail.com"
+      },
+      {
+        "title": "Priyanshu Kashyap",
+        "src": "https://res.cloudinary.com/dtpmqu6lw/image/upload/v1738775128/WhatsApp_Image_2025-01-12_at_17.12.04_eed44a48_-_Priyanshu_Kashyap_s5oj3y.jpg",
+        "profile": {
+          "Codeforces": "https://codeforces.com/profile/7rikster",
+          "Leetcode": "https://leetcode.com/u/ribupkashyap/",
+          "LinkedIn": "https://www.linkedin.com/in/priyanshu-kashyap-8196a928a/",
+          "Facebook": "https://www.facebook.com/profile.php?id=61550769088682"
+        },
+        "email": "ribupkashyap@gmail.com"
+      }
+    ]
   }
-  
+}
