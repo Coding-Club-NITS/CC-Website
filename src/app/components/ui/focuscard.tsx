@@ -57,17 +57,15 @@ export const Card = React.memo(
             hovered === index ? "opacity-100" : "opacity-0"
           )}
         >
-          {/* Name */}
           <div className="text-2xl font-bold text-white mb-2">{card.title}</div>
 
-          {/* Social Links */}
           <div className="flex gap-4 mb-4">
             {card.profile?.Codeforces && (
               <Link
                 href={card.profile.Codeforces}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-blue-400 transition-colors"
+                className="text-white hover:text-yellow-400 transition-colors"
                 title="Codeforces"
               >
                 <CodeForcesIcon size={24} />
@@ -91,7 +89,7 @@ export const Card = React.memo(
                 href={card.profile.LinkedIn}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-blue-600 transition-colors"
+                className="text-white hover:text-yellow-600 transition-colors"
                 title="LinkedIn"
               >
                 <SiLinkedin size={24} />
@@ -103,7 +101,7 @@ export const Card = React.memo(
                 href={card.profile.Facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-blue-500 transition-colors"
+                className="text-white hover:text-yellow-500 transition-colors"
                 title="Facebook"
               >
                 <FaFacebook size={24} />

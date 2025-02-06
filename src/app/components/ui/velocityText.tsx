@@ -31,9 +31,9 @@ const VelocityText = () => {
   return (
     <section
       ref={targetRef}
-      className="relative bg-black text-white/10 h-50 overflow-hidden"
+      className="relative bg-black/0 text-white/10 h-50 overflow-hidden"
     >
-      <div className="flex h-screen items-center">
+      <div className="flex h-screen items-center bg-black/0">
         <motion.pre
           style={{ skewX, x }}
           className="origin-bottom-left whitespace-pre text-5xl font-black uppercase leading-[0.85] md:text-7xl md:leading-[0.85]"
