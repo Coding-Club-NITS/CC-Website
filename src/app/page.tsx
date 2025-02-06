@@ -7,6 +7,8 @@ import Parallax from "./components/parallax";
 import SmoothScrolling from "./components/smoothScroll";
 import { ThemeProvider } from "next-themes";
 import PageLoader from "./components/pageLoader";
+import React from "react";
+import { StarsBackground } from "./components/ui/stars-background";
 export default function Page() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -15,6 +17,7 @@ export default function Page() {
   }, []);
   return (
     <ThemeProvider attribute="class" defaultTheme="dark">
+      <StarsBackground />
       {loading ? (
         <PageLoader />
       ) : (
