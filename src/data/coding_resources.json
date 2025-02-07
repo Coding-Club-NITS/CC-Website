@@ -1,75 +1,46 @@
 {
-    "courses": [
-      {
-        "id": 1,
-        "title": "Competitive Programming Basics",
-        "slug": "competitive-programming-basics",
-        "description": "Learn the fundamentals of competitive programming, including problem-solving strategies and algorithms.",
-        "isFeatured": true
-      },
-      {
-        "id": 2,
-        "title": "Mastering Data Structures",
-        "slug": "mastering-data-structures",
-        "description": "Deep dive into essential data structures and their applications in competitive programming.",
-        "isFeatured": true
-      },
-      {
-        "id": 3,
-        "title": "Dynamic Programming Simplified",
-        "slug": "dynamic-programming-simplified",
-        "description": "Understand dynamic programming techniques to tackle complex problems effectively.",
-        "isFeatured": true
-      },
-      {
-        "id": 4,
-        "title": "Graph Theory for CP",
-        "slug": "graph-theory-for-cp",
-        "description": "Explore graph algorithms and their use cases in solving competitive programming problems.",
-        "isFeatured": false
-      },
-      {
-        "id": 5,
-        "title": "Advanced CP Topics",
-        "slug": "advanced-cp-topics",
-        "description": "Learn advanced competitive programming concepts like segment trees, Fenwick trees, and more.",
-        "isFeatured": true
-      },
-      {
-        "id": 6,
-        "title": "Mathematics for CP",
-        "slug": "mathematics-for-cp",
-        "description": "Strengthen your mathematical skills to excel in competitive programming contests.",
-        "isFeatured": false
-      },
-      {
-        "id": 7,
-        "title": "String Algorithms and Pattern Matching",
-        "slug": "string-algorithms-and-pattern-matching",
-        "description": "Master string algorithms and pattern matching techniques for competitive programming challenges.",
-        "isFeatured": false
-      },
-      {
-        "id": 8,
-        "title": "Greedy Algorithms in CP",
-        "slug": "greedy-algorithms-in-cp",
-        "description": "Learn and apply greedy techniques to solve problems with optimal solutions.",
-        "isFeatured": true
-      },
-      {
-        "id": 9,
-        "title": "Introduction to Number Theory",
-        "slug": "introduction-to-number-theory",
-        "description": "Explore number theory concepts crucial for solving modular arithmetic and related problems.",
-        "isFeatured": true
-      },
-      {
-        "id": 10,
-        "title": "Mock Contests and Strategies",
-        "slug": "mock-contests-and-strategies",
-        "description": "Participate in mock contests and learn effective strategies to enhance your performance.",
-        "isFeatured": false
-      }
-    ]
-  }
-  
+  "courses": [
+    {
+      "id": 1,
+      "title": "Competitive Programming Basics",
+      "slug": "https://drive.google.com/drive/folders/1Cq2I9o3Kd_hm7hznSSulQVZFYqVe1fCg?usp=sharing",
+      "description": "Get started with competitive programming, covering problem-solving techniques, time complexity, and essential algorithms.",
+      "isFeatured": true
+    },
+    {
+      "id": 2,
+      "title": "Competitive Programming Template",
+      "slug": "https://github.com/nikhilsenju/competitive-programming/tree/main/CP-Templates",
+      "description": "Access pre-written templates for common data structures and algorithms to speed up coding in contests.",
+      "isFeatured": true
+    },
+    {
+      "id": 3,
+      "title": "Geometry for CP",
+      "slug": "https://drive.google.com/drive/folders/1eQJryyVQ3_M2Qj4aZhVYve_igGTLy5yx?usp=sharing",
+      "description": "Learn key geometric concepts, formulas, and algorithms essential for solving geometry-based problems in CP.",
+      "isFeatured": true
+    },
+    {
+      "id": 4,
+      "title": "Popular YouTube Channels",
+      "slug": "https://docs.google.com/document/d/1tBAy-BBkArkqv9ZEUox0TWOtZ4gP02mJOzbFO9Mxp44/edit?usp=sharing",
+      "description": "Discover top YouTube channels that provide quality competitive programming tutorials and problem explanations.",
+      "isFeatured": true
+    },
+    {
+      "id": 5,
+      "title": "Popular Practice Sites",
+      "slug": "https://docs.google.com/document/d/1lj5sE3RfzT1J5DoZ9atDvwoDY0w254pXKXtQ551DQiE/edit?usp=sharing",
+      "description": "Find the best online platforms for practicing competitive programming problems and improving your skills.",
+      "isFeatured": true
+    },
+    {
+      "id": 8,
+      "title": "Popular Learning Platforms",
+      "slug": "https://docs.google.com/document/d/1r_Zi50ktbNfNFWdd9xiqTZ9JuqtcrbQ1AN5w2A61pWE/edit?usp=sharing",
+      "description": "Explore platforms that offer structured courses, tutorials, and problem-solving resources for CP.",
+      "isFeatured": true
+    }
+  ]
+}
