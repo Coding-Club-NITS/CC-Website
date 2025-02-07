@@ -1,30 +1,26 @@
 [
   {
     "name": "Contests",
-    "description":
-      "Participate in exciting coding contests organized by the Coding Club. Test your skills against peers, solve challenging problems, and win amazing prizes. Join our contests to enhance your problem-solving abilities and coding prowess.",
-    "src": "https://picsum.photos/200/300",
+    "description": "Join our coding contests to test your skills, solve challenges, and compete for exciting prizes.",
+    "src": "https://res.cloudinary.com/dtpmqu6lw/image/upload/v1738954191/DALL_E_2025-02-08_00.14.02_-_A_coding_contest_event_with_participants_intensely_working_on_their_laptops._The_scene_is_indoors_with_multiple_tables_and_a_large_screen_displaying_eo93e2.webp",
     "caption": "CP Contest"
   },
   {
     "name": "Workshops",
-    "description":
-      "Attend our hands-on workshops to learn new technologies and tools. Our workshops cover a wide range of topics, from web development to machine learning. Gain practical knowledge and experience by building real-world projects.",
-    "src": "https://picsum.photos/200/300",
+    "description": "Join our hands-on workshops to learn new technologies and build real-world projects.",
+    "src": "https://res.cloudinary.com/dtpmqu6lw/image/upload/v1738954191/DALL_E_2025-02-08_00.15.58_-_A_coding_club_workshop_in_progress._A_group_of_students_both_male_and_female_are_seated_at_tables_with_laptops_listening_to_an_instructor_presentin_t02mre.webp",
     "caption": "Learn New Things"
   },
   {
     "name": "Coding Classes",
-    "description":
-      "Join our coding classes to improve your programming skills. Whether you're a beginner or an advanced coder, our classes are designed to cater to all levels. Learn from experienced instructors and become proficient in various programming languages.",
-    "src": "https://picsum.photos/200/300",
+    "description": "Join our coding classes to enhance your programming skills. Learn from experts and master various languages, whether you're a beginner or advanced.",
+    "src": "https://res.cloudinary.com/dtpmqu6lw/image/upload/v1738954191/DALL_E_2025-02-08_00.17.40_-_A_coding_club_class_in_progress._A_group_of_students_diverse_in_gender_and_ethnicity_are_seated_in_a_modern_classroom_with_laptops_open_attentively_wneg5u.webp",
     "caption": "Lessons on Coding"
   },
   {
     "name": "Speaker Sessions",
-    "description":
-      "Attend speaker sessions with industry experts and alumni. Gain insights into the latest trends in technology, career advice, and much more. Our speaker sessions are a great opportunity to learn from the best and stay updated with the industry.",
-    "src": "https://picsum.photos/200/300",
+    "description": "Join speaker sessions with industry experts and alumni for insights on tech trends, careers, and more.",
+    "src": "https://res.cloudinary.com/dtpmqu6lw/image/upload/v1738954191/DALL_E_2025-02-08_00.19.31_-_A_speaker_session_at_a_coding_club_event._A_professional_speaker_is_presenting_to_an_engaged_audience_of_students_in_a_modern_lecture_hall._The_atmosp_agcnaq.webp",
     "caption": "Hear from Experts"
   }
 ]

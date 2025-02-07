@@ -308,7 +308,7 @@
 /* Media Queries */
 @media (max-width: 768px) {
   .containers {
-    width: 100%;
+    width: 80%;
     margin-left: 0;
   }
 
@@ -318,23 +318,15 @@
     margin-top: 30px;
   }
 
-  .pic {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .social1,
-  .social2,
-  .social3 {
-    margin-left: auto;
-    margin-right: auto;
-  }
   .wrapper {
     padding-top: 80px; /* Slightly less padding on mobile */
   }
 
   .row {
     padding-top: 1rem;
+  }
+  .accordionContainer {
+    top: 100px;
   }
 }
 
