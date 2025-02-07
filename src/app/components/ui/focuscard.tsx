@@ -35,21 +35,20 @@ export const Card = React.memo(
         onMouseEnter={() => setHovered(index)}
         onMouseLeave={() => setHovered(null)}
         className={cn(
-          "rounded-lg relative bg-gray-100 dark:bg-neutral-900 overflow-hidden h-60 md:h-96 w-full transition-all duration-300 ease-out",
+          "rounded-lg relative bg-gray-100 dark:bg-neutral-900 overflow-hidden w-full transition-all duration-300 ease-out",
+          "aspect-[4/5] sm:aspect-[3/4] md:h-96", // Maintain aspect ratio across breakpoints
           hovered !== null && hovered !== index && "blur-sm scale-[0.98]"
         )}
       >
-        <div className="absolute inset-0">
-          <Image
-            src={imgSrc}
-            alt={card.title}
-            fill
-            className="object-cover w-full h-full rounded-lg"
-            onError={() => setImgSrc("/default-avatar.jpg")}
-            unoptimized
-            priority
-          />
-        </div>
+        <Image
+          src={imgSrc}
+          alt={card.title}
+          fill
+          className="object-cover w-full h-full rounded-lg"
+          onError={() => setImgSrc("/default-avatar.jpg")}
+          unoptimized
+          priority
+        />
 
         <div
           className={cn(
@@ -160,7 +159,7 @@ export default function FocusCards({ cards }: { cards: any[] }) {
   }, []);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-4 gap-5 max-w-8xl mx-auto md:px-2 w-full">
+    <div className="grid grid-cols-1 md:grid-cols-4 gap-5 max-w-8xl mx-auto w-full px-4 sm:px-6 md:px-2">
       {sortedCards.map((card, index) => (
         <div
           key={card.title + index}

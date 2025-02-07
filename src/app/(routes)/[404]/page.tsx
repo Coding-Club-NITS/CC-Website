@@ -5,7 +5,6 @@ export default function BounceGame404() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [gameStarted, setGameStarted] = useState(false);
   const [score, setScore] = useState(0);
-  let scr = 0;
   const [maxScore, setMaxScore] = useState(0);
 
   useEffect(() => {
@@ -77,7 +76,6 @@ export default function BounceGame404() {
       ball.x += ball.dx;
       ball.y += ball.dy;
 
-      // Ball collision with walls
       if (ball.x + ball.radius > canvas.width || ball.x - ball.radius < 0) {
         ball.dx = -ball.dx;
       }
@@ -85,23 +83,20 @@ export default function BounceGame404() {
         ball.dy = -ball.dy;
       }
 
-      // Ball collision with the paddle
       if (
         ball.y + ball.radius > paddle.y &&
         ball.x > paddle.x &&
         ball.x < paddle.x + paddle.width
       ) {
         ball.dy = -ball.dy;
-        scr += 1;
+        setScore((prev) => prev + 1);
         ball.dx *= 1.05;
         ball.dy *= 1.05;
-        setScore(scr);
       }
 
-      // Ball falling out of bounds
       if (ball.y - ball.radius > canvas.height) {
         cancelAnimationFrame(animationFrame);
-        setMaxScore(Math.max(scr, maxScore));
+        setMaxScore((prev) => Math.max(prev, score));
         setGameStarted(false);
         return;
       }
@@ -118,81 +113,28 @@ export default function BounceGame404() {
   }, [gameStarted]);
 
   return (
-    <div
-      style={{
-        height: "100vh",
-        position: "relative",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        overflow: "hidden",
-      }}
-    >
-      <div
-        style={{
-          position: "absolute",
-          top: "10%",
-          left: "20%",
-          width: "100%",
-          textAlign: "center",
-          color: "white",
-          opacity: 0.5,
-          fontSize: "4rem",
-          fontWeight: "bold",
-          textShadow: "2px 2px 8px black",
-        }}
-      >
+    <div className="relative h-screen flex justify-center items-center overflow-hidden">
+      <div className="absolute top-10 left-20 text-white opacity-50 text-4xl font-bold shadow-md">
         404 - Page Not Found
       </div>
       {!gameStarted && (
-        <div
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            textAlign: "center",
-          }}
-        >
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
           <button
             onClick={() => {
               setScore(0);
               setGameStarted(true);
             }}
-            style={{
-              background: "none",
-              border: "none",
-              cursor: "pointer",
-            }}
+            className="bg-none border-none cursor-pointer"
           >
-            <img
-              src="/favicon.ico"
-              alt="Start Game"
-              style={{ width: "60px", height: "60px" }}
-            />
+            <img src="/favicon.ico" alt="Start Game" className="w-15 h-15" />
           </button>
         </div>
       )}
       <canvas
         ref={canvasRef}
-        style={{
-          display: gameStarted ? "block" : "none",
-          width: "100%",
-          height: "100%",
-          cursor: "none",
-        }}
+        className={`w-full h-full ${gameStarted ? "block" : "hidden"}`}
       />
-
-      <div
-        style={{
-          position: "absolute",
-          top: "10%",
-          left: "10%",
-          transform: "translateX(-50%)",
-          fontSize: "2rem",
-          color: "white",
-        }}
-      >
+      <div className="absolute top-10 left-10 text-2xl text-white">
         <div className="text-yellow-800">Score: {score}</div>
         <div className="text-red-800">Max Score: {maxScore}</div>
       </div>
