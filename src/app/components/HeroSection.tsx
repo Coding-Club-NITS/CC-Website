@@ -12,9 +12,9 @@ function HeroSection() {
           Master the art of Coding
         </h1>
         <p className="mt-4 font-normal text-base md:text-lg text-neutral-300 max-w-lg mx-auto">
-          Dive into our comprehensive coding courses and transform your
+        Dive into our comprehensive coding resources and transform your 
           programming journey today. Whether you're a beginner or looking to
-          refine your skills, join us to unlock your true potential.
+          refine your skills, join us to unlock your true potential.  
         </p>
       </div>
     </div>
