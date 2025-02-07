@@ -75,7 +75,7 @@ const Profile: FC = () => {
           </div>
           <div className={styles.box2}>
             <a
-              href="https://cc-website-teal.vercel.app/"
+              href="https://cc-website-teal.vercel.app/game"
               target="_blank"
               rel="noopener noreferrer"
             >
