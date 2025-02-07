@@ -56,10 +56,10 @@ function FeaturedResources() {
                     {course.description}
                   </p>
                   <Link
-                    href={`/courses/${course.slug}`}
+                    href={`${course.slug}`}
                     className="flex items-center gap-2 text-teal-600 hover:text-teal-400 font-medium mt-4"
                   >
-                    Learn More
+                    Click Here
                     <ArrowTopRightOnSquareIcon className="w-5 h-5" />
                   </Link>
                 </div>
