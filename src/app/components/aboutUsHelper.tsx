@@ -44,7 +44,9 @@ const Profile: FC = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.row}>
-        <div className={`${styles.containers} col-lg-6 col-md-6`}>
+        <div
+          className={`${styles.containers} col-lg-6 col-md-6 scale-50 md:scale-100`}
+        >
           {/* Google Maps Embed */}
           <div className={styles.pic}>
             <div
@@ -62,7 +64,6 @@ const Profile: FC = () => {
               ></iframe>
             </div>
           </div>
-
           {/* Decorative Boxes */}
           <div className={styles.box1}>
             <a
@@ -86,7 +87,6 @@ const Profile: FC = () => {
               />
             </a>
           </div>
-
           {/* Social Media Icons */}
           <div className={styles.social1}>
             <a
