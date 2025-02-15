@@ -35,30 +35,37 @@ const TableComponent: React.FC<TableComponentProps> = ({ contests }) => {
 
   if (!contests || contests.length === 0) {
     return (
-      <div className="text-center p-4 text-black dark:text-blue-gray-900">
-        No upcoming contests
+      <div className="w-full max-w-full ">
+        <div className="text-center ">No contests found</div>
       </div>
     );
   }
 
-  const columns = isMobile
-    ? ["Event", "Start", "Link"]
-    : ["Event", "Start Time (IST)", "End Time (IST)", "Duration", "Link"];
-
   return (
     <div className="w-full max-w-full rounded backdrop-blur-md bg-white/10 p-2 sm:p-4">
       <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-gray-400">
-        <table className="w-full border-collapse text-sm">
+        <table className="min-w-full border-collapse text-sm">
           <thead>
             <tr>
-              {columns.map((column, index) => (
-                <th
-                  key={index}
-                  className="bg-transparent px-2 sm:px-4 py-2 text-xs font-medium text-blue-gray-900 dark:text-gray-500 border-b dark:border-gray-300 border-black text-left"
-                >
-                  {column}
+              <th className="px-2 sm:px-4 py-2 text-xs font-medium text-gray-900 dark:text-gray-500 border-b text-left">
+                Event
+              </th>
+              <th className="px-2 sm:px-4 py-2 text-xs font-medium text-gray-900 dark:text-gray-500 border-b text-left">
+                Start Time (IST)
+              </th>
+              {!isMobile && (
+                <th className="px-2 sm:px-4 py-2 text-xs font-medium text-gray-900 dark:text-gray-500 border-b text-left">
+                  End Time (IST)
                 </th>
-              ))}
+              )}
+              {!isMobile && (
+                <th className="px-2 sm:px-4 py-2 text-xs font-medium text-gray-900 dark:text-gray-500 border-b text-left">
+                  Duration
+                </th>
+              )}
+              <th className="px-2 sm:px-4 py-2 text-xs font-medium text-gray-900 dark:text-gray-500 border-b text-left">
+                Link
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -67,23 +74,23 @@ const TableComponent: React.FC<TableComponentProps> = ({ contests }) => {
                 key={contest.id}
                 className="hover:bg-white/10 transition duration-200"
               >
-                <td className="px-2 sm:px-4 py-2 text-xs text-blue-gray-900 dark:text-gray-400 whitespace-nowrap">
+                <td className="px-2 sm:px-4 py-2 text-xs text-gray-900 dark:text-gray-400 break-words whitespace-normal">
                   {contest.event}
                 </td>
-                <td className="px-2 sm:px-4 py-2 text-xs text-blue-gray-900 dark:text-gray-400 whitespace-nowrap">
+                <td className="px-2 sm:px-4 py-2 text-xs text-gray-900 dark:text-gray-400">
                   {convertToIST(contest.start)}
                 </td>
                 {!isMobile && (
-                  <>
-                    <td className="px-2 sm:px-4 py-2 text-xs text-blue-gray-900 dark:text-gray-400 whitespace-nowrap">
-                      {convertToIST(contest.end)}
-                    </td>
-                    <td className="px-2 sm:px-4 py-2 text-xs text-blue-gray-900 dark:text-gray-400 whitespace-nowrap">
-                      {`${Math.floor(contest.duration / 60)} mins`}
-                    </td>
-                  </>
+                  <td className="px-2 sm:px-4 py-2 text-xs text-gray-900 dark:text-gray-400">
+                    {convertToIST(contest.end)}
+                  </td>
                 )}
-                <td className="px-2 sm:px-4 py-2 text-xs text-blue-500 hover:underline whitespace-nowrap">
+                {!isMobile && (
+                  <td className="px-2 sm:px-4 py-2 text-xs text-gray-900 dark:text-gray-400">
+                    {`${Math.floor(contest.duration / 60)} mins`}
+                  </td>
+                )}
+                <td className="px-2 sm:px-4 py-2 text-xs text-blue-500 hover:underline">
                   <a
                     href={contest.href}
                     target="_blank"
