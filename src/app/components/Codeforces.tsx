@@ -114,7 +114,7 @@ const CodeForces: React.FC = () => {
             height="80"
             width="80"
             radius="48"
-            color="#4fa94d"
+            color="#B1B1B1"
             ariaLabel="watch-loading"
             wrapperStyle={{}}
             wrapperClass=""
